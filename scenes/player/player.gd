@@ -39,6 +39,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or grounded):
 		gravity_vec = Vector3.UP * jump_force
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 	
 	# movement
 	direction += -transform.basis.x * (Input.get_action_strength("move_left") - Input.get_action_strength("move_right"))

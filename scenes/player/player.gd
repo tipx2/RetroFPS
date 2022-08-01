@@ -93,4 +93,3 @@ func switch_to_weapon(weapon):
 		for w in weapons:
 			w.visible = false
 		get_node("head/" + weapon_arr[weapon]).visible = true
-		print(weapon_arr[weapon])

@@ -1,5 +1,11 @@
 extends KinematicBody
 
+# weapons
+onready var pistol = get_node("head/pistol")
+onready var shotgun = get_node("head/shotgun")
+
+onready var weapons = get_tree().get_nodes_in_group("weapons")
+
 # aiming
 var mouse_sens = 0.2
 onready var head = $head
@@ -47,6 +53,23 @@ func _physics_process(delta):
 	direction += -transform.basis.x * (Input.get_action_strength("move_left") - Input.get_action_strength("move_right"))
 	direction += -transform.basis.z * (Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward"))
 	
+	# weapon switching
+	if Input.is_action_just_pressed("swap_to_pistol"):
+		switch_to_weapon(pistol)
+	if Input.is_action_just_pressed("swap_to_shotgun"):
+		switch_to_weapon(shotgun)
+		
+	# shooting
+	for w in weapons:
+		if w.is_visible():
+			w.shoot()
+	
 	direction = direction.normalized()
 	direction += gravity_vec
 	move_and_slide(direction * speed, Vector3.UP)
+
+
+func switch_to_weapon(weapon):
+	for w in weapons:
+		w.visible = false
+	weapon.visible = true

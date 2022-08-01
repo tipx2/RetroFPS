@@ -1,7 +1,7 @@
 extends KinematicBody
 
 var direction
-var proj_speed = 5
+var proj_speed = 20
 onready var death_timer = get_node("death_timer")
 
 var collision_info

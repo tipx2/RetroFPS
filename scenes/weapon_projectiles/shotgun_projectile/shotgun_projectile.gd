@@ -1,7 +1,7 @@
 extends KinematicBody
 
 var direction
-var proj_speed = 5
+var proj_speed = 6
 onready var death_timer = get_node("death_timer")
 
 var xspread = 0.1

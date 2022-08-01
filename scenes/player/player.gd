@@ -6,6 +6,12 @@ onready var shotgun = get_node("head/shotgun")
 
 onready var weapons = get_tree().get_nodes_in_group("weapons")
 
+var weapon_arr = []
+var current_weapon = 0
+
+# weapon switching
+onready var switch_timer = get_node("switch_timer")
+
 # aiming
 var mouse_sens = 0.2
 onready var head = $head
@@ -21,6 +27,8 @@ var gravity_vec = Vector3()
 onready var ground_check = $GroundCheck
 
 func _ready():
+	for w in weapons:
+		weapon_arr.append(w.name)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -29,6 +37,11 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+	elif event is InputEventMouseButton:
+		if event.button_index == BUTTON_WHEEL_UP:
+			switch_to_weapon(current_weapon - 1)
+		if event.button_index == BUTTON_WHEEL_DOWN:
+			switch_to_weapon(current_weapon + 1)
 
 func _physics_process(delta):
 	direction = Vector3()
@@ -55,10 +68,10 @@ func _physics_process(delta):
 	
 	# weapon switching
 	if Input.is_action_just_pressed("swap_to_pistol"):
-		switch_to_weapon(pistol)
+		switch_to_weapon(0)
 	if Input.is_action_just_pressed("swap_to_shotgun"):
-		switch_to_weapon(shotgun)
-		
+		switch_to_weapon(1)
+	
 	# shooting
 	for w in weapons:
 		if w.is_visible():
@@ -70,6 +83,14 @@ func _physics_process(delta):
 
 
 func switch_to_weapon(weapon):
-	for w in weapons:
-		w.visible = false
-	weapon.visible = true
+	if switch_timer.get_time_left() == 0:
+		switch_timer.start()
+		if weapon > len(weapon_arr)-1:
+			weapon = 0
+		elif weapon < 0:
+			weapon = len(weapon_arr)-1
+		current_weapon = weapon
+		for w in weapons:
+			w.visible = false
+		get_node("head/" + weapon_arr[weapon]).visible = true
+		print(weapon_arr[weapon])

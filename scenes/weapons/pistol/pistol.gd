@@ -10,5 +10,5 @@ func shoot():
 	if Input.is_action_pressed("shoot") and !animation_player.is_playing():
 		animation_player.play("shoot")
 		pistol_instance = PISTOL_PROJECTILE.instance()
-		pistol_instance.direction = muzzle.global_transform.basis.x
+		pistol_instance.set_direction(muzzle.global_transform.basis.x)
 		muzzle.add_child(pistol_instance)

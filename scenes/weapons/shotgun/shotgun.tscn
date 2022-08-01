@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/weapons/shotgun/shotgun.gd" type="Script" id=1]
 
@@ -10,6 +10,23 @@ albedo_color = Color( 0.823529, 0.113725, 0.113725, 1 )
 metallic = 0.95
 roughness = 0.12
 
+[sub_resource type="Animation" id=3]
+resource_name = "shoot"
+length = 0.6
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.177 ), Vector3( 0, 0, 0 ) ]
+}
+
 [node name="shotgun" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -19,3 +36,6 @@ material/0 = SubResource( 2 )
 
 [node name="muzzle" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.64256 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shoot = SubResource( 3 )

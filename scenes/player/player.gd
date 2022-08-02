@@ -18,7 +18,7 @@ onready var head = $head
 
 # movement
 var direction = Vector3()
-var speed = 30
+var speed = 20
 
 # gravity and jumping
 var gravity_force = 2
@@ -67,10 +67,12 @@ func _physics_process(delta):
 	direction += -transform.basis.z * (Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward"))
 	
 	# weapon switching
-	if Input.is_action_just_pressed("swap_to_pistol"):
+	if Input.is_action_just_pressed("swap_to_fists"):
 		switch_to_weapon(0)
-	if Input.is_action_just_pressed("swap_to_shotgun"):
+	if Input.is_action_just_pressed("swap_to_pistol"):
 		switch_to_weapon(1)
+	if Input.is_action_just_pressed("swap_to_shotgun"):
+		switch_to_weapon(2)
 	
 	# shooting
 	for w in weapons:

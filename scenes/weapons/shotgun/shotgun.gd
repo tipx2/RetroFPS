@@ -12,7 +12,7 @@ func _ready():
 func shoot():
 	if Input.is_action_just_pressed("shoot") and !animation_player.is_playing():
 		animation_player.play("shoot")
-		for x in range(6):
+		for _x in range(10):
 			add_pellet(-muzzle.global_transform.basis.z)
 
 func add_pellet(dir):

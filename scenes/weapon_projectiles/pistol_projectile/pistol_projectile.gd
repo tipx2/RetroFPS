@@ -13,6 +13,8 @@ func _ready():
 func _physics_process(delta):
 	collision_info = move_and_collide(direction.normalized() * proj_speed)
 	if collision_info:
+		if collision_info.collider.is_in_group("enemies"):
+			collision_info.collider.damage(34)
 		queue_free()
 
 func _on_death_timer_timeout():

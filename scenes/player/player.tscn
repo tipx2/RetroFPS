@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/weapons/pistol/pistol.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/weapons/shotgun/shotgun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/UI/gameplay_UI/gameplay_UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/weapons/fists/fists.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -28,10 +29,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 near = 0.01
 far = 8192.0
 
+[node name="fists" parent="head" groups=[
+"weapons",
+] instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43036, 0.909, -1.181 )
+
 [node name="pistol" parent="head" groups=[
 "weapons",
 ] instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.861, 1.189, -1.832 )
+visible = false
 
 [node name="shotgun" parent="head" groups=[
 "weapons",

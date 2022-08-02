@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/weapons/pistol/pistol.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/weapons/shotgun/shotgun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/UI/gameplay_UI/gameplay_UI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/weapons/fists/fists.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/weapons/machine_gun/machine_gun.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -44,6 +45,12 @@ visible = false
 "weapons",
 ] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.855, 1.19, -1.698 )
+visible = false
+
+[node name="machine_gun" parent="head" groups=[
+"weapons",
+] instance=ExtResource( 6 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 1.055, -0.309 )
 visible = false
 
 [node name="GroundCheck" type="RayCast" parent="."]

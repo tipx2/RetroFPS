@@ -9,7 +9,7 @@ height = 2.0
 mid_height = 2.0
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.901961, 0.00784314, 0.00784314, 1 )
+albedo_color = Color( 0.0823529, 0.898039, 0.133333, 1 )
 
 [sub_resource type="Animation" id=4]
 length = 0.1

@@ -19,7 +19,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 0.05 ),
+"times": PoolRealArray( 0, 0.02, 0.05 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -1.31, 0, 0 ), Vector3( -0.973, 0, 0 ), Vector3( -1.31, 0, 0 ) ]
@@ -39,7 +39,7 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="muzzle" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95253, 0, -7.49496e-08 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04572, 0.452102, 4.39642e-08 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/shoot = SubResource( 3 )

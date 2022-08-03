@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/temp_assets/dark_grid.tres" type="Material" id=1]
 [ext_resource path="res://assets/temp_assets/orange_grid.tres" type="Material" id=2]
+[ext_resource path="res://assets/temp_assets/purple_sparse_grid.tres" type="Material" id=3]
+[ext_resource path="res://scenes/level_parts/killzone/killzone.tscn" type="PackedScene" id=4]
 
 [node name="proto" type="Spatial"]
 
@@ -28,6 +30,27 @@ transform = Transform( 2.177, 0, 0, 0, 1, 0, 0, 0, 13.8, 0, -0.997583, -19.457 )
 polygon = PoolVector2Array( -5, 0, 1, 6, 5, 6, 5, 0 )
 material = ExtResource( 2 )
 
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6538, 0, 27.088 )
+width = 17.1174
+height = 2.44416
+depth = 15.5141
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93614, 0, 27.088 )
+width = 17.1174
+height = 6.60655
+depth = 15.5141
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8335, 0.295647, 27.088 )
+width = 17.1174
+height = 9.97936
+depth = 15.5141
+material = ExtResource( 3 )
+
 [node name="playerPosition" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79083, 0 )
 
@@ -36,7 +59,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79083, 0 )
 [node name="dummyPosition" type="Position3D" parent="enemies" groups=[
 "dummy_pos",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7941, 3.07338, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6113, 3.07338, -0.687778 )
 
 [node name="dummyPosition2" type="Position3D" parent="enemies" groups=[
 "dummy_pos",
@@ -57,3 +80,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6452, 3.07338, 12.3012 )
 "dummy_pos",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6452, 3.07338, 4.08655 )
+
+[node name="dummyPosition6" type="Position3D" parent="enemies" groups=[
+"dummy_pos",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2459, 3.07338, 11.3216 )
+
+[node name="killzone" parent="." instance=ExtResource( 4 )]

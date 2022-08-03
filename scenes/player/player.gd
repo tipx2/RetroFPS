@@ -73,6 +73,8 @@ func _physics_process(delta):
 		switch_to_weapon(1)
 	if Input.is_action_just_pressed("swap_to_shotgun"):
 		switch_to_weapon(2)
+	if Input.is_action_just_pressed("swap_to_machine_gun"):
+		switch_to_weapon(3)
 	
 	# shooting
 	for w in weapons:
@@ -81,7 +83,7 @@ func _physics_process(delta):
 	
 	direction = direction.normalized()
 	direction += gravity_vec
-	move_and_slide(direction * speed, Vector3.UP)
+	var move = move_and_slide(direction * speed, Vector3.UP)
 
 
 func switch_to_weapon(weapon):

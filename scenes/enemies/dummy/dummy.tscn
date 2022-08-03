@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ Vector3( 90, 0, 0 ), Vector3( 450, 0, 0 ), Vector3( 90, 0, 0 ) ]
 }
 
-[node name="KinematicBody" type="KinematicBody" groups=[
+[node name="dummy" type="KinematicBody" groups=[
 "enemies",
 ]]
 script = ExtResource( 2 )

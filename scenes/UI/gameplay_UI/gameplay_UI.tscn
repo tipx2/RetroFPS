@@ -1,10 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/temp_assets/Aa4diZG.jpg" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+onready var health_label = get_node(\"Panel/HBoxContainer/VBoxContainer/health_amount\")
+onready var ammo_label = get_node(\"Panel/HBoxContainer/VBoxContainer2/ammo_amount\")
+
+"
 
 [node name="gameplay_UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -68,13 +77,13 @@ rect_min_size = Vector2( 70, 0 )
 [node name="ammo_amount" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
 margin_right = 70.0
 margin_bottom = 14.0
-text = "30"
+text = "0"
 
 [node name="ammo_type" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
 margin_top = 18.0
 margin_right = 70.0
 margin_bottom = 32.0
-text = "Pistol"
+text = "Fists"
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
 margin_top = 36.0

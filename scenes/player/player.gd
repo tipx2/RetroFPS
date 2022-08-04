@@ -26,9 +26,19 @@ var jump_force = 1
 var gravity_vec = Vector3()
 onready var ground_check = $GroundCheck
 
+# ammo and health values
+var player_health = 60
+var ammo_array = []
+
+# UI updating
+onready var health_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer/health_amount")
+onready var ammo_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_amount")
+onready var ammo_type_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_type")
+
 func _ready():
 	for w in weapons:
 		weapon_arr.append(w.name)
+		ammo_array.append(0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -37,6 +47,7 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+	# weapon scrolling
 	elif event is InputEventMouseButton:
 		if event.button_index == BUTTON_WHEEL_UP:
 			switch_to_weapon(current_weapon - 1)
@@ -85,6 +96,20 @@ func _physics_process(delta):
 	direction += gravity_vec
 	var move = move_and_slide(direction * speed, Vector3.UP)
 
+func update_hud_health():
+	health_label.text = str(player_health)
+
+func update_hud_ammo():
+	ammo_label.text = str(ammo_array[current_weapon])
+	ammo_type_label.text = weapon_arr[current_weapon].capitalize()
+
+func damage(amount):
+	player_health -= amount
+	update_hud_health()
+
+func add_ammo(type, amount):
+	ammo_array[weapon_arr.find(type)] += amount
+	update_hud_ammo()
 
 func switch_to_weapon(weapon):
 	if switch_timer.get_time_left() == 0:
@@ -97,3 +122,4 @@ func switch_to_weapon(weapon):
 		for w in weapons:
 			w.visible = false
 		get_node("head/" + weapon_arr[weapon]).visible = true
+		update_hud_ammo()

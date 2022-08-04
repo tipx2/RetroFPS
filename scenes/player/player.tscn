@@ -72,3 +72,4 @@ one_shot = true
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="gameplay_UI" parent="GUI" instance=ExtResource( 4 )]
+script = null

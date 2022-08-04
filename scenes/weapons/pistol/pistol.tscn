@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/weapons/pistol/pistol.gd" type="Script" id=1]
 
@@ -29,6 +29,35 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 5 ), Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "switch_out"
+length = 0.6
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 2.64 ),
+"update": 0,
+"values": [ Vector3( -0.0423017, 0, -0.853675 ), Vector3( -0.042, -2, -0.854 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshInstance2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 2.64 ),
+"update": 0,
+"values": [ Vector3( -0.492948, -0.194134, -0.853675 ), Vector3( -0.493, -2, -0.854 ) ]
+}
+
 [node name="pistol" type="Spatial"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 1 )
@@ -48,3 +77,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607366, 0.425415, -0.874664 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/shoot = SubResource( 4 )
+anims/switch_out = SubResource( 5 )

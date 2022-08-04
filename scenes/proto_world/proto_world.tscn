@@ -1,11 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/temp_assets/dark_grid.tres" type="Material" id=1]
 [ext_resource path="res://assets/temp_assets/orange_grid.tres" type="Material" id=2]
 [ext_resource path="res://assets/temp_assets/purple_sparse_grid.tres" type="Material" id=3]
 [ext_resource path="res://scenes/level_parts/killzone/killzone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/enemies/test_plate/test_plate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/pickups/ammo_pickups/pistol_ammo/pistol_ammo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/pickups/ammo_pickups/machine_gun_ammo/machine_gun_ammo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=8]
 
 [node name="proto" type="Spatial"]
+
+[node name="test_plate" parent="." instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0255, -0.284251, 0 )
+
+[node name="ammo" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5523, 0.69575, -30.2211 )
+
+[node name="ammo3" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5523, 0.69575, -26.8325 )
+
+[node name="ammo4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5523, 0.69575, -23.1212 )
+
+[node name="ammo2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9269, 0.695749, -15.9237 )
+
+[node name="ammo5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9269, 0.695749, -10.9743 )
+
+[node name="ammo6" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9269, 0.695749, -5.67743 )
+
+[node name="ammo7" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2423, 0.69575, -21.5179 )
+
+[node name="ammo8" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5783, 0.69575, -21.5179 )
+
+[node name="ammo9" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2103, 0.69575, -21.5179 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 use_collision = true
@@ -59,7 +93,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79083, 0 )
 [node name="dummyPosition" type="Position3D" parent="enemies" groups=[
 "dummy_pos",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6113, 3.07338, -0.687778 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09366, 4.68215, -25.575 )
 
 [node name="dummyPosition2" type="Position3D" parent="enemies" groups=[
 "dummy_pos",

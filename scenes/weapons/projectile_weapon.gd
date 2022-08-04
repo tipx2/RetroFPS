@@ -12,4 +12,5 @@ func shoot():
 		animation_player.play("shoot")
 		projectile_instance = projectile.instance()
 		projectile_instance.set_direction(muzzle.global_transform.basis.x * backwards)
+		projectile_instance.set_as_toplevel(true)
 		muzzle.add_child(projectile_instance)

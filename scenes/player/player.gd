@@ -1,5 +1,8 @@
 extends KinematicBody
 
+# cheat detector
+onready var cheat_code_detector = get_tree().get_nodes_in_group("cheat_detector")[0]
+
 # weapons
 onready var pistol = get_node("head/pistol")
 onready var shotgun = get_node("head/shotgun")
@@ -27,15 +30,22 @@ var gravity_vec = Vector3()
 onready var ground_check = $GroundCheck
 
 # ammo and health values
+const MAX_PLAYER_HEALTH = 60
 var player_health = 60
 var ammo_array = []
+
+var max_ammo_array = [0, 50, 25, 200, 15]
 
 # UI updating
 onready var health_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer/health_amount")
 onready var ammo_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_amount")
 onready var ammo_type_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_type")
 
+onready var pickup_popup = get_node("GUI/gameplay_UI/pickup_popup")
+onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
+
 func _ready():
+	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")
 	for w in weapons:
 		weapon_arr.append(w.name)
 		ammo_array.append(0)
@@ -100,15 +110,32 @@ func update_hud_health():
 	health_label.text = str(player_health)
 
 func update_hud_ammo():
-	ammo_label.text = str(ammo_array[current_weapon])
+	if weapon_arr[current_weapon] == "fists":
+		ammo_label.text = "Infinite"
+	else:
+		ammo_label.text = str(ammo_array[current_weapon])
 	ammo_type_label.text = weapon_arr[current_weapon].capitalize()
 
 func damage(amount):
+	if amount < 0:
+		pickup_popup.text = "You just healed for " + str(amount * -1) + " health"
+		if UI_animation.is_playing():
+			UI_animation.stop()
+		UI_animation.play("pickup_popup_fade")
 	player_health -= amount
+	if MAX_PLAYER_HEALTH < player_health:
+		player_health = MAX_PLAYER_HEALTH
 	update_hud_health()
 
-func add_ammo(type, amount):
-	ammo_array[weapon_arr.find(type)] += amount
+func add_ammo(weapon_num, amount):
+	if amount > 0:
+		pickup_popup.text = "You just picked up " + weapon_arr[weapon_num].capitalize() + " ammo"
+		if UI_animation.is_playing():
+			UI_animation.stop()
+		UI_animation.play("pickup_popup_fade")
+	ammo_array[weapon_num] += amount
+	if ammo_array[weapon_num] > max_ammo_array[weapon_num]:
+		ammo_array[weapon_num] = max_ammo_array[weapon_num]
 	update_hud_ammo()
 
 func switch_to_weapon(weapon):
@@ -121,5 +148,11 @@ func switch_to_weapon(weapon):
 		current_weapon = weapon
 		for w in weapons:
 			w.visible = false
-		get_node("head/" + weapon_arr[weapon]).visible = true
+		get_node("head/" + weapon_arr[current_weapon]).visible = true
 		update_hud_ammo()
+
+func _on_cheat_detected(cheat):
+	if cheat == "[fa":
+		for x in range(len(max_ammo_array)):
+			ammo_array[x] = max_ammo_array[x]
+			update_hud_ammo()

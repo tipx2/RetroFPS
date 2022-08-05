@@ -47,6 +47,7 @@ func stop_emitting():
 		queue_free()
 
 func set_direction(dir):
-	dir.x += rng.randf_range(-spread, spread)
-	dir.y += rng.randf_range(-spread, spread)
+	dir.z += rand_range(-spread, spread)
+	dir.y += rand_range(-spread, spread)
+	dir.x += rand_range(-spread, spread)
 	direction = dir

@@ -5,7 +5,7 @@ onready var animation_player = get_node("AnimationPlayer")
 
 var direction = Vector3.ZERO
 var gravity_vec = Vector3()
-var health = 100
+var health = 300
 
 func damage(amount):
 	animation_player.play("damage")

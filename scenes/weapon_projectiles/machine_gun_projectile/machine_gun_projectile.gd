@@ -4,5 +4,5 @@ func _init():
 	rng.randomize()
 	proj_speed = 40
 	spread = 0.02
-	damage = 9
+	damage = 10
 	time = 5

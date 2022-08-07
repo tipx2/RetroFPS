@@ -22,4 +22,4 @@ func _physics_process(delta):
 	direction.x = lerp(direction.x, 0, 0.03)
 	direction.z = lerp(direction.z, 0, 0.03)
 	direction += gravity_vec
-	var move = move_and_slide(direction, Vector3.UP)
+	var _move = move_and_slide(direction, Vector3.UP)

@@ -2,6 +2,7 @@ extends KinematicBody
 
 # cheat detector
 onready var cheat_code_detector = get_tree().get_nodes_in_group("cheat_detector")[0]
+var superhot_mode = false
 
 # weapons
 onready var pistol = get_node("head/pistol")
@@ -34,7 +35,7 @@ const MAX_PLAYER_HEALTH = 60
 var player_health = 60
 var ammo_array = []
 
-var max_ammo_array = [0, 50, 25, 200, 15]
+var max_ammo_array = [0, 50, 400, 200, 15]
 
 # UI updating
 onready var health_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer/health_amount")
@@ -72,14 +73,10 @@ func _physics_process(delta):
 	var grounded = ground_check.is_colliding()
 	
 	# gravity and jumping
-	if not is_on_floor():
+	if !grounded:
 		gravity_vec += Vector3.DOWN * gravity_force * delta
-	elif grounded and is_on_floor():
-		gravity_vec = -get_floor_normal() * gravity_force
-	else:
-		gravity_vec = -get_floor_normal()
 		
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or grounded):
+	if Input.is_action_just_pressed("jump") and grounded:
 		gravity_vec = Vector3.UP * jump_force
 		
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -100,6 +97,7 @@ func _physics_process(delta):
 		switch_to_weapon(3)
 	if Input.is_action_just_pressed("swap_to_rocket_launcher"):
 		switch_to_weapon(4)
+		
 	# shooting
 	for w in weapons:
 		if w.is_visible():
@@ -108,6 +106,12 @@ func _physics_process(delta):
 	direction = direction.normalized()
 	direction += gravity_vec
 	var _move = move_and_slide(direction * speed, Vector3.UP)
+	
+	if superhot_mode:
+		if direction.round() == Vector3.ZERO or direction.round() == Vector3(0,-1,0):
+			Engine.time_scale = 0.02
+		else:
+			Engine.time_scale = 1
 
 func update_hud_health():
 	health_label.text = str(player_health)
@@ -157,7 +161,9 @@ func switch_to_weapon(weapon):
 			w.visible = false
 		
 		# make only the current weapon visible
-		get_node("head/" + weapon_arr[current_weapon]).visible = true
+		var get_current_weapon = get_node("head/" + weapon_arr[current_weapon])
+		get_current_weapon .visible = true
+		get_current_weapon.animation_player.play("switch_in")
 		
 		# set all icon backgrounds to the same colour
 		for back in icon_backgrounds:
@@ -168,7 +174,9 @@ func switch_to_weapon(weapon):
 		update_hud_ammo()
 
 func _on_cheat_detected(cheat):
-	if cheat == "fa":
+	if cheat == "pfa":
 		for x in range(len(max_ammo_array)):
 			ammo_array[x] = max_ammo_array[x]
 			update_hud_ammo()
+	if cheat == "psh":
+		superhot_mode = !superhot_mode

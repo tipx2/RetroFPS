@@ -191,20 +191,20 @@ expand = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
 margin_left = 691.0
-margin_right = 791.0
+margin_right = 766.0
 margin_bottom = 56.0
-rect_min_size = Vector2( 100, 0 )
+rect_min_size = Vector2( 75, 0 )
 
 [node name="large_weapon_picture" type="ColorRect" parent="Panel/HBoxContainer"]
-margin_left = 795.0
-margin_right = 895.0
+margin_left = 770.0
+margin_right = 870.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 100, 0 )
 color = Color( 0.968627, 0.0823529, 0.0823529, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer"]
-margin_left = 899.0
-margin_right = 959.0
+margin_left = 874.0
+margin_right = 934.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 60, 56 )
 texture = ExtResource( 1 )

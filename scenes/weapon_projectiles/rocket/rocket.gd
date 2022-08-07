@@ -21,7 +21,7 @@ func hit_enemies():
 			var distance = direction.length()
 			direction = direction.normalized()
 			var velocity = direction * distance * 20
-			body.damage(20000 * (1/(distance + 100)) +3)
+			body.damage(10000 * (1/(distance + 50)) +3)
 			body.direction += velocity
 
 func check_for_hit():

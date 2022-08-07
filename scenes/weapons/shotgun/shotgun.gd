@@ -3,6 +3,7 @@ extends "res://scenes/weapons/projectile_weapon.gd"
 func _init():
 	projectile = load("res://scenes/weapon_projectiles/shotgun_projectile/shotgun_projectile.tscn")
 	backwards = 1
+	ammo_amount = 10
 
 func _ready():
 	randomize()

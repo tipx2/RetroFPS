@@ -23,7 +23,7 @@ func _ready():
 	death_timer.start(time)
 	set_as_toplevel(true)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	collision_info = move_and_collide(direction.normalized() * proj_speed)
 	if collision_info:
 		collision.set_disabled(true)

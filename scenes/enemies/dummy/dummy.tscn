@@ -27,9 +27,7 @@ tracks/0/keys = {
 "values": [ Vector3( 90, 0, 0 ), Vector3( 450, 0, 0 ), Vector3( 90, 0, 0 ) ]
 }
 
-[node name="dummy" type="KinematicBody" groups=[
-"enemies",
-]]
+[node name="dummy" type="KinematicBody" groups=["enemies"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -43,3 +41,5 @@ material/0 = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/damage = SubResource( 4 )
+
+[node name="Label3D" type="Label3D" parent="."]

@@ -29,7 +29,7 @@ const CODE_KEYS := {
 
 # List of cheat codes. Cheat codes should be lower-case, and should not be contained within one another or the shorter
 # cheat code will take precedence.
-export (Array, String) var codes := ["[fa"]
+export (Array, String) var codes := ["fa"]
 
 # Buffer of key strings which were previously pressed.
 var _previous_keypresses: String = ""

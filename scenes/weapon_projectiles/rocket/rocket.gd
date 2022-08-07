@@ -6,7 +6,7 @@ onready var rocket_mesh = get_node("rocket_mesh")
 
 func _init():
 	rng.randomize()
-	proj_speed = 1
+	proj_speed = 2
 	spread = 0
 	damage = 0
 	time = 1
@@ -21,8 +21,7 @@ func hit_enemies():
 			var distance = direction.length()
 			direction = direction.normalized()
 			var velocity = direction * distance * 20
-			body.damage(10000 * (1/(distance + 100)) +3)
-			velocity.y = 0
+			body.damage(20000 * (1/(distance + 100)) +3)
 			body.direction += velocity
 
 func check_for_hit():

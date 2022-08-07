@@ -7,8 +7,8 @@
 radius = 10.0
 
 [sub_resource type="CylinderShape" id=2]
-radius = 0.2
 height = 1.0
+radius = 0.2
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
@@ -58,8 +58,10 @@ amount = 100
 lifetime = 0.29
 one_shot = true
 explosiveness = 1.0
+visibility_aabb = AABB( -4096.49, -4097.24, -4096.26, 8192, 8192, 8192 )
 process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 7 )
 
 [node name="rocket_mesh" parent="." instance=ExtResource( 2 )]
+
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

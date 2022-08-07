@@ -22,6 +22,9 @@ func shoot():
 
 func fire_projectile():
 	projectile_instance = projectile.instance()
+	projectile_instance.global_transform = muzzle.global_transform
+	set_projectile_direction()
+	get_tree().get_root().add_child(projectile_instance)
+
+func set_projectile_direction():
 	projectile_instance.set_direction(muzzle.global_transform.basis.x * backwards)
-	projectile_instance.set_as_toplevel(true)
-	muzzle.add_child(projectile_instance)

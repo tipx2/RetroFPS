@@ -8,7 +8,5 @@ script = ExtResource( 1 )
 
 [node name="menuSoundtrack" type="AudioStreamPlayer" parent="."]
 
-[node name="cheat_code_detector" type="Node" parent="." groups=[
-"cheat_detector",
-]]
+[node name="cheat_code_detector" type="Node" parent="." groups=["cheat_detector"]]
 script = ExtResource( 2 )

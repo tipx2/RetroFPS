@@ -44,6 +44,8 @@ onready var ammo_type_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBox
 onready var pickup_popup = get_node("GUI/gameplay_UI/pickup_popup")
 onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
 
+onready var icon_backgrounds = get_tree().get_nodes_in_group("icon_background")
+
 func _ready():
 	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")
 	for w in weapons:
@@ -96,7 +98,8 @@ func _physics_process(delta):
 		switch_to_weapon(2)
 	if Input.is_action_just_pressed("swap_to_machine_gun"):
 		switch_to_weapon(3)
-	
+	if Input.is_action_just_pressed("swap_to_rocket_launcher"):
+		switch_to_weapon(4)
 	# shooting
 	for w in weapons:
 		if w.is_visible():
@@ -104,7 +107,7 @@ func _physics_process(delta):
 	
 	direction = direction.normalized()
 	direction += gravity_vec
-	var move = move_and_slide(direction * speed, Vector3.UP)
+	var _move = move_and_slide(direction * speed, Vector3.UP)
 
 func update_hud_health():
 	health_label.text = str(player_health)
@@ -141,18 +144,31 @@ func add_ammo(weapon_num, amount):
 func switch_to_weapon(weapon):
 	if switch_timer.get_time_left() == 0:
 		switch_timer.start()
+		
+		# account for scrolling wraparound
 		if weapon > len(weapon_arr)-1:
 			weapon = 0
 		elif weapon < 0:
 			weapon = len(weapon_arr)-1
 		current_weapon = weapon
+		
+		# set all weapons invisible
 		for w in weapons:
 			w.visible = false
+		
+		# make only the current weapon visible
 		get_node("head/" + weapon_arr[current_weapon]).visible = true
+		
+		# set all icon backgrounds to the same colour
+		for back in icon_backgrounds:
+			back.set_self_modulate(Color("ffffff"))
+			
+		# make only the current weapon icon background green
+		icon_backgrounds[current_weapon].set_self_modulate(Color("00ff46"))
 		update_hud_ammo()
 
 func _on_cheat_detected(cheat):
-	if cheat == "[fa":
+	if cheat == "fa":
 		for x in range(len(max_ammo_array)):
 			ammo_array[x] = max_ammo_array[x]
 			update_hud_ammo()

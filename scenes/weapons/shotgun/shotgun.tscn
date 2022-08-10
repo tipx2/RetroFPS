@@ -39,9 +39,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.844976, 0, 0.08 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="muzzle" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.847828, 0, -0.677964 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/shoot = SubResource( 3 )
 anims/switch_in = SubResource( 4 )

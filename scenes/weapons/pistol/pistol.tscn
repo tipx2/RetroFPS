@@ -67,17 +67,14 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.996505, -0.0835329, 0, 0.0835329, 0.996505, 0, 0, 0, 1, -0.0423017, 0, -0.853675 )
+transform = Transform( 0.996505, -0.0835329, 0, 0.0835329, 0.996505, 0, 0, 0, 1, -0.0423017, 0, -0.00658038 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 0.591732, -0.806135, -1.7846e-08, 0.806135, 0.591732, 3.52373e-08, -1.7846e-08, -3.52373e-08, 1, -0.492948, -0.194134, -0.853675 )
+transform = Transform( 0.591732, -0.806135, -1.7846e-08, 0.806135, 0.591732, 3.52373e-08, -1.7846e-08, -3.52373e-08, 1, -0.492948, -0.194134, -0.0065804 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 2 )
-
-[node name="muzzle" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607366, 0.425415, -0.874664 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/shoot = SubResource( 4 )

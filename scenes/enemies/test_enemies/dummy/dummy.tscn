@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/enemies/dummy/dummy.gd" type="Script" id=2]
+[ext_resource path="res://scenes/enemies/test_enemies/dummy/dummy.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0

@@ -2,12 +2,11 @@ extends Spatial
 
 var projectile;
 var projectile_instance;
-var backwards = 1
 var ammo_amount = 1
 
 onready var player = get_parent().get_parent()
 
-onready var muzzle = get_node("muzzle")
+onready var muzzle = get_tree().get_nodes_in_group("muzzle")[0]
 onready var animation_player = get_node("AnimationPlayer")
 
 
@@ -28,4 +27,4 @@ func fire_projectile():
 	get_tree().get_root().add_child(projectile_instance)
 
 func set_projectile_direction():
-	projectile_instance.set_direction(muzzle.global_transform.basis.x * backwards)
+	projectile_instance.set_direction(muzzle.global_transform.basis.x)

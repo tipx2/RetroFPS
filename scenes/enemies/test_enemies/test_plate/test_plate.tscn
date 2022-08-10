@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/enemies/test_plate/test_plate.gd" type="Script" id=1]
+[ext_resource path="res://scenes/enemies/test_enemies/test_plate/test_plate.gd" type="Script" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 0.04, 1 )

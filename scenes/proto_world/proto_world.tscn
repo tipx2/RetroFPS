@@ -1,35 +1,43 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/temp_assets/dark_grid.tres" type="Material" id=1]
 [ext_resource path="res://assets/temp_assets/orange_grid.tres" type="Material" id=2]
 [ext_resource path="res://assets/temp_assets/purple_sparse_grid.tres" type="Material" id=3]
 [ext_resource path="res://scenes/level_parts/killzone/killzone.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/enemies/test_plate/test_plate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemies/test_enemies/test_plate/test_plate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/pickups/ammo_pickups/pistol_ammo/pistol_ammo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/pickups/ammo_pickups/machine_gun_ammo/machine_gun_ammo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/pickups/health_pickup/small_health_pickup/small_health_pickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/pickups/ammo_pickups/rocket_launcher_ammo/rocket_launcher_ammo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/enemies/base_enemy/base_enemy.tscn" type="PackedScene" id=12]
+
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -9.23987, 0.37257, -20.5401, -7.23987, 0.87257, -20.5401, -7.23987, 0.87257, -32.0401, -9.23987, 0.37257, -32.0401, -21.9899, 0.12257, -33.5401, -33.7399, 0.12257, -33.5401, -33.7399, 0.12257, -26.0401, -9.98987, 0.12257, -32.7901, -9.98987, 0.12257, -33.5401, -21.9899, 0.12257, -33.5401, -9.98987, 0.12257, -19.7901, -9.23987, 0.37257, -20.5401, -9.23987, 0.37257, -32.0401, -9.98987, 0.12257, -32.7901, -21.9899, 0.12257, -33.5401, -21.9899, 0.12257, -33.5401, -33.7399, 0.12257, -26.0401, -33.7399, 0.12257, -18.5401, -9.48987, 0.12257, -18.5401, -9.98987, 0.12257, -19.7901, 33.7601, 0.12257, -27.2901, 33.7601, 0.12257, -33.5401, 23.2601, 0.12257, -33.5401, 23.2601, 0.12257, -33.5401, 12.7601, 0.12257, -33.5401, 12.7601, 0.12257, -27.2901, 12.7601, 0.12257, -21.0401, 33.7601, 0.12257, -21.0401, 33.7601, 0.12257, -27.2901, 23.2601, 0.12257, -33.5401, 12.7601, 0.12257, -27.2901, 1.51013, 3.37257, -32.0401, -7.23987, 0.87257, -32.0401, -7.23987, 0.87257, -20.5401, 1.51013, 3.37257, -20.5401, 1.51013, 3.37257, -20.5401, 10.5101, 2.62257, -20.5401, 10.5101, 2.62257, -32.0401, 1.51013, 3.37257, -32.0401, 4.08156, 3.62257, -20.5401, 4.08156, 3.62257, -32.0401, -1.48987, 0.12257, 10.9599, -2.98987, 0.12257, 10.9599, -2.98987, 0.12257, 18.2099, -0.739868, 0.12257, 10.2099, -1.48987, 0.12257, 10.9599, -2.98987, 0.12257, 18.2099, 3.51013, 0.12257, 18.2099, 33.7601, 0.12257, -21.0401, 12.7601, 0.12257, -21.0401, 12.7601, 0.12257, -19.0401, 24.5101, 0.12257, 18.9599, 24.5101, 0.12257, 20.4599, 33.7601, 0.12257, 20.2099, 23.7601, 0.12257, 18.2099, 24.5101, 0.12257, 18.9599, 33.7601, 0.12257, 20.2099, 33.7601, 0.12257, 9.70985, -2.98987, 0.12257, -18.2901, -2.98987, 0.12257, -6.79015, -1.48987, 0.12257, -6.79015, -2.98987, 0.12257, -18.2901, -1.48987, 0.12257, -6.79015, -0.739868, 0.12257, -6.04015, 4.51013, 0.12257, -18.2901, 33.7601, 0.12257, -21.0401, 12.7601, 0.12257, -19.0401, 12.0101, 0.12257, -18.2901, 33.7601, 0.12257, -10.7901, -0.739868, 0.12257, 1.95985, -0.739868, 0.12257, 10.2099, 17.0101, 0.12257, 18.2099, 33.7601, 0.12257, -0.54015, 33.7601, 0.12257, -10.7901, 12.0101, 0.12257, -18.2901, -0.739868, 0.12257, 10.2099, 3.51013, 0.12257, 18.2099, 10.2601, 0.12257, 18.2099, 12.0101, 0.12257, -18.2901, 4.51013, 0.12257, -18.2901, -0.739868, 0.12257, -6.04015, -0.739868, 0.12257, 1.95985, 17.0101, 0.12257, 18.2099, 23.7601, 0.12257, 18.2099, 33.7601, 0.12257, 9.70985, 33.7601, 0.12257, -0.54015, -0.739868, 0.12257, 10.2099, 10.2601, 0.12257, 18.2099, 17.0101, 0.12257, 18.2099, -4.48987, 0.12257, -6.79015, -2.98987, 0.12257, -6.79015, -2.98987, 0.12257, -18.2901, -5.23987, 0.12257, -6.04015, -4.48987, 0.12257, -6.79015, -2.98987, 0.12257, -18.2901, -9.48987, 0.12257, -18.5401, -9.48987, 0.12257, -18.5401, -33.7399, 0.12257, -18.5401, -33.7399, 0.12257, -11.2901, -5.23987, 0.12257, -4.04015, -5.23987, 0.12257, -6.04015, -9.48987, 0.12257, -18.5401, -33.7399, 0.12257, -11.2901, -33.7399, 0.12257, -4.04015, -3.23987, 14.1226, 2.20985, -2.98987, 14.1226, 8.70985, -2.98987, 14.1226, 1.95985, -3.23987, 14.1226, -4.54015, -2.98987, 0.12257, 18.2099, -2.98987, 0.12257, 10.9599, -4.48987, 0.12257, 10.9599, -2.98987, 0.12257, 18.2099, -4.48987, 0.12257, 10.9599, -5.23987, 0.12257, 10.2099, -13.7399, 0.12257, 18.2099, -33.7399, 0.12257, 19.2099, -24.9899, 0.37257, 19.2099, -24.2399, 0.12257, 18.2099, -33.7399, 0.12257, 7.45985, -13.7399, 0.12257, 18.2099, -5.23987, 0.12257, 10.2099, -5.23987, 0.12257, 2.95985, -33.7399, 0.12257, 7.45985, -24.2399, 0.12257, 18.2099, -13.7399, 0.12257, 18.2099, -5.23987, 0.12257, 2.95985, -5.23987, 0.12257, -4.04015, -33.7399, 0.12257, -4.04015, -24.2399, 0.37257, 20.4599, -24.9899, 0.37257, 19.2099, -33.7399, 0.12257, 19.2099, -33.7399, 0.12257, 26.4599, -22.7399, 0.62257, 20.4599, -24.2399, 0.37257, 20.4599, -33.7399, 0.12257, 26.4599, -33.7399, 0.12257, 33.7099, -22.9899, 0.62257, 33.7099, -25.6774, 0.12257, 33.7099, -26.4948, 0.12257, 23.9568, 33.7601, 0.12257, 26.9599, 33.7601, 0.12257, 20.2099, 24.5101, 0.12257, 20.4599, 24.5101, 0.12257, 26.9599, 24.5101, 0.12257, 26.9599, 24.5101, 0.12257, 33.7099, 33.7601, 0.12257, 33.7099, 33.7601, 0.12257, 26.9599, 21.2601, 7.37257, 26.9599, 21.2601, 7.37257, 20.4599, 10.2601, 5.62257, 20.4599, 10.0101, 5.62257, 33.7099, 21.2601, 7.37257, 33.7099, 21.2601, 7.37257, 26.9599, 10.0101, 5.62257, 33.7099, 21.2601, 7.37257, 26.9599, 10.2601, 5.62257, 20.4599, -0.739868, 4.12257, 20.4599, -0.989868, 3.87257, 33.7099, -0.989868, 3.87257, 33.7099, -0.739868, 4.12257, 20.4599, -11.7399, 2.37257, 20.4599, -11.9899, 2.37257, 33.7099, -22.7399, 0.62257, 20.4599, -22.9899, 0.62257, 33.7099, -11.9899, 2.37257, 33.7099, -11.7399, 2.37257, 20.4599 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 6, 5, 4 ), PoolIntArray( 9, 8, 7 ), PoolIntArray( 11, 10, 12 ), PoolIntArray( 12, 10, 13 ), PoolIntArray( 13, 10, 14 ), PoolIntArray( 19, 18, 15 ), PoolIntArray( 15, 18, 16 ), PoolIntArray( 16, 18, 17 ), PoolIntArray( 22, 21, 20 ), PoolIntArray( 25, 24, 23 ), PoolIntArray( 30, 29, 26 ), PoolIntArray( 26, 29, 28 ), PoolIntArray( 26, 28, 27 ), PoolIntArray( 34, 33, 31 ), PoolIntArray( 31, 33, 32 ), PoolIntArray( 38, 40, 35 ), PoolIntArray( 35, 40, 39 ), PoolIntArray( 39, 40, 37 ), PoolIntArray( 39, 37, 36 ), PoolIntArray( 43, 42, 41 ), PoolIntArray( 45, 44, 46 ), PoolIntArray( 46, 44, 47 ), PoolIntArray( 50, 49, 48 ), PoolIntArray( 53, 52, 51 ), PoolIntArray( 55, 54, 56 ), PoolIntArray( 56, 54, 57 ), PoolIntArray( 60, 59, 58 ), PoolIntArray( 62, 61, 63 ), PoolIntArray( 63, 61, 64 ), PoolIntArray( 66, 65, 67 ), PoolIntArray( 67, 65, 68 ), PoolIntArray( 70, 69, 71 ), PoolIntArray( 71, 69, 72 ), PoolIntArray( 72, 69, 73 ), PoolIntArray( 73, 69, 74 ), PoolIntArray( 77, 76, 75 ), PoolIntArray( 79, 78, 80 ), PoolIntArray( 80, 78, 81 ), PoolIntArray( 83, 82, 84 ), PoolIntArray( 84, 82, 85 ), PoolIntArray( 88, 87, 86 ), PoolIntArray( 91, 90, 89 ), PoolIntArray( 93, 92, 94 ), PoolIntArray( 94, 92, 95 ), PoolIntArray( 98, 97, 96 ), PoolIntArray( 100, 99, 101 ), PoolIntArray( 101, 99, 102 ), PoolIntArray( 102, 99, 103 ), PoolIntArray( 107, 106, 104 ), PoolIntArray( 104, 106, 105 ), PoolIntArray( 110, 109, 108 ), PoolIntArray( 112, 111, 113 ), PoolIntArray( 113, 111, 114 ), PoolIntArray( 116, 115, 117 ), PoolIntArray( 117, 115, 118 ), PoolIntArray( 121, 120, 119 ), PoolIntArray( 123, 122, 124 ), PoolIntArray( 124, 122, 127 ), PoolIntArray( 124, 127, 125 ), PoolIntArray( 125, 127, 126 ), PoolIntArray( 129, 128, 130 ), PoolIntArray( 130, 128, 131 ), PoolIntArray( 137, 138, 136 ), PoolIntArray( 136, 138, 132 ), PoolIntArray( 132, 138, 133 ), PoolIntArray( 133, 138, 134 ), PoolIntArray( 134, 137, 135 ), PoolIntArray( 137, 134, 138 ), PoolIntArray( 142, 141, 139 ), PoolIntArray( 139, 141, 140 ), PoolIntArray( 146, 145, 143 ), PoolIntArray( 143, 145, 144 ), PoolIntArray( 149, 148, 147 ), PoolIntArray( 152, 151, 150 ), PoolIntArray( 154, 153, 155 ), PoolIntArray( 155, 153, 156 ), PoolIntArray( 156, 153, 157 ), PoolIntArray( 161, 160, 158 ), PoolIntArray( 158, 160, 159 ), PoolIntArray( 165, 164, 162 ), PoolIntArray( 162, 164, 163 ) ]
+agent_height = 1.0
+agent_radius = 1.0
+filter_ledge_spans = true
 
 [node name="proto" type="Spatial"]
 
-[node name="test_plate" parent="." instance=ExtResource( 5 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0255, -0.284251, 0 )
+[node name="Navigation" type="Navigation" parent="." groups=["nav"]]
 
-[node name="playerPosition" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79083, 0 )
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 1 )
 
-[node name="CSGCombiner" type="CSGCombiner" parent="."]
+[node name="CSGCombiner" type="CSGCombiner" parent="Navigation/NavigationMeshInstance"]
 use_collision = true
 
-[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28137, 0 )
-width = 72.7713
+width = 70.9797
 height = 21.6156
 depth = 72.0803
 material = ExtResource( 1 )
 
-[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3411, 0 )
 operation = 2
 width = 69.5909
@@ -37,63 +45,33 @@ height = 21.2907
 depth = 69.5202
 material = ExtResource( 1 )
 
-[node name="CSGPolygon" type="CSGPolygon" parent="CSGCombiner"]
-transform = Transform( 2.177, 0, 0, 0, 1, 0, 0, 0, 13.8, 0, -0.997583, -19.457 )
+[node name="CSGPolygon" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/CSGCombiner"]
+transform = Transform( 2.14815, 0.162258, 0, -0.353236, 0.986748, 0, 0, 0, 13.8, 0, -2.23487, -19.457 )
 polygon = PoolVector2Array( -5, 0, 1, 6, 5, 6, 5, 0 )
 material = ExtResource( 2 )
 
-[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6538, 0, 27.088 )
-width = 17.1174
-height = 2.44416
-depth = 15.5141
-material = ExtResource( 3 )
-
-[node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93614, 0, 27.088 )
-width = 17.1174
-height = 6.60655
-depth = 15.5141
-material = ExtResource( 3 )
-
-[node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8335, 0.295647, 27.088 )
-width = 17.1174
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/CSGCombiner"]
+transform = Transform( 0.988504, -0.151192, 0, 0.151192, 0.988504, 0, 0, 0, 1, -3.05335, -1.79072, 27.088 )
+width = 52.9764
 height = 9.97936
 depth = 15.5141
 material = ExtResource( 3 )
 
-[node name="enemies" type="Spatial" parent="."]
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/CSGCombiner"]
+transform = Transform( 0.999999, -0.00155334, 0, 0.00155334, 0.999999, 0, 0, 0, 1, -3.05335, -1.79072, 2.14447 )
+width = 2.34691
+height = 31.1698
+depth = 15.5141
+material = ExtResource( 3 )
 
-[node name="dummyPosition" type="Position3D" parent="enemies" groups=[
-"dummy_pos",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09366, 4.68215, -25.575 )
+[node name="base_enemy" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.57, 1.19725, 2.03569e-06 )
 
-[node name="dummyPosition2" type="Position3D" parent="enemies" groups=[
-"dummy_pos",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49869, 3.07338, 17.6615 )
+[node name="test_plate" parent="." instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0255, -0.284251, 0 )
 
-[node name="dummyPosition3" type="Position3D" parent="enemies" groups=[
-"dummy_pos",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1158, 3.07338, -12.6107 )
-
-[node name="dummyPosition4" type="Position3D" parent="enemies" groups=[
-"dummy_pos",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6452, 3.07338, 12.3012 )
-
-[node name="dummyPosition5" type="Position3D" parent="enemies" groups=[
-"dummy_pos",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6452, 3.07338, 4.08655 )
-
-[node name="dummyPosition6" type="Position3D" parent="enemies" groups=[
-"dummy_pos",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2459, 3.07338, 11.3216 )
+[node name="player" parent="." instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.2247, 1.69575, 0 )
 
 [node name="ammo" type="Spatial" parent="."]
 
@@ -151,3 +129,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9238, 0.695749, -12.6441 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8568, 0.695749, -12.6441 )
 
 [node name="killzone" parent="." instance=ExtResource( 4 )]
+
+[node name="Position3D" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.76, 0.738, 1.946 )

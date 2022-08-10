@@ -2,7 +2,6 @@ extends "res://scenes/weapons/projectile_weapon.gd"
 
 func _init():
 	projectile = load("res://scenes/weapon_projectiles/shotgun_projectile/shotgun_projectile.tscn")
-	backwards = 1
 	ammo_amount = 10
 
 func _ready():
@@ -10,7 +9,7 @@ func _ready():
 
 func fire_projectile():
 	for _x in range(10):
-		add_pellet(-muzzle.global_transform.basis.z)
+		add_pellet(muzzle.global_transform.basis.x)
 
 func add_pellet(dir):
 	projectile_instance = projectile.instance()

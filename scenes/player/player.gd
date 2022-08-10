@@ -23,12 +23,15 @@ onready var head = $head
 # movement
 var direction = Vector3()
 var speed = 20
+var bonus_direction = Vector3.ZERO
+var snap = Vector3(0,-0.2,0)
 
 # gravity and jumping
 var gravity_force = 2
 var jump_force = 1
 var gravity_vec = Vector3()
 onready var ground_check = $GroundCheck
+var grounded
 
 # ammo and health values
 const MAX_PLAYER_HEALTH = 60
@@ -70,12 +73,15 @@ func _input(event):
 func _physics_process(delta):
 	direction = Vector3()
 	
-	var grounded = ground_check.is_colliding()
-	
+	grounded = is_on_floor()
 	# gravity and jumping
-	if !grounded:
+	if grounded:
+		gravity_vec = Vector3.ZERO
+		snap = -get_floor_normal() * 0.2
+	else:
 		gravity_vec += Vector3.DOWN * gravity_force * delta
-		
+		snap = Vector3.ZERO
+	
 	if Input.is_action_just_pressed("jump") and grounded:
 		gravity_vec = Vector3.UP * jump_force
 		
@@ -102,10 +108,14 @@ func _physics_process(delta):
 	for w in weapons:
 		if w.is_visible():
 			w.shoot()
-	
+
 	direction = direction.normalized()
 	direction += gravity_vec
-	var _move = move_and_slide(direction * speed, Vector3.UP)
+	
+	bonus_direction = bonus_direction.linear_interpolate(Vector3.ZERO, 0.1)
+	direction += bonus_direction
+	
+	var _move = move_and_slide_with_snap(direction * speed, snap, Vector3.UP)
 	
 	if superhot_mode:
 		if direction.round() == Vector3.ZERO or direction.round() == Vector3(0,-1,0):

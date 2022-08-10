@@ -16,13 +16,18 @@ func hit_enemies():
 	explosion_particles.set_emitting(true)
 	rocket_mesh.set_visible(false)
 	for body in explosion_area.get_overlapping_bodies():
-		if body.is_in_group("enemies"):
+		if body.is_in_group("enemies") or body.is_in_group("player"):
 			var direction = body.global_transform.origin - global_transform.origin
 			var distance = direction.length()
 			direction = direction.normalized()
-			var velocity = direction * distance * 20
-			body.damage(10000 * (1/(distance + 50)) +3)
-			body.direction += velocity
+			var velocity = direction * 3
+			if body.is_in_group("enemies"):
+				body.damage(10000 * (1/(distance + 50)) +3)
+			elif body.is_in_group("player"):
+				velocity.y *= 1.5
+				body.damage(10)
+			body.bonus_direction += velocity
+			
 
 func check_for_hit():
 	hit_enemies()

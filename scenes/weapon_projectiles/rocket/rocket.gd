@@ -22,7 +22,7 @@ func hit_enemies():
 			direction = direction.normalized()
 			var velocity = direction * 3
 			if body.is_in_group("enemies"):
-				body.damage(10000 * (1/(distance + 50)) +3)
+				body.damage(round(10000 * (1/(distance + 50)) +3), body.global_transform.origin)
 			elif body.is_in_group("player"):
 				velocity.y *= 1.5
 				body.damage(10)

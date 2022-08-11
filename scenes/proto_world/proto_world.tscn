@@ -67,6 +67,9 @@ material = ExtResource( 3 )
 [node name="base_enemy" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.57, 1.19725, 2.03569e-06 )
 
+[node name="base_enemy2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.57, 1.19725, 11.2099 )
+
 [node name="test_plate" parent="." instance=ExtResource( 5 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0255, -0.284251, 0 )
 

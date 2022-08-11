@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/weapon_projectiles/pistol_projectile/pistol_projectile.gd" type="Script" id=1]
 [ext_resource path="res://scenes/particles/spark_particles.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/particles/blood_particles.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.1
@@ -16,7 +15,6 @@ shape = SubResource( 1 )
 
 [node name="spark_particles" parent="." instance=ExtResource( 2 )]
 
-[node name="blood_particles" parent="." instance=ExtResource( 3 )]
-
 [node name="death_timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

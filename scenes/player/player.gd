@@ -190,3 +190,4 @@ func _on_cheat_detected(cheat):
 			update_hud_ammo()
 	if cheat == "psh":
 		superhot_mode = !superhot_mode
+		Engine.time_scale = 1

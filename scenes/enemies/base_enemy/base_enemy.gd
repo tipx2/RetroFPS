@@ -19,10 +19,15 @@ var state = LOOKING
 
 # looking
 onready var looking_cast = get_node("looking_cast")
+onready var mesh = get_node("mesh")
 
 # damage
 var blood_particles = load("res://scenes/particles/blood_particles.tscn")
 onready var health_label = get_node("health_amount")
+
+# shooting
+var projectile = load("res://scenes/enemy_projectiles/bleeder_projectile/bleeder_projectile.tscn")
+onready var muzzle = $"%muzzle"
 
 # animation
 onready var animation_player = get_node("AnimationPlayer")
@@ -48,34 +53,32 @@ func _ready():
 	update_timer.start()
 
 func _process(_delta):
+	var collision_object = looking_cast.get_collider()
 	match state:
 		LOOKING:
-			var collision_object = looking_cast.get_collider()
-			if collision_object and collision_object.is_in_group("player"):
-				state = CHASING
-			looking_cast.set_cast_to(global_transform.origin.direction_to(player.global_transform.origin) * 100)
+			looking(collision_object)
 		CHASING:
-			if global_transform.origin.distance_to(player.global_transform.origin) <= attacking_range:
-				state = ATTACKING
+			chasing()
 		ATTACKING:
-			pass
+			attacking(collision_object)
 		DYING:
-			animation_player.play("die")
+			dying()
+	looking_cast.set_cast_to(global_transform.origin.direction_to(player.global_transform.origin) * 100)
 
 func _physics_process(delta):
+	direction = Vector3.ZERO
 	if state == CHASING:
-		direction = Vector3.ZERO
 		if path.size() > path_index:
 			direction = global_transform.origin.direction_to(path[path_index]).normalized()
 			if global_transform.origin.distance_to(path[path_index]) < 2:
 				path_index += 1
-		if not is_on_floor():
-			direction += Vector3.DOWN * gravity_force * delta
-		bonus_direction = bonus_direction.linear_interpolate(Vector3.ZERO, 0.05)
-		direction += bonus_direction
-		
-		nav_agent.set_velocity(direction)
-		move_and_slide(safe_direction * speed)
+	if not is_on_floor():
+		direction += Vector3.DOWN * gravity_force * delta
+	bonus_direction = bonus_direction.linear_interpolate(Vector3.ZERO, 0.05)
+	direction += bonus_direction
+	
+	nav_agent.set_velocity(direction)
+	move_and_slide(safe_direction * speed)
 
 func damage(amount, collision_point):
 	health -= amount
@@ -87,6 +90,38 @@ func damage(amount, collision_point):
 	add_child(blood_instance)
 	blood_instance.look_at_from_position(collision_point, player.global_transform.origin, Vector3.UP)
 	blood_instance.rotate(Vector3.UP, PI)
+
+# states
+func looking(collision_object):
+	if collision_object and collision_object.is_in_group("player"):
+		state = CHASING
+
+func chasing():
+	# note that the pathfinding for chasing takes place in _physics_process
+	if global_transform.origin.distance_to(player.global_transform.origin) <= attacking_range:
+		state = ATTACKING
+
+func dying():
+	animation_player.play("die")
+
+func attacking(collision_object):
+	if !animation_player.is_playing():
+		# look at the player
+		var player_pos = player.global_transform.origin
+		player_pos.y = 0
+		mesh.look_at(player_pos, Vector3.UP)
+		
+		# play the shooting animation
+		animation_player.play("shoot")
+		
+		# spawn the projectile
+		var projectile_instance = projectile.instance()
+		get_tree().get_root().add_child(projectile_instance)
+		projectile_instance.set_target(player, muzzle)
+		projectile_instance.global_transform.origin = muzzle.global_transform.origin
+		
+	if global_transform.origin.distance_to(player.global_transform.origin) >= attacking_range * 2 or (collision_object and !collision_object.is_in_group("player")):
+		state = CHASING
 
 func _on_Timer_timeout():
 	var player_pos = player.global_transform.origin

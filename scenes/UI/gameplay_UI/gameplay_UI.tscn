@@ -74,7 +74,7 @@ rect_min_size = Vector2( 70, 0 )
 [node name="health_amount" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 margin_right = 70.0
 margin_bottom = 14.0
-text = "60"
+text = "100"
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
 margin_top = 18.0

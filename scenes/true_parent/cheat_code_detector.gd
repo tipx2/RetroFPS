@@ -29,7 +29,8 @@ const CODE_KEYS := {
 
 # List of cheat codes. Cheat codes should be lower-case, and should not be contained within one another or the shorter
 # cheat code will take precedence.
-export (Array, String) var codes := ["pfa", "psh"]
+export (Array, String) var codes := ["pfa", "psh", "phm"]
+# power full ammo, power super hot, power headache mode
 
 # Buffer of key strings which were previously pressed.
 var _previous_keypresses: String = ""

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/weapons/pistol/pistol.tscn" type="PackedScene" id=2]
@@ -12,6 +12,23 @@
 height = 2.0
 
 [sub_resource type="CylinderShape" id=2]
+
+[sub_resource type="Animation" id=4]
+resource_name = "headache_mode"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frustum_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.004, -0.003 ), Vector2( -0.003, 0.003 ), Vector2( 0.004, 0.003 ), Vector2( -0.004, -0.003 ), Vector2( 0.004, -0.003 ) ]
+}
 
 [node name="player" type="KinematicBody" groups=["player"]]
 script = ExtResource( 1 )
@@ -32,8 +49,14 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.49
 
 [node name="Camera" type="Camera" parent="head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+projection = 2
+size = 0.017
+frustum_offset = Vector2( 0.004, -0.003 )
 near = 0.01
 far = 8192.0
+
+[node name="camera_animator" type="AnimationPlayer" parent="head/Camera"]
+anims/headache_mode = SubResource( 4 )
 
 [node name="fists" parent="head" groups=["weapons"] instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43036, 0.909, -1.181 )

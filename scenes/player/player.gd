@@ -2,6 +2,8 @@ extends KinematicBody
 
 # cheat detector
 onready var cheat_code_detector = get_tree().get_nodes_in_group("cheat_detector")[0]
+onready var camera_animator = get_node("head/Camera/camera_animator")
+onready var camera = get_node("head/Camera")
 var superhot_mode = false
 
 # weapons
@@ -35,7 +37,7 @@ var grounded
 
 # ammo and health values
 const MAX_PLAYER_HEALTH = 60
-var player_health = 60
+var player_health = 100
 var ammo_array = []
 
 var max_ammo_array = [0, 50, 400, 200, 15]
@@ -51,6 +53,7 @@ onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
 onready var icon_backgrounds = get_tree().get_nodes_in_group("icon_background")
 
 func _ready():
+	camera.set_frustum_offset(Vector2(0,0))
 	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")
 	for w in weapons:
 		weapon_arr.append(w.name)
@@ -188,6 +191,12 @@ func _on_cheat_detected(cheat):
 		for x in range(len(max_ammo_array)):
 			ammo_array[x] = max_ammo_array[x]
 			update_hud_ammo()
-	if cheat == "psh":
+	elif cheat == "psh":
 		superhot_mode = !superhot_mode
 		Engine.time_scale = 1
+	elif cheat == "phm":
+		if camera_animator.is_playing():
+			camera_animator.stop()
+			camera.set_frustum_offset(Vector2(0,0))
+		else:
+			camera_animator.play("headache_mode")

@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/enemies/leech/leech.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.25098, 0.196078, 0.996078, 1 )
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="Animation" id=3]
+resource_name = "die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh/MeshInstance:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mesh/MeshInstance:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -0.146, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "drawback"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh/MeshInstance:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 80, 0 ), Vector3( 0, -80, 0 ), Vector3( 0, 50, 0 ), Vector3( 0, -50, 0 ), Vector3( 0, 10, 0 ), Vector3( 0, -10, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mesh/MeshInstance:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.642 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="leech" type="KinematicBody" groups=["enemies"]]
+script = ExtResource( 1 )
+
+[node name="mesh" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="attack_area" type="Area" parent="mesh"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="mesh/attack_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24481, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="mesh"]
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="hand" type="Spatial" parent="mesh"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="muzzle" type="Position3D" parent="mesh/hand"]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91015, 0.424278, 0.0344657 )
+
+[node name="health_amount" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95457, 0 )
+pixel_size = 0.0455
+billboard = 1
+text = "200"
+
+[node name="title" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41809, 0 )
+pixel_size = 0.0263
+billboard = 1
+text = "Leech"
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( -4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="looking_cast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 100, 0, 0 )
+debug_shape_thickness = 5
+
+[node name="NavigationAgent" type="NavigationAgent" parent="."]
+avoidance_enabled = true
+neighbor_dist = 100.0
+max_neighbors = 20
+max_speed = 2000.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="attack_timer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/die = SubResource( 3 )
+anims/drawback = SubResource( 5 )
+
+[connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

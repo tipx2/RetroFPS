@@ -1,7 +1,11 @@
 extends Node
 
-var proto_world = load("res://scenes/proto_world/proto_world.tscn")
+var main_menu = load("res://scenes/UI/main_menu/main_menu.tscn")
 
 func _ready():
-	var instance_world = proto_world.instance()
-	add_child(instance_world)
+	var menu_instance = main_menu.instance()
+	add_child(menu_instance)
+
+func music_fade_into(scene1, scene2):
+	scene1.get_node_or_null("musicFade").play("fadeOut")
+	scene2.get_node_or_null("musicFade").play("fadeIn")

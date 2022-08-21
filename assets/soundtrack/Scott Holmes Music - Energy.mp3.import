@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Scott Holmes Music - Energy.mp3-c67dca4c29aef1e8a55edf5df396d245.mp3str"
+
+[deps]
+
+source_file="res://assets/soundtrack/Scott Holmes Music - Energy.mp3"
+dest_files=[ "res://.import/Scott Holmes Music - Energy.mp3-c67dca4c29aef1e8a55edf5df396d245.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

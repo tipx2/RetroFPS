@@ -36,7 +36,7 @@ onready var ground_check = $GroundCheck
 var grounded
 
 # ammo and health values
-const MAX_PLAYER_HEALTH = 60
+const MAX_PLAYER_HEALTH = 100
 var player_health = 100
 var ammo_array = []
 

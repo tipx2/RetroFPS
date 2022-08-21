@@ -7,6 +7,7 @@ var gravity_force;
 var optimise_pathfinding;# if disabled, the enemy will move more sporadically
 var attacking_range;
 var health;
+var look_on_update = false;
 
 # state machine
 enum{
@@ -106,10 +107,8 @@ func dying():
 
 func attacking(collision_object):
 	if !animation_player.is_playing():
-		# look at the player
-		var player_pos = player.global_transform.origin
-		player_pos.y = 0
-		mesh.look_at(player_pos, Vector3.UP)
+		
+		look_at_player()
 		
 		# play the shooting animation
 		animation_player.play("shoot")
@@ -126,11 +125,18 @@ func spawn_projectile():
 	projectile_instance.set_target(player, muzzle)
 	projectile_instance.global_transform.origin = muzzle.global_transform.origin
 
+func look_at_player():
+	var player_pos = player.global_transform.origin
+	player_pos.y = 0
+	mesh.look_at(player_pos, Vector3.UP)
+
 func _on_Timer_timeout():
 	var player_pos = player.global_transform.origin
 	path = NavigationServer.map_get_path(RID(navigation), global_transform.origin,
 		player_pos, optimise_pathfinding, 1)
 	path_index = 1
+	if look_on_update:
+		look_at_player()
 	draw_path(path)
 
 #debug

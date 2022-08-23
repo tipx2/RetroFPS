@@ -87,9 +87,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and grounded:
 		gravity_vec = Vector3.UP * jump_force
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
 	
 	# movement
 	direction += -transform.basis.x * (Input.get_action_strength("move_left") - Input.get_action_strength("move_right"))
@@ -107,15 +104,22 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("swap_to_rocket_launcher"):
 		switch_to_weapon(4)
 		
+	# pause game
+	if Input.is_action_just_pressed("pause"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().get_nodes_in_group("pause_menu")[0].set_visible(true)
+		get_tree().paused = true
+	
 	# shooting
 	for w in weapons:
 		if w.is_visible():
 			w.shoot()
-
-	direction = direction.normalized()
-	direction += gravity_vec
 	
 	bonus_direction = bonus_direction.linear_interpolate(Vector3.ZERO, 0.1)
+	
+	direction = direction.normalized()
+	
+	direction += gravity_vec
 	direction += bonus_direction
 	
 	var _move = move_and_slide_with_snap(direction * speed, snap, Vector3.UP)
@@ -187,14 +191,14 @@ func switch_to_weapon(weapon):
 		update_hud_ammo()
 
 func _on_cheat_detected(cheat):
-	if cheat == "pfa":
+	if cheat == "pfa": # power full ammo
 		for x in range(len(max_ammo_array)):
 			ammo_array[x] = max_ammo_array[x]
 			update_hud_ammo()
-	elif cheat == "psh":
+	elif cheat == "psh": # power super hot
 		superhot_mode = !superhot_mode
 		Engine.time_scale = 1
-	elif cheat == "phm":
+	elif cheat == "phm": # power headache mode
 		if camera_animator.is_playing():
 			camera_animator.stop()
 			camera.set_frustum_offset(Vector2(0,0))

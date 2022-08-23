@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/soundtrack/Scott Holmes Music - Energy.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scenes/UI/main_menu/main_menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/temp_assets/buttonpressed.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/temp_assets/buttonnormal.png" type="Texture" id=4]
+[ext_resource path="res://assets/temp_assets/buttonhover.jpg" type="Texture" id=5]
+[ext_resource path="res://assets/temp_assets/image_2022-08-22_193517163.png" type="Texture" id=6]
+[ext_resource path="res://assets/temp_assets/level.png" type="Texture" id=7]
+[ext_resource path="res://scenes/UI/main_menu/options.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/UI/main_menu/level_select.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=3]
 resource_name = "gradient_animation"
@@ -20,6 +27,12 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0.309804, 0.309804, 0.309804, 1 ), Color( 0, 0, 0, 1 ) ]
 }
+
+[sub_resource type="InputEventAction" id=4]
+action = "pause"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "fadeIn"
@@ -84,70 +97,439 @@ anims/gradient_animation = SubResource( 3 )
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -59.0
-margin_bottom = 150.0
+margin_top = -109.0
+margin_bottom = 143.0
 custom_constants/separation = 37
 
-[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer2"]
-margin_right = 720.0
-
 [node name="CenterContainer2" type="CenterContainer" parent="ColorRect/VBoxContainer2"]
-margin_top = 37.0
-margin_right = 720.0
-margin_bottom = 51.0
+margin_right = 960.0
+margin_bottom = 14.0
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer2/CenterContainer2"]
-margin_left = 320.0
-margin_right = 400.0
+margin_left = 440.0
+margin_right = 520.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 53, 14 )
 text = "GAME NAME"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer2"]
-margin_top = 88.0
-margin_right = 720.0
-margin_bottom = 252.0
+margin_top = 51.0
+margin_right = 960.0
+margin_bottom = 215.0
 custom_constants/separation = 7
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer2/VBoxContainer"]
-margin_right = 720.0
+margin_right = 960.0
 margin_bottom = 50.0
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer"]
-margin_left = 260.0
-margin_right = 460.0
+[node name="play_button" type="Button" parent="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer"]
+margin_left = 380.0
+margin_right = 580.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 200, 50 )
 text = "PLAY"
 
 [node name="CenterContainer2" type="CenterContainer" parent="ColorRect/VBoxContainer2/VBoxContainer"]
 margin_top = 57.0
-margin_right = 720.0
+margin_right = 960.0
 margin_bottom = 107.0
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer2"]
-margin_left = 260.0
-margin_right = 460.0
+[node name="options_button" type="Button" parent="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer2"]
+margin_left = 380.0
+margin_right = 580.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 200, 50 )
 text = "OPTIONS"
 
 [node name="CenterContainer3" type="CenterContainer" parent="ColorRect/VBoxContainer2/VBoxContainer"]
 margin_top = 114.0
-margin_right = 720.0
+margin_right = 960.0
 margin_bottom = 164.0
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer3"]
-margin_left = 260.0
-margin_right = 460.0
+[node name="quit_button" type="Button" parent="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer3"]
+margin_left = 380.0
+margin_right = 580.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 200, 50 )
 text = "QUIT"
 
+[node name="options" parent="." instance=ExtResource( 8 )]
+
+[node name="level_select" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 101.0
+margin_top = 25.0
+margin_right = -102.0
+margin_bottom = -25.0
+color = Color( 0.737255, 0.737255, 0.737255, 1 )
+script = ExtResource( 9 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+rect_min_size = Vector2( 516, 489 )
+border_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+border_width = 4.8
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="spacer" type="CenterContainer" parent="level_select/VBoxContainer"]
+margin_right = 757.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer"]
+margin_top = 14.0
+margin_right = 757.0
+margin_bottom = 28.0
+
+[node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer"]
+margin_left = 337.0
+margin_right = 420.0
+margin_bottom = 14.0
+text = "LEVEL SELECT"
+
+[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer"]
+margin_top = 32.0
+margin_right = 757.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 517, 25 )
+
+[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer"]
+margin_top = 61.0
+margin_right = 757.0
+margin_bottom = 216.0
+
+[node name="GridContainer" type="GridContainer" parent="level_select/VBoxContainer/CenterContainer3"]
+margin_left = 38.0
+margin_right = 719.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 641, 0.165 )
+custom_constants/vseparation = 9
+custom_constants/hseparation = 14
+columns = 5
+
+[node name="level_one" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
+margin_right = 125.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 125, 155 )
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+border_width = 3.5
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 100, 5 )
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
+margin_top = 9.0
+margin_right = 125.0
+margin_bottom = 23.0
+mouse_filter = 1
+
+[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer"]
+margin_left = 39.0
+margin_right = 85.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level 1"
+
+[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
+margin_top = 27.0
+margin_right = 125.0
+margin_bottom = 127.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer3"]
+margin_left = 12.0
+margin_right = 112.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+
+[node name="level_two" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
+margin_left = 139.0
+margin_right = 264.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 125, 155 )
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+border_width = 3.5
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 100, 5 )
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
+margin_top = 9.0
+margin_right = 125.0
+margin_bottom = 23.0
+mouse_filter = 1
+
+[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer"]
+margin_left = 39.0
+margin_right = 85.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level 2"
+
+[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
+margin_top = 27.0
+margin_right = 125.0
+margin_bottom = 127.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer3"]
+margin_left = 12.0
+margin_right = 112.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+
+[node name="level_three" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
+margin_left = 278.0
+margin_right = 403.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 125, 155 )
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+border_width = 3.5
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 100, 5 )
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
+margin_top = 9.0
+margin_right = 125.0
+margin_bottom = 23.0
+mouse_filter = 1
+
+[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer"]
+margin_left = 39.0
+margin_right = 85.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level 3"
+
+[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
+margin_top = 27.0
+margin_right = 125.0
+margin_bottom = 127.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer3"]
+margin_left = 12.0
+margin_right = 112.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+
+[node name="level_four" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
+margin_left = 417.0
+margin_right = 542.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 125, 155 )
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+border_width = 3.5
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 100, 5 )
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
+margin_top = 9.0
+margin_right = 125.0
+margin_bottom = 23.0
+mouse_filter = 1
+
+[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer"]
+margin_left = 39.0
+margin_right = 85.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level 4"
+
+[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
+margin_top = 27.0
+margin_right = 125.0
+margin_bottom = 127.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer3"]
+margin_left = 12.0
+margin_right = 112.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+
+[node name="level_five" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
+margin_left = 556.0
+margin_right = 681.0
+margin_bottom = 155.0
+rect_min_size = Vector2( 125, 155 )
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+border_width = 3.5
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 100, 5 )
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
+margin_top = 9.0
+margin_right = 125.0
+margin_bottom = 23.0
+mouse_filter = 1
+
+[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer"]
+margin_left = 39.0
+margin_right = 85.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Level 5"
+
+[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
+margin_top = 27.0
+margin_right = 125.0
+margin_bottom = 127.0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer3"]
+margin_left = 12.0
+margin_right = 112.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+
+[node name="LevelTextureButton" type="TextureButton" parent="level_select"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+shortcut_in_tooltip = false
+shortcut = SubResource( 5 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 5 )
+expand = true
+
 [node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 1 )
-volume_db = -20.0
+volume_db = -80.0
 
 [node name="musicFade" type="AnimationPlayer" parent="."]
+pause_mode = 2
 anims/fadeIn = SubResource( 1 )
 anims/fadeOut = SubResource( 2 )
+
+[connection signal="pressed" from="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer2/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer2/VBoxContainer/CenterContainer3/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="level_select/LevelTextureButton" to="level_select" method="_on_LevelTextureButton_pressed"]

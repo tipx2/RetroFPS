@@ -6,6 +6,6 @@ func _init():
 	gravity_force = 20
 	optimise_pathfinding = true # if false, the enemy will move more sporadically
 	attacking_range = 50
-	health = 700
+	health = 400
 	
 	projectile = load("res://scenes/enemy_projectiles/bleeder_projectile/bleeder_projectile.tscn")

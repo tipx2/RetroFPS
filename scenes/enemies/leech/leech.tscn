@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/enemies/leech/leech.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemy_assets/leech/leechmouth.png" type="Texture" id=2]
 
 [sub_resource type="BoxShape" id=6]
 
@@ -8,6 +9,24 @@
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.25098, 0.196078, 0.996078, 1 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 16
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 16
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -41,31 +60,48 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "drawback"
-length = 0.4
+length = 0.5
 step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("mesh/MeshInstance:rotation_degrees")
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 80, 0 ), Vector3( 0, -80, 0 ), Vector3( 0, 50, 0 ), Vector3( 0, -50, 0 ), Vector3( 0, 10, 0 ), Vector3( 0, -10, 0 ), Vector3( 0, 0, 0 ) ]
+"times": PoolRealArray( 0, 0.32 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "speed_zero"
+}, {
+"args": [  ],
+"method": "speed_return"
+} ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("mesh/MeshInstance:translation")
-tracks/1/interp = 1
+tracks/1/path = NodePath("mesh/MeshInstance:rotation_degrees")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.12, 0.32, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.642 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 33.599, -5.02348e-07, -1.66391e-06 ), Vector3( 33.599, -5.02348e-07, -1.66391e-06 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("mesh/MeshInstance/AnimatedSprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.12, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
 }
 
 [node name="leech" type="KinematicBody" groups=["enemies"]]
@@ -82,9 +118,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24481, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="mesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 4 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="mesh/MeshInstance"]
+transform = Transform( -1, 0, -8.74227e-08, 0, 0.999999, 0, 8.74228e-08, 0, -0.999999, -6.64128e-08, 0, -1.51935 )
+pixel_size = 0.0202
+double_sided = false
+frames = SubResource( 10 )
 
 [node name="hand" type="Spatial" parent="mesh"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
@@ -123,7 +166,7 @@ max_speed = 2000.0
 [node name="Timer" type="Timer" parent="."]
 
 [node name="attack_timer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.8
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

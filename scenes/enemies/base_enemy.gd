@@ -79,7 +79,7 @@ func _physics_process(delta):
 	direction += bonus_direction
 	
 	nav_agent.set_velocity(direction)
-	move_and_slide(safe_direction * speed)
+	var _move = move_and_slide(safe_direction * speed)
 
 func damage(amount, collision_point):
 	health -= amount

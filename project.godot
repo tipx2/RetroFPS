@@ -25,16 +25,14 @@ run/main_scene="res://scenes/true_parent/true_parent.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://assets/project_images/Screenshot 2022-07-31 164626.png"
 
-[debug]
-
-settings/fps/force_fps=60
-
 [display]
 
-window/size/width=720
+window/size/width=960
 window/size/height=540
 window/size/borderless=true
 window/size/fullscreen=true
+window/size/test_width=960
+window/size/test_height=540
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
@@ -93,6 +91,11 @@ swap_to_machine_gun={
 swap_to_rocket_launcher={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":53,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777217,"unicode":0,"echo":false,"script":null)
  ]
 }
 

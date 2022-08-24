@@ -1055,7 +1055,7 @@ collision_mask = 3
 shape = SubResource( 74 )
 
 [node name="Plane024" type="MeshInstance" parent="level_geom/tree_boards"]
-transform = Transform( -0.533054, 0, 0.846082, 0, 1, 0, -0.846082, 0, -0.533054, -0.623342, 0.0648352, 1.25842 )
+transform = Transform( -0.570126, 0, 0.821558, 0, 1, 0, -0.821558, 0, -0.570126, -0.563588, 0.0648352, 1.37563 )
 mesh = SubResource( 73 )
 skeleton = NodePath("../../..")
 

@@ -65,7 +65,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sens))
-		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+		head.rotation.x = clamp(head.rotation.x, deg2rad(-80), deg2rad(89))
 	# weapon scrolling
 	elif event is InputEventMouseButton:
 		if event.button_index == BUTTON_WHEEL_UP:

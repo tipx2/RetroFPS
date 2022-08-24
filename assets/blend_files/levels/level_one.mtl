@@ -1,0 +1,135 @@
+# Blender MTL File: 'level_one.blend'
+# Material Count: 12
+
+newmtl astwilTT-GlxYH5bEN3DOJR-S0OlpbG7Z2-hksUAAVPnFL3Ek2u2C8QOC28igKA
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\FiercePC\\OneDrive\\Documents\\GitHub\\RetroFPS\\assets\\Downloads\\astwilTT-GlxYH5bEN3DOJR-S0OlpbG7Z2-hksUAAVPnFL3Ek2u2C8QOC28igKADqf4i4gowc05eD4NSWDvE-GN_9rpZiDC5KvOfWptQI_QIMDn33nUcctsM2qzOaQDQ75Kiwn1DyZxOCl7fZlpf8Xo.png
+map_d C:\\Users\\FiercePC\\OneDrive\\Documents\\GitHub\\RetroFPS\\assets\\Downloads\\astwilTT-GlxYH5bEN3DOJR-S0OlpbG7Z2-hksUAAVPnFL3Ek2u2C8QOC28igKADqf4i4gowc05eD4NSWDvE-GN_9rpZiDC5KvOfWptQI_QIMDn33nUcctsM2qzOaQDQ75Kiwn1DyZxOCl7fZlpf8Xo.png
+
+newmtl blue_gate
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_d -s -0.900000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\fence_gate.png
+
+newmtl bumpgrass
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl gate
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd -s -0.900000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\fence_gate.png
+map_d -s -0.900000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\fence_gate.png
+
+newmtl grounded
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl grounded_circle
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl grounded_circle_raised
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+
+newmtl red_gate
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_d -s -0.900000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\fence_gate.png
+
+newmtl tree_billboard
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd -s -0.900000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\back_trees.png
+map_d -s -0.900000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\back_trees.png
+
+newmtl tree_billboard.001
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd -s -0.300000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\back_trees.png
+map_d -s -0.300000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\back_trees.png
+
+newmtl tree_billboard.002
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd -o -0.100000 0.000000 0.000000 -s -0.800000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\back_trees.png
+map_d -o -0.100000 0.000000 0.000000 -s -0.800000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\back_trees.png
+
+newmtl yellow_gate
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_d -s -0.900000 1.000000 1.000000 C:\\Users\\FiercePC\\Downloads\\fence_gate.png

@@ -42,13 +42,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 2 )
 
 [node name="head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28086, 0.312477 )
 
 [node name="muzzle" type="Position3D" parent="head" groups=["muzzle"]]
 unique_name_in_owner = true
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.49756, -1.6485 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.000691265, -2.16163 )
 
 [node name="Camera" type="Camera" parent="head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00527093, 0 )
 projection = 2
 size = 0.017
 frustum_offset = Vector2( 0.004, -0.003 )
@@ -59,22 +60,22 @@ far = 8192.0
 anims/headache_mode = SubResource( 4 )
 
 [node name="fists" parent="head" groups=["weapons"] instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43036, 0.909, -1.181 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43036, -0.596271, -1.181 )
 
 [node name="pistol" parent="head" groups=["weapons"] instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.148, 1.193, -1.832 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.148, -0.312271, -1.832 )
 visible = false
 
 [node name="shotgun" parent="head" groups=["weapons"] instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.733, 1.043, -1.698 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.733, -0.462271, -1.698 )
 visible = false
 
 [node name="machine_gun" parent="head" groups=["weapons"] instance=ExtResource( 6 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.573, 1.269, -0.309 )
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.573, -0.236271, -0.309 )
 visible = false
 
 [node name="rocket_launcher" parent="head" groups=["weapons"] instance=ExtResource( 7 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.015, 1.06, -1.21 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.015, -0.445271, -1.21 )
 visible = false
 
 [node name="GroundCheck" type="RayCast" parent="."]

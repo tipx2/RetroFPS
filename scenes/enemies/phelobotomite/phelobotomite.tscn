@@ -63,6 +63,8 @@ tracks/0/keys = {
 }
 
 [node name="phelobotomite" type="KinematicBody" groups=["enemies"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="mesh" type="Spatial" parent="."]

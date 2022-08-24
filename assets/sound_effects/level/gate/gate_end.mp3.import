@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gate_end.mp3-e7b30c50642b58ac945c6b28a36f0881.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/level/gate/gate_end.mp3"
+dest_files=[ "res://.import/gate_end.mp3-e7b30c50642b58ac945c6b28a36f0881.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

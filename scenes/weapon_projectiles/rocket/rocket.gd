@@ -24,7 +24,7 @@ func hit_enemies():
 			if body.is_in_group("enemies"):
 				body.damage(round(10000 * (1/(distance + 50)) +3), body.global_transform.origin)
 			elif body.is_in_group("player"):
-				velocity.y *= 2
+				velocity.y *= 1.5
 				body.damage(5)
 			body.bonus_direction += velocity
 			

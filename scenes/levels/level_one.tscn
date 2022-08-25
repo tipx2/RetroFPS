@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://assets/hdrs/rooitou_park_1k.hdr" type="Texture" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,14 @@
 [ext_resource path="res://scenes/enemies/leech/leech.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/pickups/ammo_pickups/pistol_ammo/pistol_ammo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/blend_files/levels/level_one/tree_billboard_001.material" type="Material" id=13]
+[ext_resource path="res://assets/materials/gates/red_gate.material" type="Material" id=14]
+[ext_resource path="res://scenes/level_parts/keys/key.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/level_parts/gate_opener/colour_gate_opener.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/materials/gates/blue_gate.material" type="Material" id=17]
+[ext_resource path="res://assets/materials/gates/yellow_gate.material" type="Material" id=18]
+[ext_resource path="res://scenes/pickups/health_pickup/small_health_pickup/small_health_pickup.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/enemies/bleeder/bleeder.tscn" type="PackedScene" id=21]
 
 [sub_resource type="PanoramaSky" id=75]
 panorama = ExtResource( 1 )
@@ -27,14 +35,15 @@ adjustment_contrast = 1.1
 adjustment_saturation = 1.2
 
 [sub_resource type="NavigationMesh" id=78]
-vertices = PoolVector3Array( 1.56547, 0.209669, -1.9058, 1.46547, 0.209669, -1.9058, 1.31547, 0.209669, -1.6558, 1.56547, 0.209669, -1.4058, -0.284527, 0.209669, -1.8058, -0.284527, 0.209669, -1.4058, 0.215473, 0.209669, -1.4058, 0.215473, 0.209669, -1.8058, 0.815473, 0.209669, -1.9558, 1.01547, 0.209669, -2.3058, 0.615473, 0.209669, -2.3058, 0.315473, 0.209669, -2.0558, 0.215473, 0.209669, -1.8058, 0.215473, 0.209669, -1.4058, 0.315473, 0.209669, -1.2058, 0.665473, 0.209669, -0.9558, 1.81547, 0.209669, -0.5058, 2.11547, 0.209669, -0.7558, 2.11547, 0.209669, -0.9558, 1.56547, 0.209669, -1.4058, 1.21547, 0.209669, -1.0558, 1.56547, 0.209669, -1.4058, 1.31547, 0.209669, -1.6558, 1.06547, 0.209669, -1.6558, 1.21547, 0.209669, -1.0558, 0.665473, 0.209669, -0.9558, 0.665473, 0.209669, -0.5558, 1.06547, 0.209669, -0.5558, 1.06547, 0.209669, -0.9558, 1.06547, 0.209669, -1.6558, 0.815473, 0.209669, -1.9558, 0.215473, 0.209669, -1.8058, 0.215473, 0.209669, -1.4058, 0.665473, 0.209669, -0.9558, 1.21547, 0.209669, -1.0558, 0.665473, 0.209669, -0.9558, 1.06547, 0.209669, -0.9558, 1.21547, 0.209669, -1.0558, -3.03453, 0.209669, -0.7058, -2.73453, 0.209669, -0.3558, -1.73453, 0.209669, -1.4058, -1.98453, 0.209669, -1.8558, -1.73453, 0.209669, -1.4058, -0.284527, 0.209669, -1.4058, -0.284527, 0.209669, -1.8058, -1.98453, 0.209669, -1.8558, -2.13453, 0.209669, 1.6442, -1.83453, 0.209669, 1.7942, -1.58453, 0.209669, 1.4442, -2.78453, 0.209669, 0.3442, -3.08453, 0.209669, 0.6442, -3.68453, 0.209669, -0.6558, -3.93453, 0.209669, -0.5058, -4.08453, 0.209669, -0.2058, -2.78453, 0.209669, 0.3442, -2.68453, 0.209669, 0.0442002, -2.73453, 0.209669, -0.3558, -2.73453, 0.209669, -0.3558, -3.03453, 0.209669, -0.7058, -3.68453, 0.209669, -0.6558, -4.08453, 0.209669, 0.2442, -3.73453, 0.209669, 0.6442, -3.08453, 0.209669, 0.6442, -2.78453, 0.209669, 0.3442, -2.73453, 0.209669, -0.3558, -3.68453, 0.209669, -0.6558, -4.08453, 0.209669, -0.2058, -4.08453, 0.209669, 0.2442, -3.08453, 0.209669, 0.6442, -4.08453, 0.209669, -0.2058, -5.93453, 0.209669, -0.2058, -5.93453, 0.209669, 0.2442, -4.08453, 0.209669, 0.2442, 1.86547, 0.209669, 1.8942, 1.96547, 0.209669, 1.8942, 1.96547, 0.209669, 1.7942, 1.76547, 0.209669, 1.1942, 1.71547, 0.209669, 1.6942, 1.36547, 0.209669, 1.6942, 1.71547, 0.209669, 1.6942, 1.76547, 0.209669, 1.1942, 1.56547, 0.209669, 0.9942, 0.315473, 0.209669, 0.9442, 0.0154729, 0.209669, 1.2442, 0.515473, 0.209669, 1.3442, 0.665473, 0.209669, 0.7942, 0.665473, 0.209669, 0.7942, 0.515473, 0.209669, 1.3442, 0.665473, 0.209669, 1.5442, 1.36547, 0.209669, 1.6942, 1.56547, 0.209669, 0.9942, 1.06547, 0.209669, 0.7942, 1.06547, 0.209669, 0.7942, 1.06547, 0.209669, -0.5558, 0.665473, 0.209669, -0.5558, 0.665473, 0.209669, 0.7942, 0.665473, 0.209669, 1.5442, 0.665473, 0.209669, 1.8442, 1.11547, 0.209669, 1.9442, 1.36547, 0.209669, 1.6942, 1.11547, 0.209669, 2.8942, 1.61547, 0.209669, 2.6442, 1.26547, 0.209669, 2.5442, 0.0154729, 0.209669, 2.1442, -0.134527, 0.209669, 1.9942, 0.0654731, 0.209669, 2.5442, 0.265473, 0.209669, 2.1942, 0.0154729, 0.209669, 2.1442, 0.0654731, 0.209669, 2.5442, 1.11547, 0.209669, 2.8942, 1.26547, 0.209669, 2.5442, 1.11547, 0.209669, 2.3942, 1.11547, 0.209669, 1.9442, 0.665473, 0.209669, 1.8442, 0.515473, 0.209669, 2.0942, 1.11547, 0.209669, 2.3942, 0.515473, 0.209669, 2.0942, 0.265473, 0.209669, 2.1942, 0.0654731, 0.209669, 2.5442, 0.615473, 0.209669, 2.8942, 1.11547, 0.209669, 2.8942, 1.11547, 0.209669, 2.3942, 0.615473, 0.209669, 2.8942, 0.615473, 0.209669, 3.2942, 1.11547, 0.209669, 3.2942, 1.11547, 0.209669, 2.8942 )
-polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 11, 8, 12 ), PoolIntArray( 15, 14, 13 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 19, 16, 20 ), PoolIntArray( 22, 21, 23 ), PoolIntArray( 23, 21, 24 ), PoolIntArray( 28, 27, 25 ), PoolIntArray( 25, 27, 26 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 29 ), PoolIntArray( 32, 29, 33 ), PoolIntArray( 33, 29, 34 ), PoolIntArray( 37, 36, 35 ), PoolIntArray( 39, 38, 40 ), PoolIntArray( 40, 38, 41 ), PoolIntArray( 43, 42, 44 ), PoolIntArray( 44, 42, 45 ), PoolIntArray( 47, 46, 48 ), PoolIntArray( 48, 46, 50 ), PoolIntArray( 48, 50, 49 ), PoolIntArray( 53, 52, 51 ), PoolIntArray( 56, 55, 54 ), PoolIntArray( 57, 59, 58 ), PoolIntArray( 62, 61, 60 ), PoolIntArray( 66, 65, 67 ), PoolIntArray( 67, 65, 64 ), PoolIntArray( 67, 64, 63 ), PoolIntArray( 67, 63, 68 ), PoolIntArray( 72, 71, 69 ), PoolIntArray( 69, 71, 70 ), PoolIntArray( 74, 73, 75 ), PoolIntArray( 75, 73, 77 ), PoolIntArray( 75, 77, 76 ), PoolIntArray( 79, 78, 80 ), PoolIntArray( 80, 78, 81 ), PoolIntArray( 83, 82, 84 ), PoolIntArray( 84, 82, 85 ), PoolIntArray( 87, 86, 88 ), PoolIntArray( 88, 86, 91 ), PoolIntArray( 88, 91, 90 ), PoolIntArray( 88, 90, 89 ), PoolIntArray( 95, 94, 92 ), PoolIntArray( 92, 94, 93 ), PoolIntArray( 97, 96, 98 ), PoolIntArray( 98, 96, 99 ), PoolIntArray( 102, 101, 100 ), PoolIntArray( 105, 104, 103 ), PoolIntArray( 108, 107, 106 ), PoolIntArray( 111, 110, 109 ), PoolIntArray( 113, 112, 114 ), PoolIntArray( 114, 112, 115 ), PoolIntArray( 117, 116, 118 ), PoolIntArray( 118, 116, 119 ), PoolIntArray( 119, 116, 121 ), PoolIntArray( 119, 121, 120 ), PoolIntArray( 125, 124, 122 ), PoolIntArray( 122, 124, 123 ) ]
+vertices = PoolVector3Array( 1.56547, 0.239668, -1.9058, 1.46547, 0.239668, -1.9058, 1.31547, 0.239668, -1.6558, 1.56547, 0.239668, -1.4058, -0.284527, 0.239668, -1.8058, -0.284527, 0.239668, -1.4058, 0.215473, 0.239668, -1.4058, 0.215473, 0.239668, -1.8058, 0.815473, 0.239668, -1.9558, 1.01547, 0.239668, -2.3058, 0.615473, 0.239668, -2.3058, 0.315473, 0.239668, -2.0558, 0.215473, 0.239668, -1.8058, 0.215473, 0.239668, -1.4058, 0.315473, 0.239668, -1.2058, 0.665473, 0.239668, -0.9558, 1.81547, 0.239668, -0.5058, 2.11547, 0.239668, -0.7558, 2.11547, 0.239668, -0.9558, 1.56547, 0.239668, -1.4058, 1.21547, 0.239668, -1.0558, 1.56547, 0.239668, -1.4058, 1.31547, 0.239668, -1.6558, 1.06547, 0.239668, -1.6558, 1.21547, 0.239668, -1.0558, 0.665473, 0.239668, -0.9558, 0.665473, 0.239668, -0.5558, 1.06547, 0.239668, -0.5558, 1.06547, 0.239668, -0.9558, 1.06547, 0.239668, -1.6558, 0.815473, 0.239668, -1.9558, 0.215473, 0.239668, -1.8058, 0.215473, 0.239668, -1.4058, 0.665473, 0.239668, -0.9558, 1.21547, 0.239668, -1.0558, 0.665473, 0.239668, -0.9558, 1.06547, 0.239668, -0.9558, 1.21547, 0.239668, -1.0558, 1.06547, 0.359668, -1.7558, 1.31547, 0.359668, -1.7558, 1.41547, 0.359668, -1.9058, 1.31547, 0.359668, -2.2058, 1.01547, 0.359668, -2.2058, 0.915473, 0.359668, -2.0058, -3.03453, 0.239668, -0.7058, -2.73453, 0.239668, -0.3558, -1.73453, 0.239668, -1.4058, -1.98453, 0.239668, -1.8558, -1.73453, 0.239668, -1.4058, -0.284527, 0.239668, -1.4058, -0.284527, 0.239668, -1.8058, -1.98453, 0.239668, -1.8558, -2.13453, 0.239668, 1.6442, -1.83453, 0.239668, 1.7942, -1.58453, 0.239668, 1.4442, -2.78453, 0.239668, 0.3442, -3.08453, 0.239668, 0.6442, -3.68453, 0.239668, -0.6558, -3.93453, 0.239668, -0.5058, -4.08453, 0.239668, -0.2058, -2.78453, 0.239668, 0.3442, -2.68453, 0.239668, 0.0442002, -2.73453, 0.239668, -0.3558, -2.73453, 0.239668, -0.3558, -3.03453, 0.239668, -0.7058, -3.68453, 0.239668, -0.6558, -4.08453, 0.239668, 0.2442, -3.73453, 0.239668, 0.6442, -3.08453, 0.239668, 0.6442, -2.78453, 0.239668, 0.3442, -2.73453, 0.239668, -0.3558, -3.68453, 0.239668, -0.6558, -4.08453, 0.239668, -0.2058, -4.08453, 0.239668, 0.2442, -3.08453, 0.239668, 0.6442, -4.08453, 0.239668, -0.2058, -5.93453, 0.239668, -0.2058, -5.93453, 0.239668, 0.2442, -4.08453, 0.239668, 0.2442, 1.86547, 0.239668, 1.8942, 1.96547, 0.239668, 1.8942, 1.96547, 0.239668, 1.7942, 1.76547, 0.239668, 1.1942, 1.71547, 0.239668, 1.6942, 1.36547, 0.239668, 1.6942, 1.71547, 0.239668, 1.6942, 1.76547, 0.239668, 1.1942, 1.56547, 0.239668, 0.9942, 0.315473, 0.239668, 0.9442, 0.0154729, 0.239668, 1.2442, 0.515473, 0.239668, 1.3442, 0.665473, 0.239668, 0.7942, 0.665473, 0.239668, 0.7942, 0.515473, 0.239668, 1.3442, 0.665473, 0.239668, 1.5442, 1.36547, 0.239668, 1.6942, 1.56547, 0.239668, 0.9942, 1.06547, 0.239668, 0.7942, 1.06547, 0.239668, 0.7942, 1.06547, 0.239668, -0.5558, 0.665473, 0.239668, -0.5558, 0.665473, 0.239668, 0.7942, 0.665473, 0.239668, 1.5442, 0.665473, 0.239668, 1.8442, 1.11547, 0.239668, 1.9442, 1.36547, 0.239668, 1.6942, -0.134527, 0.359668, 1.8442, 0.0154729, 0.359668, 2.0442, 0.265473, 0.359668, 2.0942, 0.0154729, 0.359668, 1.3942, -0.134527, 0.359668, 1.5942, -0.134527, 0.359668, 1.8442, 0.565473, 0.359668, 1.8942, 0.565473, 0.359668, 1.5442, 0.415473, 0.359668, 1.3942, 0.0154729, 0.359668, 1.3942, -0.134527, 0.359668, 1.8442, 0.265473, 0.359668, 2.0942, 1.11547, 0.239668, 2.8942, 1.61547, 0.239668, 2.6442, 1.26547, 0.239668, 2.5442, 0.0154729, 0.239668, 2.1442, -0.134527, 0.239668, 1.9942, 0.0654731, 0.239668, 2.5442, 0.265473, 0.239668, 2.1942, 0.0154729, 0.239668, 2.1442, 0.0654731, 0.239668, 2.5442, 1.11547, 0.239668, 2.8942, 1.26547, 0.239668, 2.5442, 1.11547, 0.239668, 2.3942, 1.11547, 0.239668, 1.9442, 0.665473, 0.239668, 1.8442, 0.515473, 0.239668, 2.0942, 1.11547, 0.239668, 2.3942, 0.515473, 0.239668, 2.0942, 0.265473, 0.239668, 2.1942, 0.0654731, 0.239668, 2.5442, 0.615473, 0.239668, 2.8942, 1.11547, 0.239668, 2.8942, 1.11547, 0.239668, 2.3942, 0.615473, 0.239668, 2.8942, 0.615473, 0.239668, 3.2942, 1.11547, 0.239668, 3.2942, 1.11547, 0.239668, 2.8942 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 11 ), PoolIntArray( 11, 8, 12 ), PoolIntArray( 15, 14, 13 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 19 ), PoolIntArray( 19, 16, 20 ), PoolIntArray( 22, 21, 23 ), PoolIntArray( 23, 21, 24 ), PoolIntArray( 28, 27, 25 ), PoolIntArray( 25, 27, 26 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 29 ), PoolIntArray( 32, 29, 33 ), PoolIntArray( 33, 29, 34 ), PoolIntArray( 37, 36, 35 ), PoolIntArray( 39, 38, 40 ), PoolIntArray( 40, 38, 43 ), PoolIntArray( 40, 43, 42 ), PoolIntArray( 40, 42, 41 ), PoolIntArray( 45, 44, 46 ), PoolIntArray( 46, 44, 47 ), PoolIntArray( 49, 48, 50 ), PoolIntArray( 50, 48, 51 ), PoolIntArray( 53, 52, 54 ), PoolIntArray( 54, 52, 56 ), PoolIntArray( 54, 56, 55 ), PoolIntArray( 59, 58, 57 ), PoolIntArray( 62, 61, 60 ), PoolIntArray( 63, 65, 64 ), PoolIntArray( 68, 67, 66 ), PoolIntArray( 72, 71, 73 ), PoolIntArray( 73, 71, 70 ), PoolIntArray( 73, 70, 69 ), PoolIntArray( 73, 69, 74 ), PoolIntArray( 78, 77, 75 ), PoolIntArray( 75, 77, 76 ), PoolIntArray( 80, 79, 81 ), PoolIntArray( 81, 79, 83 ), PoolIntArray( 81, 83, 82 ), PoolIntArray( 85, 84, 86 ), PoolIntArray( 86, 84, 87 ), PoolIntArray( 89, 88, 90 ), PoolIntArray( 90, 88, 91 ), PoolIntArray( 93, 92, 94 ), PoolIntArray( 94, 92, 97 ), PoolIntArray( 94, 97, 96 ), PoolIntArray( 94, 96, 95 ), PoolIntArray( 101, 100, 98 ), PoolIntArray( 98, 100, 99 ), PoolIntArray( 103, 102, 104 ), PoolIntArray( 104, 102, 105 ), PoolIntArray( 108, 107, 106 ), PoolIntArray( 111, 110, 109 ), PoolIntArray( 113, 112, 114 ), PoolIntArray( 114, 112, 117 ), PoolIntArray( 114, 117, 115 ), PoolIntArray( 115, 117, 116 ), PoolIntArray( 120, 119, 118 ), PoolIntArray( 123, 122, 121 ), PoolIntArray( 126, 125, 124 ), PoolIntArray( 129, 128, 127 ), PoolIntArray( 131, 130, 132 ), PoolIntArray( 132, 130, 133 ), PoolIntArray( 135, 134, 136 ), PoolIntArray( 136, 134, 137 ), PoolIntArray( 137, 134, 139 ), PoolIntArray( 137, 139, 138 ), PoolIntArray( 143, 142, 140 ), PoolIntArray( 140, 142, 141 ) ]
 geometry_parsed_geometry_type = 2
 cell_size = 0.05
-cell_height = 0.11
+cell_height = 0.12
 agent_height = 0.59
 agent_radius = 0.01
-agent_max_climb = 0.0
+agent_max_climb = 0.05
+region_min_size = 0.95
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "level_one_Cube001"
@@ -1069,17 +1078,75 @@ shape = SubResource( 74 )
 [node name="level_gates" type="Spatial" parent="."]
 
 [node name="gate_opener" parent="level_gates" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1.899, 0, 0, 0, 1.285, -85.6751, 5.88597, 0 )
+transform = Transform( 1, 0, 0, 0, 1.417, 0, 0, 0, 1.262, -83.1808, 6.06912, 0 )
 opener = true
-gate = NodePath("../gate")
+gate = NodePath("../regular_gate")
 
-[node name="gate" parent="level_gates" instance=ExtResource( 7 )]
+[node name="regular_gate" parent="level_gates" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -81.8159, 6.47018, 0.105199 )
+
+[node name="red_gate" parent="level_gates" instance=ExtResource( 7 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -57.6422, 6.47018, -10.1151 )
+gate_material = ExtResource( 14 )
+
+[node name="blue_gate" parent="level_gates" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7723, 6.47018, -4.26284 )
+gate_material = ExtResource( 17 )
+
+[node name="yellow_gate" parent="level_gates" instance=ExtResource( 7 )]
+transform = Transform( 1.112, 0, 0, 0, 1, 0, 0, 0, 1, 17.6424, 6.49856, 59.6981 )
+gate_material = ExtResource( 18 )
+
+[node name="gate_opener2" parent="level_gates" instance=ExtResource( 16 )]
+transform = Transform( 0.707107, 0, 0.913582, 0, 1, 0, -0.707107, 0, 0.913582, -60.6366, 7.43508, -7.32601 )
+opener = true
+gate = NodePath("../red_gate")
+open_colour = "red"
+
+[node name="gate_opener3" parent="level_gates" instance=ExtResource( 16 )]
+transform = Transform( 0, 0, 1.292, 0, 1, 0, -1, 0, 0, 17.7297, 7.43508, -7.87115 )
+opener = true
+gate = NodePath("../blue_gate")
+open_colour = "blue"
+
+[node name="gate_opener4" parent="level_gates" instance=ExtResource( 16 )]
+transform = Transform( 0, 0, 1.292, 0, 1, 0, -1, 0, 0, 17.7297, 7.43508, 55.8714 )
+opener = true
+gate = NodePath("../yellow_gate")
+open_colour = "yellow"
+
+[node name="keys" type="Spatial" parent="."]
+
+[node name="key" parent="keys" instance=ExtResource( 15 )]
+transform = Transform( 0.650946, 0, 0.759124, 0, 1, 0, -0.759124, 0, 0.650946, -39.1214, 3.42822, 28.533 )
+
+[node name="key2" parent="keys" instance=ExtResource( 15 )]
+transform = Transform( 0.650946, 0, 0.759124, 0, 1, 0, -0.759124, 0, 0.650946, 34.615, 3.39769, -17.7042 )
+colour = "blue"
+
+[node name="key3" parent="keys" instance=ExtResource( 15 )]
+transform = Transform( 0.650946, 0, 0.759124, 0, 1, 0, -0.759124, 0, 0.650946, 32.3894, 11.4328, 47.5008 )
+colour = "yellow"
 
 [node name="enemies" type="Spatial" parent="."]
 
 [node name="leech" parent="enemies" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.6309, 2.614, -0.60674 )
+
+[node name="leech2" parent="enemies" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2977, 2.614, 25.5176 )
+
+[node name="leech3" parent="enemies" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7666, 2.614, 25.6984 )
+
+[node name="leech4" parent="enemies" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7426, 2.614, 47.751 )
+
+[node name="bleeder" parent="enemies" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4641, 5.946, -38.3213 )
+
+[node name="bleeder3" parent="enemies" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.66129, 5.946, 35.825 )
 
 [node name="ammo_pickups" type="Spatial" parent="."]
 
@@ -1091,6 +1158,35 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -106.002, 2.606, 0 )
 
 [node name="ammo3" parent="ammo_pickups" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -102.74, 2.606, 0 )
+
+[node name="ammo4" parent="ammo_pickups" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1785, 2.606, -13.6417 )
+
+[node name="ammo5" parent="ammo_pickups" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.693, 2.606, -15.2552 )
+
+[node name="ammo6" parent="ammo_pickups" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.9719, 2.606, -14.082 )
+
+[node name="ammo7" parent="ammo_pickups" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7033, 2.6, -32.206 )
+
+[node name="ammo8" parent="ammo_pickups" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8524, 2.6, -33.6314 )
+
+[node name="ammo9" parent="ammo_pickups" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.46, 2.6, -31.4191 )
+
+[node name="health_pickups" type="Spatial" parent="."]
+
+[node name="health" parent="health_pickups" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2133, 2.6, -17.6935 )
+
+[node name="health2" parent="health_pickups" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6472, 2.6, -20.4177 )
+
+[node name="health3" parent="health_pickups" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3964, 2.6, -19.6467 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -113.915, 3.606, 0 )

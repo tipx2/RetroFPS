@@ -131,15 +131,16 @@ rect_min_size = Vector2( 100, 0 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer"]
 margin_left = 287.0
-margin_right = 687.0
+margin_right = 587.0
 margin_bottom = 56.0
-rect_min_size = Vector2( 400, 0 )
+rect_min_size = Vector2( 300, 56 )
 
 [node name="weapon_logos" type="HBoxContainer" parent="Panel/HBoxContainer/CenterContainer"]
+margin_left = 42.0
 margin_top = 8.0
-margin_right = 400.0
+margin_right = 258.0
 margin_bottom = 48.0
-rect_min_size = Vector2( 400, 40 )
+rect_min_size = Vector2( 210, 40 )
 
 [node name="Icon_background" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos" groups=["icon_background"]]
 self_modulate = Color( 0, 1, 0.27451, 1 )
@@ -206,22 +207,63 @@ anchor_bottom = 1.0
 texture = ExtResource( 6 )
 expand = true
 
+[node name="CenterContainer2" type="CenterContainer" parent="Panel/HBoxContainer"]
+margin_left = 591.0
+margin_right = 689.0
+margin_bottom = 56.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/CenterContainer2"]
+margin_top = 4.0
+margin_right = 98.0
+margin_bottom = 52.0
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 98.0
+margin_bottom = 14.0
+text = "Keys"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 18.0
+margin_right = 98.0
+margin_bottom = 48.0
+
+[node name="red_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer" groups=["key_icon"]]
+margin_right = 30.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="blue_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer" groups=["key_icon"]]
+margin_left = 34.0
+margin_right = 64.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="yellow_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer" groups=["key_icon"]]
+margin_left = 68.0
+margin_right = 98.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
-margin_left = 691.0
-margin_right = 766.0
+margin_left = 693.0
+margin_right = 768.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 75, 0 )
 
 [node name="large_weapon_picture" type="ColorRect" parent="Panel/HBoxContainer"]
-margin_left = 770.0
-margin_right = 870.0
+margin_left = 772.0
+margin_right = 872.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 100, 0 )
 color = Color( 0.968627, 0.0823529, 0.0823529, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer"]
-margin_left = 874.0
-margin_right = 934.0
+margin_left = 876.0
+margin_right = 936.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 60, 56 )
 texture = ExtResource( 1 )

@@ -52,6 +52,13 @@ onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
 
 onready var icon_backgrounds = get_tree().get_nodes_in_group("icon_background")
 
+# keys
+var red_key = false
+var blue_key = false
+var yellow_key = false
+
+onready var key_icons = get_tree().get_nodes_in_group("key_icon")
+
 func _ready():
 	camera.set_frustum_offset(Vector2(0,0))
 	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")
@@ -189,6 +196,19 @@ func switch_to_weapon(weapon):
 		# make only the current weapon icon background green
 		icon_backgrounds[current_weapon].set_self_modulate(Color("00ff46"))
 		update_hud_ammo()
+
+func give_key(colour):
+	if colour == "red":
+		red_key = true
+	elif colour == "blue":
+		blue_key = true
+	elif colour == "yellow":
+		yellow_key = true
+	var colour_array = ["#db0d0d", "#1c4ad4", "#eddb11"]
+	var key_array = [red_key, blue_key, yellow_key]
+	for x in range(3):
+		if key_array[x]:
+			key_icons[x].color = Color(colour_array[x])
 
 func _on_cheat_detected(cheat):
 	if cheat == "pfa": # power full ammo

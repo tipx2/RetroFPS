@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://assets/hdrs/rooitou_park_1k.hdr" type="Texture" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/enemies/bleeder/bleeder.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/level_parts/level_ender/level_ender.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/sound_effects/ambient/345851__hargissssound__spring-birds-raw-new-jersey.wav" type="AudioStream" id=23]
 
 [sub_resource type="PanoramaSky" id=75]
 panorama = ExtResource( 1 )
@@ -1188,3 +1189,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.332, 2.6, -16.535 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -113.915, 3.606, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+autoplay = true
+bus = "Soundtrack"

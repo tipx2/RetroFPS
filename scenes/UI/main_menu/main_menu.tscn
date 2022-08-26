@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/soundtrack/Scott Holmes Music - Energy.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scenes/UI/main_menu/main_menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/temp_assets/buttonpressed.jpg" type="Texture" id=3]
 [ext_resource path="res://assets/temp_assets/buttonnormal.png" type="Texture" id=4]
 [ext_resource path="res://assets/temp_assets/buttonhover.jpg" type="Texture" id=5]
-[ext_resource path="res://assets/temp_assets/image_2022-08-22_193517163.png" type="Texture" id=6]
 [ext_resource path="res://assets/temp_assets/level.png" type="Texture" id=7]
 [ext_resource path="res://scenes/UI/main_menu/options.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/UI/main_menu/level_select.gd" type="Script" id=9]
@@ -229,6 +228,7 @@ expand = true
 [node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 border_color = Color( 0, 0, 0, 1 )
 border_width = 3.5
 editor_only = false
@@ -273,6 +273,7 @@ expand = true
 [node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer3/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 border_color = Color( 0, 0, 0, 1 )
 border_width = 3.1
 editor_only = false
@@ -281,6 +282,7 @@ editor_only = false
 margin_top = 131.0
 margin_right = 125.0
 margin_bottom = 151.0
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4"]
 margin_left = 13.0
@@ -339,7 +341,8 @@ expand = true
 [node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
 border_width = 3.5
 editor_only = false
 
@@ -377,13 +380,22 @@ margin_left = 12.0
 margin_right = 112.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer3/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
+border_width = 3.1
+editor_only = false
 
 [node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
 margin_top = 131.0
 margin_right = 125.0
 margin_bottom = 151.0
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4"]
 margin_left = 13.0
@@ -442,7 +454,8 @@ expand = true
 [node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
 border_width = 3.5
 editor_only = false
 
@@ -480,13 +493,22 @@ margin_left = 12.0
 margin_right = 112.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer3/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
+border_width = 3.1
+editor_only = false
 
 [node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
 margin_top = 131.0
 margin_right = 125.0
 margin_bottom = 151.0
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer4"]
 margin_left = 13.0
@@ -545,7 +567,8 @@ expand = true
 [node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
 border_width = 3.5
 editor_only = false
 
@@ -583,13 +606,22 @@ margin_left = 12.0
 margin_right = 112.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer3/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
+border_width = 3.1
+editor_only = false
 
 [node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
 margin_top = 131.0
 margin_right = 125.0
 margin_bottom = 151.0
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer4"]
 margin_left = 13.0
@@ -648,7 +680,8 @@ expand = true
 [node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-border_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
 border_width = 3.5
 editor_only = false
 
@@ -686,13 +719,22 @@ margin_left = 12.0
 margin_right = 112.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 expand = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer3/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+border_color = Color( 0, 0, 0, 1 )
+border_width = 3.1
+editor_only = false
 
 [node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
 margin_top = 131.0
 margin_right = 125.0
 margin_bottom = 151.0
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer4"]
 margin_left = 13.0
@@ -757,6 +799,7 @@ expand = true
 pause_mode = 2
 stream = ExtResource( 1 )
 volume_db = -80.0
+bus = "Soundtrack"
 
 [node name="musicFade" type="AnimationPlayer" parent="."]
 pause_mode = 2

@@ -389,6 +389,7 @@ stretch_mode = 6
 
 [node name="win_screen" type="ColorRect" parent="." groups=["win_screen"]]
 pause_mode = 2
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

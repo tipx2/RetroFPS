@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://assets/hdrs/rooitou_park_1k.hdr" type="Texture" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://scenes/pickups/health_pickup/small_health_pickup/small_health_pickup.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/enemies/bleeder/bleeder.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/level_parts/level_ender/level_ender.tscn" type="PackedScene" id=22]
 
 [sub_resource type="PanoramaSky" id=75]
 panorama = ExtResource( 1 )
@@ -1115,6 +1116,9 @@ opener = true
 gate = NodePath("../yellow_gate")
 open_colour = "yellow"
 
+[node name="level_ender" parent="level_gates" instance=ExtResource( 22 )]
+transform = Transform( 1.453, 0, 0, 0, 1, 0, 0, 0, 1, 17.6454, 7.98775, 61.8959 )
+
 [node name="keys" type="Spatial" parent="."]
 
 [node name="key" parent="keys" instance=ExtResource( 15 )]
@@ -1160,33 +1164,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -106.002, 2.606, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -102.74, 2.606, 0 )
 
 [node name="ammo4" parent="ammo_pickups" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1785, 2.606, -13.6417 )
-
-[node name="ammo5" parent="ammo_pickups" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.693, 2.606, -15.2552 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2636, 2.606, -19.8278 )
 
 [node name="ammo6" parent="ammo_pickups" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.9719, 2.606, -14.082 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.4004, 2.606, -13.3789 )
 
 [node name="ammo7" parent="ammo_pickups" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7033, 2.6, -32.206 )
 
-[node name="ammo8" parent="ammo_pickups" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8524, 2.6, -33.6314 )
-
 [node name="ammo9" parent="ammo_pickups" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.46, 2.6, -31.4191 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.712, 2.6, -32.3931 )
 
 [node name="health_pickups" type="Spatial" parent="."]
 
 [node name="health" parent="health_pickups" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2133, 2.6, -17.6935 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7215, 2.6, 14.6667 )
 
 [node name="health2" parent="health_pickups" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.6472, 2.6, -20.4177 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7149, 2.6, -24.2035 )
 
 [node name="health3" parent="health_pickups" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.3964, 2.6, -19.6467 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.332, 2.6, -16.535 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -113.915, 3.606, 0 )

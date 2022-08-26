@@ -16,6 +16,11 @@ func _ready():
 	for button in level_buttons:
 		button.connect("pressed", self, "_some_button_pressed", [button])
 		level_button_names.append(button.name)
+		
+		var completed = true_parent.progression[level_buttons.find(button)]
+		button.get_node("VBoxContainer/CenterContainer4/HBoxContainer/ColorRect/cross_rect").visible = !completed
+		button.get_node("VBoxContainer/CenterContainer4/HBoxContainer/ColorRect/tick_rect").visible = completed
+
 
 func _some_button_pressed(button):
 	var level_index = level_button_names.find(button.name)

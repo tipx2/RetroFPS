@@ -52,6 +52,8 @@ onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
 
 onready var icon_backgrounds = get_tree().get_nodes_in_group("icon_background")
 
+onready var win_screen = get_tree().get_nodes_in_group("win_screen")[0]
+
 # keys
 var red_key = false
 var blue_key = false

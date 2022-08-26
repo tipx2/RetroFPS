@@ -1,6 +1,6 @@
 extends Node
 
-var progression = [false,false] # etc 
+var progression = [false,false, false, false, false] # etc 
 # one bool for each level
 
 var main_menu = load("res://scenes/UI/main_menu/main_menu.tscn")

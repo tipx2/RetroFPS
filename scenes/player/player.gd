@@ -200,6 +200,7 @@ func switch_to_weapon(weapon):
 		update_hud_ammo()
 
 func give_key(colour):
+	$"%key_noise".play()
 	match colour:
 		"red":
 			red_key = true

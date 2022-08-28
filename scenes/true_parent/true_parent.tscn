@@ -7,6 +7,7 @@
 albedo_color = Color( 0.976471, 0.0588235, 0.0588235, 1 )
 
 [node name="Node" type="Node" groups=["true_parent"]]
+physics_interpolation_mode = 1
 script = ExtResource( 1 )
 
 [node name="cheat_code_detector" type="Node" parent="." groups=["cheat_detector"]]

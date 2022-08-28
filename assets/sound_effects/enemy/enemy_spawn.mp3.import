@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/enemy_spawn.mp3-06720c870c1962e3220c072c9b7e8d83.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/enemy/enemy_spawn.mp3"
+dest_files=[ "res://.import/enemy_spawn.mp3-06720c870c1962e3220c072c9b7e8d83.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

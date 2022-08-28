@@ -106,6 +106,7 @@ tracks/2/keys = {
 }
 
 [node name="leech" type="KinematicBody" groups=["enemies"]]
+physics_interpolation_mode = 2
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )

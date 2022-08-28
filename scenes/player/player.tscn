@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/weapons/pistol/pistol.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/weapons/fists/fists.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/weapons/machine_gun/machine_gun.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/weapons/rocket_launcher/rocket_launcher.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sound_effects/level/key/keys_pickup.mp3" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -31,6 +32,7 @@ tracks/0/keys = {
 }
 
 [node name="player" type="KinematicBody" groups=["player"]]
+physics_interpolation_mode = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -86,6 +88,13 @@ collide_with_areas = true
 [node name="switch_timer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="sound_effects" type="Node" parent="."]
+
+[node name="key_noise" type="AudioStreamPlayer" parent="sound_effects"]
+unique_name_in_owner = true
+stream = ExtResource( 8 )
+volume_db = -5.0
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

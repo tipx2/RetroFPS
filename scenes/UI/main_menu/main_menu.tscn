@@ -111,6 +111,7 @@ rect_min_size = Vector2( 200, 50 )
 text = "QUIT"
 
 [node name="options" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [node name="level_select" type="ColorRect" parent="."]
 unique_name_in_owner = true

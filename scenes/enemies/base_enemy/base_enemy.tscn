@@ -60,6 +60,7 @@ tracks/0/keys = {
 }
 
 [node name="base_enemy" type="KinematicBody" groups=["enemies"]]
+physics_interpolation_mode = 2
 script = ExtResource( 1 )
 
 [node name="mesh" type="Spatial" parent="."]

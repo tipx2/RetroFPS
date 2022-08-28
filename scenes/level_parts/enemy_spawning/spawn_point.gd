@@ -6,4 +6,8 @@ onready var enemy = load(spawn_path)
 
 func spawn_enemy():
 	var enemy_instance = enemy.instance()
-	add_child(enemy_instance)
+	$Particles.emitting = true
+	yield(get_tree().create_timer(0.1), "timeout")
+	$AudioStreamPlayer3D.play(0.2)
+	get_parent().get_parent().add_child(enemy_instance)
+	enemy_instance.global_transform.origin = global_transform.origin

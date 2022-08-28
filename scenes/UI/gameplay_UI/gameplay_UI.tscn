@@ -468,6 +468,7 @@ margin_bottom = 215.0
 rect_min_size = Vector2( 190, 100 )
 
 [node name="options" parent="." instance=ExtResource( 10 )]
+visible = false
 
 [connection signal="pressed" from="pause_menu/VBoxContainer/CenterContainer3/VBoxContainer/CenterContainer/resume_button" to="pause_menu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/CenterContainer3/VBoxContainer/CenterContainer2/options_button" to="pause_menu" method="_on_options_button_pressed"]

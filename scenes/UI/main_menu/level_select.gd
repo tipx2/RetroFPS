@@ -1,5 +1,6 @@
 extends ColorRect
 
+onready var main_menu = get_tree().get_nodes_in_group("main_menu")[0]
 onready var true_parent = get_tree().get_nodes_in_group("true_parent")[0]
 onready var cheat_code_detector = get_tree().get_nodes_in_group("cheat_detector")[0]
 

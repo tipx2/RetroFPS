@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/XTaKeRuX - Pursuing Darkness_no_intro.mp3-d9207fab436b1424445874652570f482.mp3str"
+
+[deps]
+
+source_file="res://assets/soundtrack/XTaKeRuX - Pursuing Darkness_no_intro.mp3"
+dest_files=[ "res://.import/XTaKeRuX - Pursuing Darkness_no_intro.mp3-d9207fab436b1424445874652570f482.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

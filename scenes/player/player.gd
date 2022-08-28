@@ -200,12 +200,14 @@ func switch_to_weapon(weapon):
 		update_hud_ammo()
 
 func give_key(colour):
-	if colour == "red":
-		red_key = true
-	elif colour == "blue":
-		blue_key = true
-	elif colour == "yellow":
-		yellow_key = true
+	match colour:
+		"red":
+			red_key = true
+		"blue":
+			blue_key = true
+		"yellow":
+			yellow_key = true
+
 	var colour_array = ["#db0d0d", "#1c4ad4", "#eddb11"]
 	var key_array = [red_key, blue_key, yellow_key]
 	for x in range(3):

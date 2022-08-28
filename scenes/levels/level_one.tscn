@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://assets/hdrs/rooitou_park_1k.hdr" type="Texture" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/blend_files/levels/level_one/bumpgrass.material" type="Material" id=8]
 [ext_resource path="res://assets/blend_files/levels/level_one/grounded_circle_raised.material" type="Material" id=9]
 [ext_resource path="res://scenes/level_parts/gate_opener/gate_opener.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/enemies/leech/leech.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/level_parts/enemy_spawning/spawn_point.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/pickups/ammo_pickups/pistol_ammo/pistol_ammo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/blend_files/levels/level_one/tree_billboard_001.material" type="Material" id=13]
 [ext_resource path="res://assets/materials/gates/red_gate.material" type="Material" id=14]
@@ -20,9 +20,11 @@
 [ext_resource path="res://assets/materials/gates/yellow_gate.material" type="Material" id=18]
 [ext_resource path="res://scenes/pickups/health_pickup/small_health_pickup/small_health_pickup.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scenes/enemies/bleeder/bleeder.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/level_parts/level_ender/level_ender.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/sound_effects/ambient/345851__hargissssound__spring-birds-raw-new-jersey.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/soundtrack/XTaKeRuX - Pursuing Darkness_no_intro.mp3" type="AudioStream" id=24]
+[ext_resource path="res://scenes/level_parts/music_toggle/music_toggle.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/level_parts/enemy_spawning/enemy_spawner.tscn" type="PackedScene" id=26]
 
 [sub_resource type="PanoramaSky" id=75]
 panorama = ExtResource( 1 )
@@ -691,6 +693,7 @@ collision_mask = 3
 shape = SubResource( 6 )
 
 [node name="Cube002" type="MeshInstance" parent="level_geom/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 0 )
 mesh = SubResource( 7 )
 skeleton = NodePath("../../../..")
 
@@ -1029,6 +1032,18 @@ collision_mask = 3
 [node name="CollisionShape" type="CollisionShape" parent="level_geom/tree_boards/Plane020/StaticBody"]
 shape = SubResource( 74 )
 
+[node name="Plane025" type="MeshInstance" parent="level_geom/tree_boards"]
+transform = Transform( 1, 0, 0, 0, 0.416, 0, 0, 0, 1, 0, 0.669164, -0.436639 )
+mesh = SubResource( 73 )
+skeleton = NodePath("../../..")
+
+[node name="StaticBody" type="StaticBody" parent="level_geom/tree_boards/Plane025"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="level_geom/tree_boards/Plane025/StaticBody"]
+shape = SubResource( 74 )
+
 [node name="Plane021" type="MeshInstance" parent="level_geom/tree_boards"]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.22988, 0, -3.87857 )
 mesh = SubResource( 73 )
@@ -1077,48 +1092,69 @@ collision_mask = 3
 [node name="CollisionShape" type="CollisionShape" parent="level_geom/tree_boards/Plane024/StaticBody"]
 shape = SubResource( 74 )
 
-[node name="level_gates" type="Spatial" parent="."]
+[node name="area_toggles" type="Spatial" parent="."]
 
-[node name="gate_opener" parent="level_gates" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1.417, 0, 0, 0, 1.262, -83.1808, 6.06912, 0 )
+[node name="enemy_spawner" parent="area_toggles" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 2.245, 0, 0, 0, 3, -78.7707, 7.22007, 0 )
+number = 1
+
+[node name="enemy_spawner2" parent="area_toggles" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 4.381, 0, 0, 0, 3, 4.38222, 5.75825, -32.1191 )
+number = 2
+
+[node name="enemy_spawner3" parent="area_toggles" instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, 3, 0, 4.381, 0, -1, 0, -1.31134e-07, 17.3442, 6.88579, 17.0885 )
+number = 3
+
+[node name="gate_opener" parent="area_toggles" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1.417, 0, 0, 0, 1.262, -81.9417, 6.06912, 0 )
 opener = true
 gate = NodePath("../regular_gate")
 
-[node name="regular_gate" parent="level_gates" instance=ExtResource( 7 )]
+[node name="gate_closer" parent="area_toggles" instance=ExtResource( 10 )]
+transform = Transform( 0.533, 0, 0, 0, 1.417, 0, 0, 0, 1.421, -78.6404, 6.06912, 0 )
+gate = NodePath("../regular_gate")
+
+[node name="music_toggle" parent="area_toggles" instance=ExtResource( 25 )]
+transform = Transform( 0.533, 0, 0, 0, 1.417, 0, 0, 0, 2.736, -79.7109, 6.069, 0 )
+soundtrack_off = NodePath("../../soundtrack_ambient")
+soundtrack_on = NodePath("../../soundtrack_combat")
+
+[node name="regular_gate" parent="area_toggles" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -81.8159, 6.47018, 0.105199 )
 
-[node name="red_gate" parent="level_gates" instance=ExtResource( 7 )]
+[node name="red_gate" parent="area_toggles" instance=ExtResource( 7 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -57.6422, 6.47018, -10.1151 )
 gate_material = ExtResource( 14 )
 
-[node name="blue_gate" parent="level_gates" instance=ExtResource( 7 )]
+[node name="blue_gate" parent="area_toggles" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7723, 6.47018, -4.26284 )
 gate_material = ExtResource( 17 )
 
-[node name="yellow_gate" parent="level_gates" instance=ExtResource( 7 )]
-transform = Transform( 1.112, 0, 0, 0, 1, 0, 0, 0, 1, 17.6424, 6.49856, 59.6981 )
+[node name="yellow_gate" parent="area_toggles" instance=ExtResource( 7 )]
+transform = Transform( 1.112, 0, 0, 0, 1, 0, 0, 0, 1, 17.6424, 6.64774, 59.6981 )
 gate_material = ExtResource( 18 )
 
-[node name="gate_opener2" parent="level_gates" instance=ExtResource( 16 )]
+[node name="gate_opener2" parent="area_toggles" instance=ExtResource( 16 )]
 transform = Transform( 0.707107, 0, 0.913582, 0, 1, 0, -0.707107, 0, 0.913582, -60.6366, 7.43508, -7.32601 )
 opener = true
 gate = NodePath("../red_gate")
 open_colour = "red"
 
-[node name="gate_opener3" parent="level_gates" instance=ExtResource( 16 )]
+[node name="gate_opener3" parent="area_toggles" instance=ExtResource( 16 )]
 transform = Transform( 0, 0, 1.292, 0, 1, 0, -1, 0, 0, 17.7297, 7.43508, -7.87115 )
 opener = true
 gate = NodePath("../blue_gate")
 open_colour = "blue"
 
-[node name="gate_opener4" parent="level_gates" instance=ExtResource( 16 )]
+[node name="gate_opener4" parent="area_toggles" instance=ExtResource( 16 )]
 transform = Transform( 0, 0, 1.292, 0, 1, 0, -1, 0, 0, 17.7297, 7.43508, 55.8714 )
 opener = true
 gate = NodePath("../yellow_gate")
 open_colour = "yellow"
 
-[node name="level_ender" parent="level_gates" instance=ExtResource( 22 )]
-transform = Transform( 1.453, 0, 0, 0, 1, 0, 0, 0, 1, 17.6454, 7.98775, 61.8959 )
+[node name="level_ender" parent="area_toggles" instance=ExtResource( 22 )]
+transform = Transform( 1.453, 0, 0, 0, 1, 0, 0, 0, 1, 17.6454, 5.49665, 61.8959 )
 
 [node name="keys" type="Spatial" parent="."]
 
@@ -1132,26 +1168,6 @@ colour = "blue"
 [node name="key3" parent="keys" instance=ExtResource( 15 )]
 transform = Transform( 0.650946, 0, 0.759124, 0, 1, 0, -0.759124, 0, 0.650946, 32.3894, 11.4328, 47.5008 )
 colour = "yellow"
-
-[node name="enemies" type="Spatial" parent="."]
-
-[node name="leech" parent="enemies" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.6309, 2.614, -0.60674 )
-
-[node name="leech2" parent="enemies" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2977, 2.614, 25.5176 )
-
-[node name="leech3" parent="enemies" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7666, 2.614, 25.6984 )
-
-[node name="leech4" parent="enemies" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7426, 2.614, 47.751 )
-
-[node name="bleeder" parent="enemies" instance=ExtResource( 21 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4641, 5.946, -38.3213 )
-
-[node name="bleeder3" parent="enemies" instance=ExtResource( 21 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.66129, 5.946, 35.825 )
 
 [node name="ammo_pickups" type="Spatial" parent="."]
 
@@ -1187,10 +1203,44 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7149, 2.6, -24.2035 )
 [node name="health3" parent="health_pickups" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.332, 2.6, -16.535 )
 
+[node name="enemy_spawns" type="Spatial" parent="."]
+
+[node name="spawn_point" parent="enemy_spawns" groups=["spawn_1"] instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.407, 3.8669, -6.24631 )
+spawn_path = "res://scenes/enemies/leech/leech.tscn"
+
+[node name="spawn_point5" parent="enemy_spawns" groups=["spawn_3"] instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.04, 3.8669, 52.3574 )
+spawn_path = "res://scenes/enemies/leech/leech.tscn"
+
+[node name="spawn_point6" parent="enemy_spawns" groups=["spawn_3"] instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4554, 3.8669, 46.7082 )
+spawn_path = "res://scenes/enemies/leech/leech.tscn"
+
+[node name="spawn_point2" parent="enemy_spawns" groups=["spawn_1"] instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.6191, 3.86689, 13.3639 )
+spawn_path = "res://scenes/enemies/leech/leech.tscn"
+
+[node name="spawn_point3" parent="enemy_spawns" groups=["spawn_2"] instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3815, 7.33228, -39.7694 )
+spawn_path = "res://scenes/enemies/bleeder/bleeder.tscn"
+
+[node name="spawn_point4" parent="enemy_spawns" groups=["spawn_3"] instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50261, 7.33228, 35.1957 )
+spawn_path = "res://scenes/enemies/bleeder/bleeder.tscn"
+
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -113.915, 3.606, 0 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="soundtrack_ambient" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 23 )
+volume_db = -5.0
 autoplay = true
+bus = "Soundtrack"
+
+[node name="soundtrack_combat" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 24 )
+volume_db = -10.0
 bus = "Soundtrack"

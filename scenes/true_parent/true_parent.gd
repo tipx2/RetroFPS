@@ -14,6 +14,6 @@ func switch_to_scene(scene1name, scene2):
 	var scene2_instance = scene2.instance()
 	add_child(scene2_instance)
 
-func music_fade_into(scene1, scene2):
-	scene1.get_node_or_null("musicFade").play("fadeOut")
-	scene2.get_node_or_null("musicFade").play("fadeIn")
+#func music_fade_into(scene1, scene2):
+#	scene1.get_node_or_null("musicFade").play("fadeOut")
+#	scene2.get_node_or_null("musicFade").play("fadeIn")

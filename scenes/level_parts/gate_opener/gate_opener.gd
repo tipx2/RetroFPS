@@ -10,6 +10,8 @@ func _on_Area_body_entered(body):
 				gate.open_gate()
 			else:
 				gate.close_gate()
+				for enemy in get_tree().get_nodes_in_group("enemies"):
+					enemy.visible = true
 			queue_free()
 
 func check_for_condition():

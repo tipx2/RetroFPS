@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/enemy_assets/leech/leechmouth.png" type="Texture" id=2]
 
 [sub_resource type="BoxShape" id=6]
+extents = Vector3( 1.7, 1.7, 1.7 )
 
 [sub_resource type="CapsuleMesh" id=2]
 
@@ -116,7 +117,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="mesh/attack_area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24481, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18749, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="mesh"]

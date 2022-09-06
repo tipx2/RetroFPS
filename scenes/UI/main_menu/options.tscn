@@ -13,7 +13,6 @@ shortcut = SubResource( 4 )
 
 [node name="options" type="ColorRect"]
 pause_mode = 2
-unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 101.0
@@ -74,52 +73,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Video/CenterContainer"]
-margin_left = 173.0
-margin_top = 158.0
-margin_right = 576.0
-margin_bottom = 266.0
-custom_constants/hseparation = -40
+margin_left = 231.0
+margin_top = 178.0
+margin_right = 517.0
+margin_bottom = 246.0
+custom_constants/hseparation = 1
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_top = 3.0
-margin_right = 274.0
-margin_bottom = 17.0
-text = "Display Mode"
+margin_top = 13.0
+margin_right = 135.0
+margin_bottom = 27.0
+text = "Fullscreen"
 
-[node name="display_options" type="OptionButton" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_left = 234.0
-margin_right = 403.0
-margin_bottom = 20.0
+[node name="fullscreen_button" type="CheckButton" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_right = 286.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 150, 0 )
-text = "Borderless Windowed"
-items = [ "Borderless Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
-selected = 0
+pressed = true
 
-[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_top = 37.0
-margin_right = 274.0
-margin_bottom = 51.0
-text = "Vsync"
+[node name="Label4" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
+margin_top = 49.0
+margin_right = 135.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 135, 0 )
+text = "Target FPS"
 
-[node name="vsync_button" type="CheckButton" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_left = 234.0
-margin_top = 24.0
-margin_right = 403.0
-margin_bottom = 64.0
-
-[node name="Label3" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_top = 72.0
-margin_right = 274.0
-margin_bottom = 103.0
-text = "Physics Interpolation
-(only enable if on more than 60hz monitor)"
-
-[node name="interp_button" type="CheckButton" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_left = 234.0
-margin_top = 68.0
-margin_right = 403.0
-margin_bottom = 108.0
+[node name="force_fps_box" type="SpinBox" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 44.0
+margin_right = 286.0
+margin_bottom = 68.0
+min_value = 60.0
+max_value = 240.0
+value = 60.0
 
 [node name="Audio" type="Tabs" parent="VBoxContainer/TabContainer"]
 visible = false
@@ -129,6 +119,16 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Audio/CenterContainer"]
+margin_left = 374.0
+margin_top = 212.0
+margin_right = 374.0
+margin_bottom = 212.0
 
 [node name="Gameplay" type="Tabs" parent="VBoxContainer/TabContainer"]
 visible = false
@@ -151,4 +151,5 @@ texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 1 )
 expand = true
 
+[connection signal="toggled" from="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

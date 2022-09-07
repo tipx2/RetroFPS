@@ -41,6 +41,10 @@ window/stretch/aspect="keep_height"
 
 scene_naming=2
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/SliderLabel/plugin.cfg" )
+
 [input]
 
 move_forward={

@@ -27,7 +27,7 @@ func _ready():
 	
 	# audio
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(saved_master_volume/100 * 2))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Soundtrack"), linear2db(saved_master_volume/100 * 2))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Soundtrack"), linear2db(saved_music_volume/100 * 2))
 	
 	var menu_instance = main_menu.instance()
 	add_child(menu_instance)
@@ -43,6 +43,6 @@ func load_settings(settings_file):
 	saved_fps = f.get_var()
 	saved_fullscreen = f.get_var()
 	saved_master_volume = f.get_var()
-	#saved_music_volume = f.get_var()
+	saved_music_volume = f.get_var()
 	# put all saved settings here
 	f.close()

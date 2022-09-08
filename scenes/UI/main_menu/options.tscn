@@ -169,6 +169,7 @@ rect_min_size = Vector2( 135, 0 )
 text = "Music Volume"
 
 [node name="music_volume_slider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 139.0
 margin_top = 20.0
 margin_right = 339.0

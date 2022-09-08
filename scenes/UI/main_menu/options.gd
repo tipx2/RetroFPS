@@ -15,6 +15,7 @@ func _on_TextureButton_pressed():
 	
 	# audio
 	true_parent.saved_master_volume = $"%master_volume_slider".value
+	true_parent.saved_music_volume = $"%music_volume_slider".value
 	
 	# save the true_parent settings values to a file
 	save_settings(settings)
@@ -25,7 +26,7 @@ func _ready():
 	$"%force_fps_box".value = true_parent.saved_fps
 	$"%fullscreen_button".pressed = true_parent.saved_fullscreen
 	$"%master_volume_slider".value = true_parent.saved_master_volume
-	#$"%music_volume_slider".value = true_parent.saved_music_volume
+	$"%music_volume_slider".value = true_parent.saved_music_volume
 
 func _on_fullscreen_button_toggled(button_pressed):
 	# toggle the fullscreen properties

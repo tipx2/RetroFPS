@@ -127,15 +127,16 @@ func spawn_projectile():
 
 func look_at_player():
 	var player_pos = player.global_transform.origin
-	player_pos.y = 0
+	player_pos.y = global_transform.origin.y
 	mesh.look_at(player_pos, Vector3.UP)
+	$CollisionShape.look_at(player_pos, Vector3.UP)
 
 func _on_Timer_timeout():
 	var player_pos = player.global_transform.origin
 	path = NavigationServer.map_get_path(RID(navigation), global_transform.origin,
 		player_pos, optimise_pathfinding, 1)
 	path_index = 1
-	if look_on_update:
+	if look_on_update and state != ATTACKING:
 		look_at_player()
 	draw_path(path)
 

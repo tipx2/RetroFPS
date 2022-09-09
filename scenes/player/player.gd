@@ -150,11 +150,13 @@ func update_hud_ammo():
 	ammo_type_label.text = weapon_arr[current_weapon].capitalize()
 
 func damage(amount):
-	if amount < 0:
+	if amount < 0: # runs if player heals
 		pickup_popup.text = "You just healed for " + str(amount * -1) + " health"
 		if UI_animation.is_playing():
 			UI_animation.stop()
 		UI_animation.play("pickup_popup_fade")
+	else:
+		$"%gameplay_UI".splatter_blood(amount * 2)
 	player_health -= amount
 	if MAX_PLAYER_HEALTH < player_health:
 		player_health = MAX_PLAYER_HEALTH

@@ -410,6 +410,18 @@ rect_pivot_offset = Vector2( 250, 250 )
 color = Color( 0.737255, 0.737255, 0.737255, 1 )
 script = ExtResource( 11 )
 
+[node name="ColorRect" type="ColorRect" parent="win_screen"]
+show_behind_parent = true
+anchor_left = -1.38
+anchor_top = -1.088
+anchor_right = 2.384
+anchor_bottom = 2.094
+margin_left = -0.0999756
+margin_top = -0.0399933
+margin_right = 0.0799561
+margin_bottom = -0.980011
+color = Color( 0, 0, 0, 0.513726 )
+
 [node name="ReferenceRect" type="ReferenceRect" parent="win_screen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -474,6 +486,97 @@ margin_right = 255.0
 margin_bottom = 215.0
 rect_min_size = Vector2( 190, 100 )
 
+[node name="death_screen" type="ColorRect" parent="." groups=["death_screen"]]
+pause_mode = 2
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -85.0
+margin_right = 127.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 190, 127 )
+rect_pivot_offset = Vector2( 250, 250 )
+color = Color( 0.737255, 0.737255, 0.737255, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="death_screen"]
+show_behind_parent = true
+anchor_left = -1.38
+anchor_top = -1.088
+anchor_right = 2.384
+anchor_bottom = 2.094
+margin_left = -0.0999756
+margin_top = -0.0399933
+margin_right = 0.0799561
+margin_bottom = -0.980011
+color = Color( 0, 0, 0, 0.513726 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="death_screen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color( 0.462745, 0.462745, 0.462745, 1 )
+border_width = 4.8
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="death_screen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 190, 0 )
+
+[node name="spacer" type="CenterContainer" parent="death_screen/VBoxContainer"]
+margin_right = 255.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 190, 10 )
+
+[node name="CenterContainer" type="CenterContainer" parent="death_screen/VBoxContainer"]
+margin_top = 14.0
+margin_right = 255.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 190, 0 )
+
+[node name="Label" type="Label" parent="death_screen/VBoxContainer/CenterContainer"]
+margin_left = 95.0
+margin_right = 159.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "YOU DIED"
+
+[node name="spacer2" type="CenterContainer" parent="death_screen/VBoxContainer"]
+margin_top = 32.0
+margin_right = 255.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 190, 25 )
+
+[node name="CenterContainer3" type="CenterContainer" parent="death_screen/VBoxContainer"]
+margin_top = 61.0
+margin_right = 255.0
+margin_bottom = 111.0
+rect_min_size = Vector2( 190, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="death_screen/VBoxContainer/CenterContainer3"]
+margin_left = 27.0
+margin_right = 227.0
+margin_bottom = 50.0
+custom_constants/separation = 13
+
+[node name="CenterContainer3" type="CenterContainer" parent="death_screen/VBoxContainer/CenterContainer3/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 50.0
+
+[node name="menu_button" type="Button" parent="death_screen/VBoxContainer/CenterContainer3/VBoxContainer/CenterContainer3"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+text = "MAIN MENU"
+
+[node name="spacer3" type="CenterContainer" parent="death_screen/VBoxContainer"]
+margin_top = 115.0
+margin_right = 255.0
+margin_bottom = 215.0
+rect_min_size = Vector2( 190, 100 )
+
 [node name="options" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
 visible = false
@@ -482,3 +585,4 @@ visible = false
 [connection signal="pressed" from="pause_menu/VBoxContainer/CenterContainer3/VBoxContainer/CenterContainer2/options_button" to="pause_menu" method="_on_options_button_pressed"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/CenterContainer3/VBoxContainer/CenterContainer3/menu_button" to="pause_menu" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="win_screen/VBoxContainer/CenterContainer3/VBoxContainer/CenterContainer3/menu_button" to="win_screen" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="death_screen/VBoxContainer/CenterContainer3/VBoxContainer/CenterContainer3/menu_button" to="win_screen" method="_on_menu_button_pressed"]

@@ -10,7 +10,5 @@ export(int) var level
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("player"):
-		get_tree().paused = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		true_parent.progression[level] = true
-		player.win_screen.visible = true
+		player.win()

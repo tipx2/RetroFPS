@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/weapons/pistol/pistol.tscn" type="PackedScene" id=2]
@@ -13,6 +13,48 @@
 height = 2.0
 
 [sub_resource type="CylinderShape" id=2]
+
+[sub_resource type="Animation" id=5]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.28086, 0.312477 ), Vector3( 0, -1.5, 0.515 ), Vector3( -0.3, -1.5, 0.515 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 3,
+"values": [ Vector3( 0, 0, 90 ), Vector3( 0, 0, 90 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "display_death_screen"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "headache_mode"
@@ -54,11 +96,12 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00527093, 0 )
 projection = 2
 size = 0.017
-frustum_offset = Vector2( 0.004, -0.003 )
+frustum_offset = Vector2( -6.25002e-05, -2.32831e-10 )
 near = 0.01
 far = 8192.0
 
 [node name="camera_animator" type="AnimationPlayer" parent="head/Camera"]
+anims/die = SubResource( 5 )
 anims/headache_mode = SubResource( 4 )
 
 [node name="fists" parent="head" groups=["weapons"] instance=ExtResource( 5 )]

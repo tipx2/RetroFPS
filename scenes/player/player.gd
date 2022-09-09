@@ -38,6 +38,7 @@ var grounded
 # ammo and health values
 const MAX_PLAYER_HEALTH = 100
 var player_health = 100
+var dying = false
 var ammo_array = []
 
 var max_ammo_array = [0, 50, 400, 200, 15]
@@ -53,6 +54,7 @@ onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
 onready var icon_backgrounds = get_tree().get_nodes_in_group("icon_background")
 
 onready var win_screen = get_tree().get_nodes_in_group("win_screen")[0]
+onready var death_screen = get_tree().get_nodes_in_group("death_screen")[0]
 
 # keys
 var red_key = false
@@ -70,17 +72,18 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	# aiming
-	if event is InputEventMouseMotion:
-		rotate_y(deg2rad(-event.relative.x * mouse_sens))
-		head.rotate_x(deg2rad(-event.relative.y * mouse_sens))
-		head.rotation.x = clamp(head.rotation.x, deg2rad(-80), deg2rad(89))
-	# weapon scrolling
-	elif event is InputEventMouseButton:
-		if event.button_index == BUTTON_WHEEL_UP:
-			switch_to_weapon(current_weapon - 1)
-		if event.button_index == BUTTON_WHEEL_DOWN:
-			switch_to_weapon(current_weapon + 1)
+	if not dying:
+		# aiming
+		if event is InputEventMouseMotion:
+			rotate_y(deg2rad(-event.relative.x * mouse_sens))
+			head.rotate_x(deg2rad(-event.relative.y * mouse_sens))
+			head.rotation.x = clamp(head.rotation.x, deg2rad(-80), deg2rad(89))
+		# weapon scrolling
+		elif event is InputEventMouseButton:
+			if event.button_index == BUTTON_WHEEL_UP:
+				switch_to_weapon(current_weapon - 1)
+			if event.button_index == BUTTON_WHEEL_DOWN:
+				switch_to_weapon(current_weapon + 1)
 
 func _physics_process(delta):
 	direction = Vector3()
@@ -155,11 +158,13 @@ func damage(amount):
 		if UI_animation.is_playing():
 			UI_animation.stop()
 		UI_animation.play("pickup_popup_fade")
-	else:
+	else: # runs if player takes damage
 		$"%gameplay_UI".splatter_blood(amount * 2)
 	player_health -= amount
 	if MAX_PLAYER_HEALTH < player_health:
 		player_health = MAX_PLAYER_HEALTH
+	elif player_health <= 0:
+		die()
 	update_hud_health()
 
 func add_ammo(weapon_num, amount):
@@ -210,12 +215,25 @@ func give_key(colour):
 			blue_key = true
 		"yellow":
 			yellow_key = true
-
 	var colour_array = ["#db0d0d", "#1c4ad4", "#eddb11"]
 	var key_array = [red_key, blue_key, yellow_key]
 	for x in range(3):
 		if key_array[x]:
 			key_icons[x].color = Color(colour_array[x])
+
+func win():
+	get_tree().paused = true
+	win_screen.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func die():
+	dying = true
+	camera_animator.play("die")
+
+func display_death_screen():
+	get_tree().paused = true
+	death_screen.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_cheat_detected(cheat):
 	if cheat == "pfa": # power full ammo

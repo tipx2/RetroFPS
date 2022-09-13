@@ -11,4 +11,5 @@ export(int) var level
 func _on_Area_body_entered(body):
 	if body.is_in_group("player"):
 		true_parent.progression[level] = true
+		true_parent.save_progression()
 		player.win()

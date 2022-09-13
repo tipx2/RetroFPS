@@ -54,6 +54,7 @@ func _on_music_volume_slider_value_changed(value):
 func fill_saves_with(boo):
 	for value in range(len(true_parent.progression)):
 		true_parent.progression[value] = boo
+	true_parent.save_progression()
 
 func _on_delete_my_save_pressed():
 	fill_saves_with(false)

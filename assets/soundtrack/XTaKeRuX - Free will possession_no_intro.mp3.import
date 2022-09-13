@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/XTaKeRuX - Free will possession_no_intro.mp3-0e3ab18ad9dbc5c889de81c2d083945a.mp3str"
+
+[deps]
+
+source_file="res://assets/soundtrack/XTaKeRuX - Free will possession_no_intro.mp3"
+dest_files=[ "res://.import/XTaKeRuX - Free will possession_no_intro.mp3-0e3ab18ad9dbc5c889de81c2d083945a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

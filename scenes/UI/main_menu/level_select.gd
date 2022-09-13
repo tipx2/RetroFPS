@@ -10,7 +10,7 @@ var level_button_names = []
 var proto_world = load("res://scenes/proto_world/proto_world.tscn")
 
 # IMPORTANT: this must be in the order that the buttons are
-var levels = [load("res://scenes/levels/level_one.tscn")]
+var levels = [load("res://scenes/levels/level_one.tscn"), load("res://scenes/levels/level_two.tscn")]
 
 func _ready():
 	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")

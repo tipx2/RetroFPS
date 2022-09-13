@@ -1,5 +1,8 @@
 extends KinematicBody
 
+# true parent
+onready var true_parent = get_tree().get_nodes_in_group("true_parent")[0]
+
 # cheat detector
 onready var cheat_code_detector = get_tree().get_nodes_in_group("cheat_detector")[0]
 onready var camera_animator = get_node("head/Camera/camera_animator")
@@ -21,6 +24,9 @@ onready var switch_timer = get_node("switch_timer")
 # aiming
 var mouse_sens = 0.2
 onready var head = $head
+
+var x_flipper = 1
+var y_flipper = 1
 
 # movement
 var direction = Vector3()
@@ -65,6 +71,8 @@ onready var key_icons = get_tree().get_nodes_in_group("key_icon")
 
 func _ready():
 	camera.set_frustum_offset(Vector2(0,0))
+	update_mouse_flippers(true_parent.invert_mouse_x, true_parent.invert_mouse_y)
+	update_camera_fov(true_parent.player_fov)
 	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")
 	for w in weapons:
 		weapon_arr.append(w.name)
@@ -75,8 +83,8 @@ func _input(event):
 	if not dying:
 		# aiming
 		if event is InputEventMouseMotion:
-			rotate_y(deg2rad(-event.relative.x * mouse_sens))
-			head.rotate_x(deg2rad(-event.relative.y * mouse_sens))
+			rotate_y(deg2rad(-event.relative.x * x_flipper * mouse_sens))
+			head.rotate_x(deg2rad(-event.relative.y * y_flipper * mouse_sens))
 			head.rotation.x = clamp(head.rotation.x, deg2rad(-80), deg2rad(89))
 		# weapon scrolling
 		elif event is InputEventMouseButton:
@@ -101,8 +109,9 @@ func _physics_process(delta):
 		gravity_vec = Vector3.UP * jump_force
 	
 	# movement
-	direction += -transform.basis.x * (Input.get_action_strength("move_left") - Input.get_action_strength("move_right"))
-	direction += -transform.basis.z * (Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward"))
+	if not dying:
+		direction += -transform.basis.x * (Input.get_action_strength("move_left") - Input.get_action_strength("move_right"))
+		direction += -transform.basis.z * (Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward"))
 	
 	# weapon switching
 	if Input.is_action_just_pressed("swap_to_fists"):
@@ -141,6 +150,13 @@ func _physics_process(delta):
 			Engine.time_scale = 0.02
 		else:
 			Engine.time_scale = 1
+
+func update_mouse_flippers(x, y):
+	x_flipper = (-1 if x else 1)
+	y_flipper = (-1 if y else 1)
+
+func update_camera_fov(fov):
+	camera.size = fov/1000
 
 func update_hud_health():
 	health_label.text = str(player_health)

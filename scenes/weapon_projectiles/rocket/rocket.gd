@@ -14,6 +14,7 @@ func _init():
 	time = 1
 
 func hit_enemies():
+	direction = Vector3.ZERO
 	particles_emitted = true
 	explosive_mesh.set_visible(true)
 	explosive_mesh.rotation_degrees = Vector3(rand_range(0,360), rand_range(0,360), rand_range(0,360))

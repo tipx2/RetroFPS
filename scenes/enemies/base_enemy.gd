@@ -129,7 +129,8 @@ func look_at_player():
 	var player_pos = player.global_transform.origin
 	player_pos.y = global_transform.origin.y
 	mesh.look_at(player_pos, Vector3.UP)
-	$CollisionShape.look_at(player_pos, Vector3.UP)
+	if look_on_update:
+		$CollisionShape.look_at(player_pos, Vector3.UP)
 
 func _on_Timer_timeout():
 	var player_pos = player.global_transform.origin

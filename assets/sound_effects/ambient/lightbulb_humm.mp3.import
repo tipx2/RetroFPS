@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lightbulb_humm.mp3-bbd028215d68eddac6bf781886c1bd60.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/ambient/lightbulb_humm.mp3"
+dest_files=[ "res://.import/lightbulb_humm.mp3-bbd028215d68eddac6bf781886c1bd60.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

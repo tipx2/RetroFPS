@@ -116,6 +116,7 @@ visible = false
 
 [node name="level_select" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 101.0

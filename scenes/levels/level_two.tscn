@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/hdrs/rooitou_park_1k.hdr" type="Texture" id=1]
+[ext_resource path="res://assets/hdrs/satara_night_1k.exr" type="Texture" id=1]
 [ext_resource path="res://assets/soundtrack/XTaKeRuX - Free will possession_no_intro.mp3" type="AudioStream" id=2]
-[ext_resource path="res://assets/sound_effects/ambient/345851__hargissssound__spring-birds-raw-new-jersey.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/environmental_models/floor_grass.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/environmental_models/fence_post.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/environmental_models/bush_back.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/level_parts/enemy_spawning/enemy_spawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/environmental_models/lamp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sound_effects/ambient/322549__vacuumfan7072__mcdonaldsbathroom.wav" type="AudioStream" id=10]
 
 [sub_resource type="PanoramaSky" id=75]
 panorama = ExtResource( 1 )
@@ -11,20 +17,177 @@ panorama = ExtResource( 1 )
 background_mode = 2
 background_sky = SubResource( 75 )
 background_sky_orientation = Basis( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08 )
+background_energy = 0.17
 glow_intensity = 5.14
 adjustment_enabled = true
 adjustment_brightness = 0.95
 adjustment_contrast = 1.1
 adjustment_saturation = 1.2
 
+[sub_resource type="NavigationMesh" id=77]
+vertices = PoolVector3Array( -7.43928, -1.21776, 9.54072, -7.43928, -1.21776, 18.7907, -6.93928, -1.21776, 18.7907, -6.93928, -1.21776, 7.29072, -16.1893, -0.967761, -14.4593, -25.9393, -0.967761, -14.4593, -25.9393, -0.967761, -7.20928, -7.43928, -1.21776, 0.54072, -7.43928, -1.21776, 9.54072, -6.93928, -1.21776, 7.29072, -6.93928, -1.21776, -4.20928, -25.9393, -0.967761, -7.20928, -25.9393, -0.967761, 0.29072, -16.6893, -0.967761, 0.29072, -6.93928, -1.21776, -4.20928, -6.18928, -1.21776, -14.4593, -16.1893, -0.967761, -14.4593, -6.93928, -1.21776, -4.20928, -6.18928, -1.21776, -4.45928, -6.18928, -1.21776, -14.4593, -16.6893, -0.967761, 0.29072, -7.43928, -1.21776, 0.54072, -6.93928, -1.21776, -4.20928, 6.31072, -1.21776, -4.70928, 7.06072, -1.21776, -4.95928, 7.06072, -1.21776, -14.4593, 0.310719, -1.21776, -14.4593, -6.18928, -1.21776, -14.4593, -6.18928, -1.21776, -4.45928, -5.68928, -1.21776, -4.20928, 0.310719, -1.21776, -14.4593, 6.31072, -1.21776, -4.70928, 0.310719, -1.21776, -14.4593, -5.68928, -1.21776, -4.20928, -5.68928, -1.21776, -2.20928, 6.31072, -1.21776, -2.20928, 7.06072, -1.21776, -14.4593, 7.06072, -1.21776, -4.95928, 7.56072, -1.21776, -4.70928, 7.56072, -1.21776, -4.70928, 7.56072, -1.21776, 0.54072, 16.8107, -0.967761, 0.29072, 16.8107, -0.967761, 0.29072, 26.3107, -0.967761, 0.29072, 26.3107, -0.967761, -7.20928, 16.5607, -0.967761, -14.4593, 7.06072, -1.21776, -14.4593, 7.56072, -1.21776, -4.70928, 26.3107, -0.967761, -7.20928, 26.3107, -0.967761, -14.4593, 16.5607, -0.967761, -14.4593, -1.43928, -1.21776, 15.0407, 1.06072, -1.21776, 15.0407, 1.31072, -1.21776, 14.2907, -1.68928, -1.21776, 14.2907, -5.68928, -1.21776, 6.04072, -1.68928, -1.21776, 14.2907, 1.31072, -1.21776, 14.2907, 6.31072, -1.21776, 6.04072, 6.31072, -1.21776, -2.20928, -5.68928, -1.21776, -2.20928, -5.68928, -1.21776, 6.04072, -5.68928, -1.21776, 14.5407, -1.68928, -1.21776, 14.2907, 1.31072, -1.21776, 14.2907, 6.31072, -1.21776, 14.2907, 6.31072, -1.21776, 6.04072, 1.06072, -1.21776, 31.5407, 1.31072, -1.21776, 32.0407, 3.81072, -1.21776, 32.0407, 5.31072, -1.21776, 29.2907, 1.06072, -1.21776, 15.0407, -1.43928, -1.21776, 15.0407, -1.68928, -1.21776, 16.0407, -2.68928, -1.21776, 32.0407, 0.0607185, -1.21776, 32.0407, 0.310719, -1.21776, 31.5407, -5.43928, -1.21776, 29.0407, 1.56072, -1.21776, 16.0407, 1.06072, -1.21776, 15.0407, -1.68928, -1.21776, 16.0407, -5.43928, -1.21776, 22.2907, 5.31072, -1.21776, 22.5407, 5.31072, -1.21776, 15.7907, 1.56072, -1.21776, 16.0407, 0.310719, -1.21776, 31.5407, 1.06072, -1.21776, 31.5407, 5.31072, -1.21776, 29.2907, 0.310719, -1.21776, 31.5407, 5.31072, -1.21776, 29.2907, 5.31072, -1.21776, 22.5407, 1.56072, -1.21776, 16.0407, -5.43928, -1.21776, 22.2907, -5.43928, -1.21776, 29.0407, -1.68928, -1.21776, 16.0407, -5.43928, -1.21776, 15.7907, -5.43928, -1.21776, 22.2907 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 6, 5, 4 ), PoolIntArray( 8, 7, 9 ), PoolIntArray( 9, 7, 10 ), PoolIntArray( 12, 11, 13 ), PoolIntArray( 13, 11, 16 ), PoolIntArray( 13, 16, 14 ), PoolIntArray( 14, 16, 15 ), PoolIntArray( 19, 18, 17 ), PoolIntArray( 22, 21, 20 ), PoolIntArray( 24, 23, 25 ), PoolIntArray( 25, 23, 26 ), PoolIntArray( 28, 27, 29 ), PoolIntArray( 29, 27, 30 ), PoolIntArray( 34, 33, 35 ), PoolIntArray( 35, 33, 31 ), PoolIntArray( 31, 33, 32 ), PoolIntArray( 38, 37, 36 ), PoolIntArray( 41, 40, 39 ), PoolIntArray( 43, 42, 44 ), PoolIntArray( 44, 42, 45 ), PoolIntArray( 45, 42, 47 ), PoolIntArray( 45, 47, 46 ), PoolIntArray( 50, 49, 48 ), PoolIntArray( 51, 54, 52 ), PoolIntArray( 52, 54, 53 ), PoolIntArray( 56, 55, 57 ), PoolIntArray( 57, 55, 58 ), PoolIntArray( 58, 55, 60 ), PoolIntArray( 58, 60, 59 ), PoolIntArray( 63, 62, 61 ), PoolIntArray( 66, 65, 64 ), PoolIntArray( 68, 67, 69 ), PoolIntArray( 69, 67, 70 ), PoolIntArray( 73, 72, 71 ), PoolIntArray( 75, 74, 76 ), PoolIntArray( 76, 74, 77 ), PoolIntArray( 79, 78, 80 ), PoolIntArray( 80, 78, 81 ), PoolIntArray( 84, 83, 82 ), PoolIntArray( 87, 86, 85 ), PoolIntArray( 88, 93, 89 ), PoolIntArray( 89, 93, 90 ), PoolIntArray( 90, 93, 92 ), PoolIntArray( 90, 92, 91 ), PoolIntArray( 96, 95, 94 ) ]
+geometry_source_geometry_mode = 1
+geometry_source_group_name = "nav_mesh"
+
 [node name="level_two" type="Spatial" groups=["level_parent"]]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 76 )
 
+[node name="Navigation" type="Navigation" parent="." groups=["nav"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68155, 15.0416 )
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 77 )
+
 [node name="level_geom" type="Spatial" parent="."]
 
+[node name="fence_1" type="Spatial" parent="level_geom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.429407, 1.0881, 39.2325 )
+
+[node name="fence_post" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42985, 0.202538, -5.96779 )
+
+[node name="fence_post2" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42985, 0.202538, -1.82457 )
+
+[node name="fence_post3" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.42985, 0.202538, 2.42993 )
+
+[node name="fence_post4" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 5.79658, 0.202538, 6.47351 )
+
+[node name="fence_post5" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 3.76194, 0.202538, 8.38467 )
+
+[node name="fence_post6" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 0.0823336, 0.202538, 8.38467 )
+
+[node name="fence_post7" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -3.62413, 0.202538, 7.60577 )
+
+[node name="fence_post8" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, -5.64747, 0.202538, 4.44543 )
+
+[node name="fence_post9" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, -5.64747, 0.202538, 0.443302 )
+
+[node name="fence_post10" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( -1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, -5.64747, 0.202538, -3.48035 )
+
+[node name="fence_post11" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 5.76204e-08, 0, 1, 0, -5.76204e-08, 0, 1, -5.64747, 0.202538, -7.93659 )
+
+[node name="fence_post12" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 5.76204e-08, 0, 1, 0, -5.76204e-08, 0, 1, 6.40021, 0.202538, -8.02891 )
+
+[node name="fence_post13" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( -1.01332e-07, 0, 1, 0, 1, 0, -1, 0, -1.01332e-07, 3.45396, 0.202538, -9.09257 )
+
+[node name="fence_post14" parent="level_geom/fence_1" instance=ExtResource( 4 )]
+transform = Transform( 1.88755e-07, 0, -1, 0, 1, 0, 1, 0, 1.88755e-07, -2.91066, 0.202538, -9.09257 )
+
+[node name="bush_back_start" type="Spatial" parent="level_geom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23004, 38.6697 )
+
+[node name="bush_back" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83317, -3.92357, -0.796951 )
+
+[node name="bush_back6" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0.822343, 0.568992, 0, -0.568992, 0.822343, 0, 0, 0, 1, -6.70726, -0.721845, -0.796951 )
+
+[node name="bush_back7" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0.581484, 0.402338, 0.707107, -0.568992, 0.822343, 0, -0.581484, -0.402338, 0.707107, -4.39072, -0.721845, 8.11502 )
+
+[node name="bush_back8" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0, 0, 1, -0.568992, 0.822343, 0, -0.822343, -0.568992, 0, 0.184769, -0.721846, 9.13438 )
+
+[node name="bush_back13" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0, 0, 1, -0.959072, 0.283162, 0, -0.283162, -0.959072, 0, 0.184769, 2.20557, 8.03566 )
+
+[node name="bush_back9" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -0.71217, -0.492762, 0.5, -0.568992, 0.822343, 0, -0.411171, -0.284496, -0.866025, 6.36125, -0.721846, 5.69069 )
+
+[node name="bush_back10" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -0.822343, -0.568992, -5.96046e-08, -0.568992, 0.822343, 0, 5.96046e-08, 2.98023e-08, -1, 7.00863, -0.645584, -3.00985 )
+
+[node name="bush_back11" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -0.405509, -0.914091, -5.08772e-08, -0.914091, 0.405509, -3.10519e-08, 5.96046e-08, 2.98023e-08, -1, 5.93672, 1.96718, -2.96452 )
+
+[node name="bush_back12" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0.405509, 0.914091, 1.383e-07, -0.914091, 0.405509, -3.10519e-08, -9.50553e-08, -1.09715e-07, 1, -5.32462, 2.11719, -1.08486 )
+
+[node name="bush_back17" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83317, -3.92357, -18.5856 )
+
+[node name="bush_back18" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0.822343, 0.568992, 0, -0.568992, 0.822343, 0, 0, 0, 1, -6.70726, -0.721845, -18.5856 )
+
+[node name="bush_back19" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0.405509, 0.914091, 1.383e-07, -0.914091, 0.405509, -3.10519e-08, -9.50553e-08, -1.09715e-07, 1, -5.32462, 2.11719, -18.8736 )
+
+[node name="bush_back2" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -5.83317, -3.92357, 6.13365 )
+
+[node name="bush_back3" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, -0.559508, -3.92357, 8.45353 )
+
+[node name="bush_back4" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 5.65874, -3.92357, 6.37668 )
+
+[node name="bush_back5" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 6.24938, -3.92357, -1.22568 )
+
+[node name="bush_back14" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -0.822343, -0.568992, -5.96046e-08, -0.568992, 0.822343, 0, 5.96046e-08, 2.98023e-08, -1, 7.00863, -0.645584, -20.7777 )
+
+[node name="bush_back15" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -0.405509, -0.914091, -5.08772e-08, -0.914091, 0.405509, -3.10519e-08, 5.96046e-08, 2.98023e-08, -1, 5.93672, 1.96718, -20.7324 )
+
+[node name="bush_back16" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 6.24938, -3.92357, -18.9936 )
+
+[node name="floor_grass_1" type="Spatial" parent="level_geom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1664, 17.3361 )
+
+[node name="floor_grass" parent="level_geom/floor_grass_1" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.1664, 22.6639 )
+
+[node name="floor_grass2" parent="level_geom/floor_grass_1" instance=ExtResource( 3 )]
+transform = Transform( -1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 0, -3.20918, 7.55388 )
+
+[node name="floor_grass3" parent="level_geom/floor_grass_1" instance=ExtResource( 3 )]
+transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 0, -3.21099, -9.38223 )
+
+[node name="floor_grass4" parent="level_geom/floor_grass_1" instance=ExtResource( 3 )]
+transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 17.5827, -3.18755, -9.38223 )
+
+[node name="floor_grass5" parent="level_geom/floor_grass_1" instance=ExtResource( 3 )]
+transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -17.1148, -3.18755, -9.38223 )
+
+[node name="deco" type="Spatial" parent="level_geom"]
+
+[node name="lamp" parent="level_geom/deco" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73218, 1.68898, 28.2839 )
+
+[node name="lamp2" parent="level_geom/deco" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00391, 1.68898, 28.2839 )
+seconds = 1.0
+
+[node name="lamp3" parent="level_geom/deco" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00391, 1.68898, 13.9092 )
+seconds = 4.0
+
+[node name="lamp4" parent="level_geom/deco" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5733, 1.68898, 13.9092 )
+seconds = 5.0
+
 [node name="area_toggles" type="Spatial" parent="."]
+
+[node name="enemy_spawner" parent="area_toggles" instance=ExtResource( 8 )]
+transform = Transform( 4.516, 0, 0, 0, 3.14, 0, 0, 0, 1, 0, 3.88264, 28.8162 )
+number = 1
 
 [node name="keys" type="Spatial" parent="."]
 
@@ -36,8 +199,8 @@ environment = SubResource( 76 )
 
 [node name="soundtrack_ambient" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 23 )
-volume_db = -5.0
+stream = ExtResource( 10 )
+volume_db = -30.0
 autoplay = true
 bus = "Soundtrack"
 
@@ -46,3 +209,6 @@ pause_mode = 2
 stream = ExtResource( 2 )
 volume_db = -10.0
 bus = "Soundtrack"
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24324, 44.9672 )

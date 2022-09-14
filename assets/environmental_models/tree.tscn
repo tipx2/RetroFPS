@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/blend_files/level_geom/tree/Material_001.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=81]
+resource_name = "tree_Plane"
+surfaces/0 = {
+"aabb": AABB( -1, 0, -1, 2.00001, 1e-05, 2.00001 ),
+"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 127, 63, 0, 60, 0, 60, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 127, 63, 0, 60, 0, 0, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 127, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 127, 63, 0, 0, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=82]
+resource_name = "tree_Plane001"
+surfaces/0 = {
+"aabb": AABB( -1, 0, -1, 2.00001, 1e-05, 2.00001 ),
+"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 127, 63, 0, 60, 0, 60, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 127, 63, 0, 60, 0, 0, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 127, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 127, 63, 0, 0, 0, 60 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[node name="tree" type="Spatial"]
+transform = Transform( 0.274206, 0, 0.1217, 0, 0.3, 0, -0.1217, 0, 0.274206, -1.20156, 0.538332, 0.088014 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Plane" type="MeshInstance" parent="."]
+transform = Transform( -1.77063, -2.67358e-07, 2.06031e-14, 0, -7.73967e-08, -3.12157, 2.67358e-07, -1.77063, 1.36448e-07, -0.209365, 0, 0 )
+mesh = SubResource( 81 )
+
+[node name="Plane001" type="MeshInstance" parent="."]
+transform = Transform( 0, 1.77063, -9.303e-08, 5.27689e-08, 0, -3.12157, -1.77063, -5.27689e-08, 0, 0, 0, 0 )
+mesh = SubResource( 82 )

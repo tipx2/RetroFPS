@@ -3,5 +3,7 @@ extends Spatial
 export(float) var seconds
 
 func _ready():
-	yield(get_tree().create_timer(seconds), "timeout")
+	$Timer.start(seconds)
+
+func _on_Timer_timeout():
 	$AnimationPlayer.play("flicker")

@@ -10,4 +10,5 @@ func spawn_enemy():
 	yield(get_tree().create_timer(0.1), "timeout")
 	$AudioStreamPlayer3D.play(0.2)
 	get_parent().get_parent().add_child(enemy_instance)
+	enemy_instance.add_to_group(get_groups()[0] + "_wave") # spawn_n_wave
 	enemy_instance.global_transform.origin = global_transform.origin

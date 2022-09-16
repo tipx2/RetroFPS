@@ -13,4 +13,8 @@ script = ExtResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 79 )
 
+[node name="check_for_death" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="check_for_death" to="." method="_on_check_for_death_timeout"]

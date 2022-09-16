@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/sound_effects/level/light/404049__deathscyp__breaker-1.wav" type="AudioStream" id=1]
+[ext_resource path="res://scenes/level_parts/toggle_light/toggle_light.gd" type="Script" id=2]
+[ext_resource path="res://assets/sound_effects/level/light/light_off.mp3" type="AudioStream" id=3]
+
+[node name="toggle_light" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+light_color = Color( 0.733333, 0.937255, 1, 1 )
+light_energy = 0.0
+spot_range = 182.502
+spot_angle = 37.44
+
+[node name="on_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="off_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

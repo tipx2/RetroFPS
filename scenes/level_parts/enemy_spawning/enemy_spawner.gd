@@ -2,6 +2,7 @@ extends Node
 
 export(int) var number
 
+export(bool) var gateopener = false
 export(NodePath) var gate
 
 func _ready():
@@ -18,6 +19,6 @@ func _on_Area_body_entered(body):
 
 func _on_check_for_death_timeout():
 	var enemies = get_tree().get_nodes_in_group("spawn_" + str(number) + "_wave")
-	if not enemies:
+	if gateopener and (not enemies):
 		gate.open_gate()
 		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/hdrs/satara_night_1k.exr" type="Texture" id=1]
 [ext_resource path="res://assets/soundtrack/XTaKeRuX - Free will possession_no_intro.mp3" type="AudioStream" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/level_parts/enemy_spawning/enemy_spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environmental_models/lamp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sound_effects/ambient/322549__vacuumfan7072__mcdonaldsbathroom.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenes/level_parts/music_toggle/music_toggle.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/environmental_models/bush.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/level_parts/gates/gate.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/environmental_models/grass_circle.tscn" type="PackedScene" id=14]
@@ -376,7 +377,13 @@ gate = NodePath("../../level_geom/gates_1/gate")
 [node name="enemy_spawner" parent="area_toggles" instance=ExtResource( 8 )]
 transform = Transform( -1.97401e-07, 0, -1, 0, 3.14, 0, 4.516, 0, -4.37114e-08, 65.3359, 3.88264, 2.7452 )
 number = 1
+gateopener = true
 gate = NodePath("../../level_geom/red_area/gate")
+
+[node name="music_toggle" parent="area_toggles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 2.819, 0, 0, 0, 4.372, 66.7237, 3.62341, 3.36513 )
+soundtrack_off = NodePath("../../soundtrack_ambient")
+soundtrack_on = NodePath("../../soundtrack_combat")
 
 [node name="keys" type="Spatial" parent="."]
 

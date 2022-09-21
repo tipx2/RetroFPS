@@ -14,11 +14,12 @@ func _on_Area_body_entered(body):
 			spawn_point.spawn_enemy()
 			yield(get_tree().create_timer(0.1), "timeout")
 		$Area/CollisionShape.disabled = true
-		$check_for_death.start()
+		if gateopener:
+			$check_for_death.start()
 
 
 func _on_check_for_death_timeout():
 	var enemies = get_tree().get_nodes_in_group("spawn_" + str(number) + "_wave")
-	if gateopener and (not enemies):
+	if (not enemies):
 		gate.open_gate()
 		queue_free()

@@ -11,34 +11,22 @@ loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("OmniLight:light_energy")
 tracks/0/interp = 0
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5, 2.2, 2.3, 2.5, 4.3, 4.8, 4.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.6, 2.2, 2.3, 4.8, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 3.0, 0.0, 3.0, 0.0, 3.0, 0.0, 3.0, 0.0, 3.0 ]
+"values": [ 3.0, 0.0, 3.0, 0.0, 3.0, 0.0, 3.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Cylinder:mesh:surface_1/material:emission_enabled")
+tracks/1/path = NodePath("AudioStreamPlayer3D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5, 2.2, 2.3, 2.5, 4.3, 4.8, 4.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false, true, false, true, false, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 3.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,

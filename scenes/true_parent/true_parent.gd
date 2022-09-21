@@ -19,7 +19,6 @@ var progression = [false,false, false, false, false] # etc
 
 var main_menu = load("res://scenes/UI/main_menu/main_menu.tscn")
 
-
 func _ready():
 	# load in the settings variables
 	load_settings(settings)

@@ -216,7 +216,7 @@ text = "Player FOV"
 [node name="player_fov" type="SpinBox" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
 unique_name_in_owner = true
 margin_left = 205.0
-margin_right = 279.0
+margin_right = 337.0
 margin_bottom = 36.0
 min_value = 1.0
 value = 70.0
@@ -232,7 +232,7 @@ text = "Invert Mouse Y"
 unique_name_in_owner = true
 margin_left = 205.0
 margin_top = 40.0
-margin_right = 279.0
+margin_right = 337.0
 margin_bottom = 80.0
 
 [node name="Label3" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
@@ -246,7 +246,7 @@ text = "Invert Mouse X"
 unique_name_in_owner = true
 margin_left = 205.0
 margin_top = 84.0
-margin_right = 279.0
+margin_right = 337.0
 margin_bottom = 124.0
 
 [node name="clear_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]

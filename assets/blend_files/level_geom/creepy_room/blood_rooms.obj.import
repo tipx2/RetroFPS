@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/blood_rooms.obj-e09174dc7f6d9ff7561b8469f1b1ec15.mesh"
+
+[deps]
+
+files=[ "res://.import/blood_rooms.obj-e09174dc7f6d9ff7561b8469f1b1ec15.mesh" ]
+
+source_file="res://assets/blend_files/level_geom/creepy_room/blood_rooms.obj"
+dest_files=[ "res://.import/blood_rooms.obj-e09174dc7f6d9ff7561b8469f1b1ec15.mesh", "res://.import/blood_rooms.obj-e09174dc7f6d9ff7561b8469f1b1ec15.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

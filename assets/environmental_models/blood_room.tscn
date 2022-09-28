@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/blend_files/level_geom/creepy_room/bloodroom.png" type="Texture" id=1]
+[ext_resource path="res://assets/blend_files/level_geom/creepy_room/blood_rooms.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "pulse"
+length = 0.5
+loop = true
+
+[node name="blood_room" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/pulse = SubResource( 2 )

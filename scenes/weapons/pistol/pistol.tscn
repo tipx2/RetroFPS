@@ -1,32 +1,138 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/weapons/pistol/pistol.gd" type="Script" id=1]
+[ext_resource path="res://assets/!important_assets/weapons/pistol/colour_grid.png" type="Texture" id=2]
+[ext_resource path="res://assets/!important_assets/weapons/pistol/rusty_pistol.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/!important_assets/weapons/casing/casing_texture.png" type="Texture" id=4]
+[ext_resource path="res://assets/!important_assets/weapons/casing/casing.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/sound_effects/player/weapon/pistol_sound.wav" type="AudioStream" id=6]
 
-[sub_resource type="CubeMesh" id=1]
-size = Vector3( 1.172, 0.226, 0.222 )
+[sub_resource type="SpatialMaterial" id=7]
+flags_vertex_lighting = true
+albedo_texture = ExtResource( 2 )
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.654902, 0.654902, 0.654902, 1 )
-metallic = 0.91
-roughness = 0.24
+[sub_resource type="SpatialMaterial" id=8]
+flags_vertex_lighting = true
+albedo_texture = ExtResource( 4 )
+roughness = 0.37
 
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 0.455, 0.226, 0.222 )
-
-[sub_resource type="Animation" id=4]
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:rotation_degrees")
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("casing_mesh:translation:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.02, 0.5 ),
+"points": PoolRealArray( -3.5279e-09, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("casing_mesh:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.0996261, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("casing_mesh:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -0.0192911, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("pistol_mesh:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 5 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 15 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pistol_mesh:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.02, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -0.5, 0.1, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("casing_mesh:translation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.190456, -0.01, -1.16312, 0.01, 1.16312, -1.68887, -0.32, -0.0375612, 0.32, 0.0375612 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("casing_mesh:translation:z")
+tracks/3/interp = 2
+tracks/3/loop_wrap = false
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.01, 0.06, 0.39 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -0.0192911, -0.6, -0.4 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("casing_mesh:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("casing_mesh:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -37,46 +143,27 @@ length = 0.25
 resource_name = "switch_out"
 length = 0.6
 step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 2.64 ),
-"update": 0,
-"values": [ Vector3( -0.0423017, 0, -0.853675 ), Vector3( -0.042, -2, -0.854 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MeshInstance2:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 2.64 ),
-"update": 0,
-"values": [ Vector3( -0.492948, -0.194134, -0.853675 ), Vector3( -0.493, -2, -0.854 ) ]
-}
 
 [node name="pistol" type="Spatial"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.996505, -0.0835329, 0, 0.0835329, 0.996505, 0, 0, 0, 1, -0.0423017, 0, -0.00658038 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+[node name="pistol_mesh" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 7 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 0.591732, -0.806135, -1.7846e-08, 0.806135, 0.591732, 3.52373e-08, -1.7846e-08, -3.52373e-08, 1, -0.492948, -0.194134, -0.0065804 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 2 )
+[node name="casing_mesh" type="MeshInstance" parent="."]
+transform = Transform( -2.18557e-09, 0.088, -2.18557e-09, -0.05, -3.8466e-09, -2.18557e-09, -2.18557e-09, 3.8466e-09, 0.05, -3.5279e-09, 0.0996261, -0.0192911 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 9 )
 anims/shoot = SubResource( 4 )
 anims/switch_in = SubResource( 6 )
 anims/switch_out = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Sound Effects"

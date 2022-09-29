@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/!important_assets/weapons/pistol/rusty_pistol.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://assets/!important_assets/weapons/casing/casing_texture.png" type="Texture" id=4]
 [ext_resource path="res://assets/!important_assets/weapons/casing/casing.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://assets/sound_effects/player/weapon/pistol_sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sound_effects/player/weapon/gun_shot_sfx2.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpatialMaterial" id=7]
 flags_vertex_lighting = true
@@ -22,7 +22,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("pistol_mesh:rotation_degrees")
 tracks/0/interp = 2
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
@@ -34,7 +34,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/path = NodePath("pistol_mesh:translation")
 tracks/1/interp = 2
-tracks/1/loop_wrap = true
+tracks/1/loop_wrap = false
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
@@ -170,4 +170,5 @@ anims/switch_out = SubResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -5.0
 bus = "Sound Effects"

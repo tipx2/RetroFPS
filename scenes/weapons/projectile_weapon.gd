@@ -8,12 +8,14 @@ onready var player = get_parent().get_parent()
 
 onready var muzzle = get_tree().get_nodes_in_group("muzzle")[0]
 onready var animation_player = get_node("AnimationPlayer")
-
+onready var sound_effect = get_node_or_null("AudioStreamPlayer")
 
 func shoot():
 	if Input.is_action_pressed("shoot") and !animation_player.is_playing():
 		if player.ammo_array[player.weapon_arr.find(name)] > 0:
 			player.add_ammo(player.weapon_arr.find(name), -ammo_amount)
+			if sound_effect:
+				sound_effect.set_pitch_scale(rand_range(0.95, 1.3))
 			animation_player.play("shoot")
 			fire_projectile()
 		else:

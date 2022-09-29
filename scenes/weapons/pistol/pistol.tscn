@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/!important_assets/weapons/casing/casing.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://assets/sound_effects/player/weapon/gun_shot_sfx2.wav" type="AudioStream" id=6]
 
+
 [sub_resource type="SpatialMaterial" id=7]
 flags_vertex_lighting = true
 albedo_texture = ExtResource( 2 )

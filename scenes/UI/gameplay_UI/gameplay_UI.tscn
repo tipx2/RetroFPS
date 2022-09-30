@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/temp_assets/Aa4diZG.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/temp_assets/temp_icons/pistol_icon.png" type="Texture" id=2]
@@ -13,7 +13,74 @@
 [ext_resource path="res://scenes/UI/gameplay_UI/win_screen.gd" type="Script" id=11]
 [ext_resource path="res://scenes/UI/gameplay_UI/gameplay_UI.gd" type="Script" id=12]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=10]
+resource_name = "machine_gun_ammo_get"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background4/flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "pistol_ammo_get"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background2/flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "reset"
+
+[sub_resource type="Animation" id=12]
+resource_name = "rocket_launcher_ammo_get"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background5/flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "shotgun_ammo_get"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background3/flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
 resource_name = "pickup_popup_fade"
 length = 2.0
 tracks/0/type = "value"
@@ -170,6 +237,16 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 40, 0 )
 color = Color( 0.243137, 0.243137, 0.243137, 1 )
 
+[node name="flash" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background2"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 4.0
+margin_bottom = 6.0
+color = Color( 0.858824, 0.901961, 0.129412, 1 )
+
 [node name="pistol_icon" type="TextureRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -182,6 +259,16 @@ margin_right = 128.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 0 )
 color = Color( 0.243137, 0.243137, 0.243137, 1 )
+
+[node name="flash" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background3"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 4.0
+margin_bottom = 6.0
+color = Color( 0.858824, 0.901961, 0.129412, 1 )
 
 [node name="shotgun_icon" type="TextureRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background3"]
 anchor_right = 1.0
@@ -196,6 +283,16 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 40, 0 )
 color = Color( 0.243137, 0.243137, 0.243137, 1 )
 
+[node name="flash" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background4"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 4.0
+margin_bottom = 6.0
+color = Color( 0.858824, 0.901961, 0.129412, 1 )
+
 [node name="machine_gun_icon" type="TextureRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -208,6 +305,16 @@ margin_right = 216.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 0 )
 color = Color( 0.243137, 0.243137, 0.243137, 1 )
+
+[node name="flash" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background5"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+margin_top = -5.0
+margin_right = 4.0
+margin_bottom = 6.0
+color = Color( 0.858824, 0.901961, 0.129412, 1 )
 
 [node name="rocket_launcher_icon" type="TextureRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos/Icon_background5"]
 anchor_right = 1.0
@@ -278,7 +385,14 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="UI_animation" type="AnimationPlayer" parent="."]
-anims/pickup_popup_fade = SubResource( 2 )
+anims/machine_gun_ammo_get = SubResource( 10 )
+anims/pistol_ammo_get = SubResource( 6 )
+anims/reset = SubResource( 13 )
+anims/rocket_launcher_ammo_get = SubResource( 12 )
+anims/shotgun_ammo_get = SubResource( 11 )
+
+[node name="popup_anim" type="AnimationPlayer" parent="."]
+anims/pickup_popup_fade = SubResource( 9 )
 
 [node name="pause_menu" type="ColorRect" parent="." groups=["pause_menu"]]
 pause_mode = 2

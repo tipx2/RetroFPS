@@ -1,0 +1,8 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://assets/blend_files/level_geom/house/buildings_old_3030_3730_Small.jpg" type="Texture" id=1]
+
+[resource]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 2.26, 6, 1 )
+uv1_offset = Vector3( 0.003, 0, 0 )

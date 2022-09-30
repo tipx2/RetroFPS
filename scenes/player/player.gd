@@ -54,7 +54,7 @@ onready var health_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxCon
 onready var ammo_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_amount")
 onready var ammo_type_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_type")
 
-onready var pickup_popup = get_node("GUI/gameplay_UI/pickup_popup")
+onready var gameplay_UI = get_node("GUI/gameplay_UI")
 onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
 
 onready var icon_backgrounds = get_tree().get_nodes_in_group("icon_background")
@@ -158,6 +158,9 @@ func update_mouse_flippers(x, y):
 func update_camera_fov(fov):
 	camera.size = fov/1000
 
+func update_mouse_sens(sens):
+	mouse_sens = sens/100.0
+
 func update_hud_health():
 	health_label.text = str(player_health)
 
@@ -170,10 +173,7 @@ func update_hud_ammo():
 
 func damage(amount):
 	if amount < 0: # runs if player heals
-		pickup_popup.text = "You just healed for " + str(amount * -1) + " health"
-		if UI_animation.is_playing():
-			UI_animation.stop()
-		UI_animation.play("pickup_popup_fade")
+		gameplay_UI.get_health(amount)
 	else: # runs if player takes damage
 		$"%gameplay_UI".splatter_blood(amount * 2)
 	player_health -= amount
@@ -185,10 +185,7 @@ func damage(amount):
 
 func add_ammo(weapon_num, amount):
 	if amount > 0:
-		pickup_popup.text = "You just picked up " + weapon_arr[weapon_num].capitalize() + " ammo"
-		if UI_animation.is_playing():
-			UI_animation.stop()
-		UI_animation.play("pickup_popup_fade")
+		gameplay_UI.get_ammo(weapon_arr[weapon_num])
 	ammo_array[weapon_num] += amount
 	if ammo_array[weapon_num] > max_ammo_array[weapon_num]:
 		ammo_array[weapon_num] = max_ammo_array[weapon_num]
@@ -265,3 +262,7 @@ func _on_cheat_detected(cheat):
 			camera.set_frustum_offset(Vector2(0,0))
 		else:
 			camera_animator.play("headache_mode")
+	elif cheat == "pfk":
+		give_key("red")
+		give_key("yellow")
+		give_key("blue")

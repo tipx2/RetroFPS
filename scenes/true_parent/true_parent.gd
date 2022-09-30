@@ -17,6 +17,7 @@ var saved_music_volume;
 var player_fov;
 var invert_mouse_y;
 var invert_mouse_x;
+var mouse_sens;
 
 var progression = [false,false, false, false, false] # etc 
 # one bool for each level
@@ -73,5 +74,6 @@ func load_settings(settings_file):
 	player_fov = f.get_var()
 	invert_mouse_x = f.get_var()
 	invert_mouse_y = f.get_var()
+	mouse_sens = f.get_var()
 	# put all saved settings here
 	f.close()

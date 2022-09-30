@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/buildings_old_3030_3730_Small.jpg-c2b43daa1b437b65ab443ed61d430397.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/blend_files/level_geom/house/buildings_old_3030_3730_Small.jpg"
+dest_files=[ "res://.import/buildings_old_3030_3730_Small.jpg-c2b43daa1b437b65ab443ed61d430397.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=1
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

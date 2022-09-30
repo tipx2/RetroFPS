@@ -11,6 +11,8 @@ data = PoolVector3Array( -3.9227, -0.2277, -4.6892, -3.9227, 0.2446, -6.2522, -3
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="StaticBody" type="StaticBody" parent="Cube001" index="0"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube001/StaticBody" index="0"]
 shape = SubResource( 1 )

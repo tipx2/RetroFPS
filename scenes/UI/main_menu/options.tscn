@@ -56,6 +56,7 @@ tab_align = 0
 use_hidden_tabs_for_min_size = true
 
 [node name="Video" type="Tabs" parent="VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 46.0
@@ -186,7 +187,6 @@ __meta__ = {
 visibility_rule = 0
 
 [node name="Gameplay" type="Tabs" parent="VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 46.0
@@ -196,14 +196,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="vbox" type="VBoxContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer"]
-margin_left = 195.0
-margin_top = 101.0
-margin_right = 561.0
-margin_bottom = 313.0
+margin_left = 176.0
+margin_top = 81.0
+margin_right = 581.0
+margin_bottom = 333.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
-margin_right = 366.0
-margin_bottom = 124.0
+margin_right = 405.0
+margin_bottom = 164.0
 custom_constants/hseparation = 39
 columns = 2
 
@@ -216,7 +216,7 @@ text = "Player FOV"
 [node name="player_fov" type="SpinBox" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
 unique_name_in_owner = true
 margin_left = 205.0
-margin_right = 337.0
+margin_right = 405.0
 margin_bottom = 36.0
 min_value = 1.0
 value = 70.0
@@ -232,7 +232,7 @@ text = "Invert Mouse Y"
 unique_name_in_owner = true
 margin_left = 205.0
 margin_top = 40.0
-margin_right = 337.0
+margin_right = 405.0
 margin_bottom = 80.0
 
 [node name="Label3" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
@@ -246,21 +246,52 @@ text = "Invert Mouse X"
 unique_name_in_owner = true
 margin_left = 205.0
 margin_top = 84.0
-margin_right = 337.0
+margin_right = 405.0
 margin_bottom = 124.0
 
-[node name="clear_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
+[node name="Label4" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
 margin_top = 128.0
-margin_right = 366.0
-margin_bottom = 168.0
+margin_right = 166.0
+margin_bottom = 164.0
+text = "Mouse Sens"
+
+[node name="sens_slider" type="HSlider" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
+unique_name_in_owner = true
+margin_left = 205.0
+margin_top = 128.0
+margin_right = 405.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 200, 0 )
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer/sens_slider"]
+margin_right = 24.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "100"
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_initialized_": true
+}
+visibility_rule = 0
+custom_format = "%d%%"
+
+[node name="clear_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
+margin_top = 168.0
+margin_right = 405.0
+margin_bottom = 208.0
 rect_min_size = Vector2( 150, 0 )
 theme = ExtResource( 6 )
 text = "Completely Wipe Save"
 
 [node name="full_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
-margin_top = 172.0
-margin_right = 366.0
-margin_bottom = 212.0
+margin_top = 212.0
+margin_right = 405.0
+margin_bottom = 252.0
 theme = ExtResource( 6 )
 text = "Completely Fill Save (dev only)"
 

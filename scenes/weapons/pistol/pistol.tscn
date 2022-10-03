@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/weapons/pistol/pistol.gd" type="Script" id=1]
-[ext_resource path="res://assets/!important_assets/weapons/pistol/colour_grid.png" type="Texture" id=2]
+[ext_resource path="res://assets/!important_assets/weapons/pistol/colour_grid_2.png" type="Texture" id=2]
 [ext_resource path="res://assets/!important_assets/weapons/pistol/rusty_pistol.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://assets/!important_assets/weapons/casing/casing_texture.png" type="Texture" id=4]
 [ext_resource path="res://assets/!important_assets/weapons/casing/casing.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://assets/sound_effects/player/weapon/gun_shot_sfx2.wav" type="AudioStream" id=6]
-
 
 [sub_resource type="SpatialMaterial" id=7]
 flags_vertex_lighting = true
@@ -16,6 +15,9 @@ albedo_texture = ExtResource( 2 )
 flags_vertex_lighting = true
 albedo_texture = ExtResource( 4 )
 roughness = 0.37
+
+[sub_resource type="Animation" id=9]
+length = 0.001
 
 [sub_resource type="Animation" id=4]
 length = 0.5
@@ -165,6 +167,7 @@ mesh = ExtResource( 5 )
 material/0 = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 9 )
 anims/shoot = SubResource( 4 )
 anims/switch_in = SubResource( 6 )
 anims/switch_out = SubResource( 5 )

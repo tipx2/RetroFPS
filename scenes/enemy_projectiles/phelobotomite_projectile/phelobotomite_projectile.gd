@@ -1,6 +1,6 @@
 extends "res://scenes/enemy_projectiles/enemy_projectile.gd"
 
-var spread = 0.2
+var spread = 0.5
 
 func _init():
 	speed = rand_range(50, 75)

@@ -18,7 +18,8 @@ func splatter_blood(amount):
 func get_ammo(type):
 	pickup_popup.text = "You just picked up " + type.capitalize() + " ammo"
 	stop_run_anim()
-	UI_animation.play(type + "_ammo_get")
+	UI_animation.play("reset")
+	UI_animation.queue(type + "_ammo_get")
 
 func get_health(amount):
 	pickup_popup.text = "You just healed for " + str(amount * -1) + " health"

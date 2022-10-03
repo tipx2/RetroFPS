@@ -97,7 +97,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00527093, 0 )
 projection = 2
 size = 0.017
 frustum_offset = Vector2( -6.25002e-05, -2.32831e-10 )
-near = 0.01
 far = 8192.0
 
 [node name="camera_animator" type="AnimationPlayer" parent="head/Camera"]

@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/particle_images/smoke_07.png" type="Texture" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 vertex_color_use_as_albedo = true
@@ -26,6 +28,36 @@ linear_accel = -50.0
 [sub_resource type="QuadMesh" id=3]
 size = Vector2( 0.1, 0.1 )
 
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.681055 )
+colors = PoolColorArray( 1, 1, 1, 0.243137, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+width = 10
+
+[sub_resource type="ParticlesMaterial" id=4]
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angle_random = 1.0
+color_ramp = SubResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+size = Vector2( 2, 2 )
+
 [node name="spark_particles" type="Particles"]
 material_override = SubResource( 1 )
 emitting = false
@@ -35,3 +67,11 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 2 )
 draw_pass_1 = SubResource( 3 )
+
+[node name="dust_particles" type="Particles" parent="."]
+emitting = false
+lifetime = 0.1
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 6 )

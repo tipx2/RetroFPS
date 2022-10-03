@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/hdrs/satara_night_1k.exr" type="Texture" id=1]
 [ext_resource path="res://assets/soundtrack/XTaKeRuX - Free will possession_no_intro.mp3" type="AudioStream" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/environmental_models/van.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/level_parts/level_ender/level_ender.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/materials/gates/yellow_gate.material" type="Material" id=31]
 
 [sub_resource type="PanoramaSky" id=75]
 panorama = ExtResource( 1 )
@@ -697,6 +698,10 @@ transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -
 [node name="van" parent="level_geom/third_area" instance=ExtResource( 29 )]
 transform = Transform( 0.571745, 0, -0.820431, 0, 1, 0, 0.820431, 0, 0.571745, -75.863, 2.03268, -41.6491 )
 
+[node name="gate" parent="level_geom/third_area" instance=ExtResource( 13 )]
+transform = Transform( 0.24331, 0, -0.815108, 0, 0.42, 0, 0.342345, 0, 0.57931, -72.5703, 3.79905, -43.8314 )
+gate_material = ExtResource( 31 )
+
 [node name="bush_back52" parent="level_geom/third_area" instance=ExtResource( 6 )]
 transform = Transform( -0.353557, 0, -0.332072, 0, 1.683, 0, 0.935413, 0, -0.125513, 5.26938, 1.01968, -3.7457 )
 
@@ -1062,8 +1067,7 @@ omni_range = 300.0
 [node name="toggle_light4" parent="light" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.0964, 25.4049, 116.663 )
 
-[node name="OmniLight2" type="OmniLight" parent="light"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.6142, 22.8866 )
+[node name="directional" type="DirectionalLight" parent="light"]
+transform = Transform( 0.82953, -0.0616899, -0.555044, 0.479755, 0.587455, 0.651715, 0.285859, -0.806902, 0.516908, 0, 40.6142, 22.8866 )
 light_color = Color( 0.494118, 0.843137, 0.964706, 1 )
 light_energy = 0.1
-omni_range = 300.0

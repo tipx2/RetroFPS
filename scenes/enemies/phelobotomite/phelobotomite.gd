@@ -11,7 +11,7 @@ func _init():
 	projectile = load("res://scenes/enemy_projectiles/phelobotomite_projectile/phelobotomite_projectile.tscn")
 
 func spawn_projectile():
-	for _x in range(6):
+	for _x in range(3):
 		var projectile_instance = projectile.instance()
 		get_tree().get_root().add_child(projectile_instance)
 		projectile_instance.set_target(player, muzzle)

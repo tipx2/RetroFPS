@@ -704,6 +704,12 @@ transform = Transform( -5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, -
 
 [node name="third_area" type="Spatial" parent="level_geom"]
 
+[node name="gate_opener" parent="level_geom/third_area" instance=ExtResource( 23 )]
+transform = Transform( 0.510332, 0, 0.266713, 0, 0.478, 0, -0.357338, 0, 0.380906, -71.9511, 3.9937, -44.316 )
+opener = true
+gate = NodePath("../gate")
+open_colour = "yellow"
+
 [node name="van" parent="level_geom/third_area" instance=ExtResource( 29 )]
 transform = Transform( 0.571745, 0, -0.820431, 0, 1, 0, 0.820431, 0, 0.571745, -75.863, 2.03268, -41.6491 )
 
@@ -810,6 +816,9 @@ transform = Transform( 0.435628, 0.25151, 0.864275, -0.5, 0.866025, -1.83838e-07
 [node name="gates" type="Spatial" parent="level_geom/third_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.3519 )
 
+[node name="gate" parent="level_geom/third_area/gates" instance=ExtResource( 13 )]
+transform = Transform( 0.44152, 0, 0.988775, 0, 1, 0, -2.92183, 0, 0.149414, -12.5435, 5.25636, -15.8256 )
+
 [node name="gate_red" parent="level_geom/third_area/gates" instance=ExtResource( 13 )]
 transform = Transform( 0.999947, 0, 0.0102798, 0, 1, 0, -0.0102798, 0, 0.999947, -0.672211, 5.1488, 15.5835 )
 gate_material = ExtResource( 22 )
@@ -894,7 +903,20 @@ shape = SubResource( 78 )
 transform = Transform( -0.275772, 0, -0.961223, 0, 1, 0, 0.961223, 0, -0.275772, -80.7843, 0, 8.38235 )
 shape = SubResource( 78 )
 
+[node name="lamppost" type="Spatial" parent="level_geom/third_area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.1385 )
+
 [node name="area_toggles" type="Spatial" parent="."]
+
+[node name="enemy_spawner6" parent="area_toggles" instance=ExtResource( 8 )]
+transform = Transform( -3.13848e-07, 0, -1, 0, 2.933, 0, 7.18, 0, -4.37114e-08, 26.6238, 5.11623, -35.8919 )
+number = 6
+gateopener = true
+gate = NodePath("../../level_geom/third_area/gates/gate")
+
+[node name="enemy_spawner7" parent="area_toggles" instance=ExtResource( 8 )]
+transform = Transform( -3.13848e-07, 0, -1, 0, 2.933, 0, 7.18, 0, -4.37114e-08, -17.6328, 5.11623, -35.8919 )
+number = 7
 
 [node name="level_ender" parent="area_toggles" instance=ExtResource( 30 )]
 transform = Transform( 0.263767, 0, 0.43305, 0, 0.317, 0, -0.184692, 0, 0.61846, -75.2978, 4.03125, -41.9495 )
@@ -1090,15 +1112,42 @@ spawn_path = "res://scenes/enemies/bleeder/bleeder.tscn"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90.0057, 2.48513, 141.079 )
 spawn_path = "res://scenes/enemies/exsanguinist/exsanguinist.tscn"
 
-[node name="spawn_5" type="Spatial" parent="enemy_spawns"]
+[node name="spawn_6" type="Spatial" parent="enemy_spawns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.0069, -1.90735e-06, -38.5545 )
 
-[node name="spawn_point" parent="enemy_spawns/spawn_5" groups=["spawn_5"] instance=ExtResource( 19 )]
-transform = Transform( 0.951067, 0, 0.308984, 0, 1, 0, -0.308984, 0, 0.951067, 64.4657, 3.16973, -34.7644 )
+[node name="spawn_point2" parent="enemy_spawns/spawn_6" groups=["spawn_6"] instance=ExtResource( 19 )]
+transform = Transform( 0.951067, 0, 0.308984, 0, 1, 0, -0.308984, 0, 0.951067, 20.4587, 3.16973, 3.79008 )
 spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
 
-[node name="spawn_point2" parent="enemy_spawns/spawn_5" groups=["spawn_5"] instance=ExtResource( 19 )]
-transform = Transform( 0.951067, 0, 0.308984, 0, 1, 0, -0.308984, 0, 0.951067, 59.8472, 3.16973, -46.6618 )
+[node name="spawn_point3" parent="enemy_spawns/spawn_6" groups=["spawn_6"] instance=ExtResource( 19 )]
+transform = Transform( 0.951067, 0, 0.308984, 0, 1, 0, -0.308984, 0, 0.951067, 15.8403, 3.16973, -8.10728 )
 spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
+[node name="spawn_point" parent="enemy_spawns/spawn_6" groups=["spawn_6"] instance=ExtResource( 19 )]
+transform = Transform( 0.962668, 0, 0.270684, 0, 1, 0, -0.270684, 0, 0.962668, 32.2854, 3.0876, -2.25266 )
+spawn_path = "res://scenes/enemies/exsanguinist/exsanguinist.tscn"
+
+[node name="spawn_7" type="Spatial" parent="enemy_spawns"]
+
+[node name="spawn_point" parent="enemy_spawns/spawn_7" groups=["spawn_7"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.4144, 2.8931, -50.583 )
+spawn_path = "res://scenes/enemies/bleeder/bleeder.tscn"
+
+[node name="spawn_point4" parent="enemy_spawns/spawn_7" groups=["spawn_7"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.9759, 2.8931, -53.9914 )
+spawn_path = "res://scenes/enemies/bleeder/bleeder.tscn"
+
+[node name="spawn_point5" parent="enemy_spawns/spawn_7" groups=["spawn_7"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.9411, 2.8931, -42.955 )
+spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
+[node name="spawn_point2" parent="enemy_spawns/spawn_7" groups=["spawn_7"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.4596, 2.8931, -39.2397 )
+spawn_path = "res://scenes/enemies/leech/leech.tscn"
+
+[node name="spawn_point3" parent="enemy_spawns/spawn_7" groups=["spawn_7"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.8886, 2.8931, -49.8808 )
+spawn_path = "res://scenes/enemies/leech/leech.tscn"
 
 [node name="soundtrack_ambient" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -1129,6 +1178,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -91.0964, 25.4049, 79.2352 )
 
 [node name="fullbright" type="OmniLight" parent="light"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5166, 74.955, 70.8171 )
+visible = false
 light_energy = 4.0
 editor_only = true
 omni_range = 300.0

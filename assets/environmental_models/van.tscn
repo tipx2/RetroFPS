@@ -18,7 +18,7 @@ emission_energy = 0.02
 emission_operator = 0
 emission_on_uv2 = false
 uv1_scale = Vector3( 2.238, 2.074, 1 )
-uv1_offset = Vector3( -1.354, 0, 0 )
+uv1_offset = Vector3( -1.3, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape" id=5]
 points = PoolVector3Array( -1, -25, -1, -1, -25, 1, -1, 25, -1, 1, -25, -1, 1, -25, 1, -1, 25, 1, 1, 25, -1, 1, 25, 1 )
@@ -28,9 +28,23 @@ data = PoolVector3Array( -13.7476, -10.1851, -40.0589, -18.7533, -10.1851, -40.0
 
 [sub_resource type="Animation" id=6]
 resource_name = "portal_spin"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance/MeshInstance2:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.3, 0, 0 ), Vector3( 2.7, 0, 0 ) ]
+}
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 2.22465, 2.26653, 1 )
+extents = Vector3( 2.79827, 2.26653, 0.123641 )
 
 [node name="van" type="Spatial"]
 
@@ -61,12 +75,19 @@ collision_mask = 3
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "portal_spin"
 anims/portal_spin = SubResource( 6 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.22886, -3.10007 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.22886, -4.00106 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.351466, 0, 0.936201, 0, 1, 0, -0.936201, 0, 0.351466, 2.47302, 6.22886, -4.78954 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -0.69276, 0, 0.721168, 0, 1, 0, -0.721168, 0, -0.69276, -2.80105, 6.22886, -4.83349 )
 shape = SubResource( 7 )

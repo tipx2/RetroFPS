@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/soundtrack/Scott Holmes Music - Energy.mp3" type="AudioStream" id=1]
 [ext_resource path="res://scenes/UI/main_menu/main_menu.gd" type="Script" id=2]
@@ -6,12 +6,8 @@
 [ext_resource path="res://assets/temp_assets/buttonnormal.png" type="Texture" id=4]
 [ext_resource path="res://assets/temp_assets/buttonhover.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/UI_assets/logos/atrophy_logo.png" type="Texture" id=6]
-[ext_resource path="res://assets/temp_assets/level.png" type="Texture" id=7]
 [ext_resource path="res://scenes/UI/main_menu/options.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/UI/main_menu/level_select.gd" type="Script" id=9]
-[ext_resource path="res://assets/temp_assets/cross.png" type="Texture" id=10]
-[ext_resource path="res://assets/temp_assets/tick.png" type="Texture" id=11]
-[ext_resource path="res://assets/temp_assets/Base Profile Screenshot 2022.08.26 - 19.12.55.24.png" type="Texture" id=12]
 [ext_resource path="res://assets/UI_assets/fonts/button_font.tres" type="DynamicFont" id=13]
 [ext_resource path="res://assets/UI_assets/themes/buttons_theme.tres" type="Theme" id=14]
 [ext_resource path="res://scenes/UI/main_menu/logo_shake.gd" type="Script" id=15]
@@ -179,235 +175,16 @@ rect_min_size = Vector2( 517, 25 )
 [node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer"]
 margin_top = 83.0
 margin_right = 757.0
-margin_bottom = 238.0
+margin_bottom = 83.0
 
-[node name="GridContainer" type="GridContainer" parent="level_select/VBoxContainer/CenterContainer3"]
+[node name="LevelGridContainer" type="GridContainer" parent="level_select/VBoxContainer/CenterContainer3"]
+unique_name_in_owner = true
 margin_left = 58.0
 margin_right = 699.0
-margin_bottom = 155.0
 rect_min_size = Vector2( 641, -0.6 )
 custom_constants/vseparation = 9
 custom_constants/hseparation = 14
 columns = 5
-
-[node name="level_one" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
-margin_right = 125.0
-margin_bottom = 155.0
-rect_min_size = Vector2( 125, 155 )
-texture_normal = ExtResource( 7 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.5
-editor_only = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 26.0
-margin_bottom = 34.0
-
-[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
-margin_right = 151.0
-margin_bottom = 5.0
-rect_min_size = Vector2( 100, 5 )
-mouse_filter = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
-margin_top = 9.0
-margin_right = 151.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 125, 0 )
-mouse_filter = 1
-
-[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer"]
-margin_left = 38.0
-margin_right = 112.0
-margin_bottom = 36.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 1"
-
-[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
-margin_top = 49.0
-margin_right = 151.0
-margin_bottom = 149.0
-rect_min_size = Vector2( 125, 0 )
-mouse_filter = 1
-
-[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer3"]
-margin_left = 25.0
-margin_right = 125.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 12 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer3/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.1
-editor_only = false
-
-[node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
-margin_top = 153.0
-margin_right = 151.0
-margin_bottom = 173.0
-mouse_filter = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4"]
-margin_left = 65.0
-margin_right = 85.0
-margin_bottom = 20.0
-
-[node name="ColorRect" type="ColorRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_right = 20.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-color = Color( 0.803922, 0.803922, 0.803922, 1 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-border_color = Color( 0.407843, 0.407843, 0.407843, 1 )
-border_width = 2.4
-editor_only = false
-
-[node name="cross_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 10 )
-expand = true
-
-[node name="tick_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 11 )
-expand = true
-
-[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 7 )
-
-[node name="level_two" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
-margin_left = 139.0
-margin_right = 264.0
-margin_bottom = 155.0
-rect_min_size = Vector2( 125, 155 )
-texture_normal = ExtResource( 7 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.5
-editor_only = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
-margin_right = 151.0
-margin_bottom = 5.0
-rect_min_size = Vector2( 100, 5 )
-mouse_filter = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
-margin_top = 9.0
-margin_right = 151.0
-margin_bottom = 45.0
-mouse_filter = 1
-
-[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer"]
-margin_left = 35.0
-margin_right = 115.0
-margin_bottom = 36.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 2"
-
-[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
-margin_top = 49.0
-margin_right = 151.0
-margin_bottom = 149.0
-mouse_filter = 1
-
-[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer3"]
-margin_left = 25.0
-margin_right = 125.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 12 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer3/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.1
-editor_only = false
-
-[node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
-margin_top = 153.0
-margin_right = 151.0
-margin_bottom = 189.0
-mouse_filter = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4"]
-margin_right = 151.0
-margin_bottom = 36.0
-
-[node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_right = 127.0
-margin_bottom = 36.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Completed:"
-
-[node name="ColorRect" type="ColorRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_left = 131.0
-margin_right = 151.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 20, 20 )
-color = Color( 0.803922, 0.803922, 0.803922, 1 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-border_color = Color( 0.407843, 0.407843, 0.407843, 1 )
-border_width = 2.4
-editor_only = false
-
-[node name="cross_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 10 )
-expand = true
-
-[node name="tick_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 11 )
-expand = true
-
-[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 7 )
 
 [node name="LevelTextureButton" type="TextureButton" parent="level_select"]
 anchor_left = 1.0

@@ -56,7 +56,6 @@ tab_align = 0
 use_hidden_tabs_for_min_size = true
 
 [node name="Video" type="Tabs" parent="VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 46.0
@@ -67,9 +66,9 @@ anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Video/CenterContainer"]
 margin_left = 214.0
-margin_top = 167.0
+margin_top = 125.0
 margin_right = 543.0
-margin_bottom = 247.0
+margin_bottom = 289.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
@@ -107,6 +106,38 @@ margin_bottom = 80.0
 min_value = -1.0
 max_value = 240.0
 value = 60.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
+margin_top = 86.0
+margin_right = 135.0
+margin_bottom = 122.0
+text = "Font Type"
+
+[node name="font_type_options" type="OptionButton" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 139.0
+margin_top = 84.0
+margin_right = 329.0
+margin_bottom = 124.0
+text = "Regular"
+items = [ "Regular", null, false, 0, null, "Dyslexia Friendly", null, false, 1, null ]
+selected = 0
+
+[node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
+margin_top = 128.0
+margin_right = 135.0
+margin_bottom = 164.0
+text = "Font Size"
+
+[node name="font_size_box" type="SpinBox" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 139.0
+margin_top = 128.0
+margin_right = 329.0
+margin_bottom = 164.0
+min_value = 30.0
+max_value = 60.0
+value = 30.0
 
 [node name="Audio" type="Tabs" parent="VBoxContainer/TabContainer"]
 visible = false
@@ -187,6 +218,7 @@ __meta__ = {
 visibility_rule = 0
 
 [node name="Gameplay" type="Tabs" parent="VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 46.0
@@ -418,6 +450,8 @@ texture_hover = ExtResource( 1 )
 expand = true
 
 [connection signal="toggled" from="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer/fullscreen_button" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="item_selected" from="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer/font_type_options" to="." method="_on_font_type_options_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer/font_size_box" to="." method="_on_font_size_box_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer/master_volume_slider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer/music_volume_slider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/clear_save" to="." method="_on_clear_save_pressed"]

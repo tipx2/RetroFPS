@@ -13,6 +13,10 @@ var proto_world = load("res://scenes/proto_world/proto_world.tscn")
 var levels = [load("res://scenes/levels/level_one.tscn"), load("res://scenes/levels/level_two.tscn")]
 
 func _ready():
+	var level_button = load("res://scenes/UI/main_menu/level_button.tscn")
+	for x in levels:
+		$"%LevelGridContainer".add_child(level_button)
+		level_button.number_self(x)
 	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")
 	for button in level_buttons:
 		button.connect("pressed", self, "_some_button_pressed", [button])

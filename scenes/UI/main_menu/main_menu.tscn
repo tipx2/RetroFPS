@@ -42,6 +42,7 @@ shortcut = SubResource( 4 )
 [node name="main_menu" type="Control" groups=["main_menu"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 14 )
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -130,7 +131,6 @@ visible = false
 
 [node name="level_select" type="ColorRect" parent="."]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 101.0
@@ -162,30 +162,30 @@ rect_min_size = Vector2( 0, 10 )
 [node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer"]
 margin_top = 14.0
 margin_right = 757.0
-margin_bottom = 28.0
+margin_bottom = 50.0
 
 [node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer"]
-margin_left = 337.0
-margin_right = 420.0
-margin_bottom = 14.0
+margin_left = 306.0
+margin_right = 450.0
+margin_bottom = 36.0
 text = "LEVEL SELECT"
 
 [node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer"]
-margin_top = 32.0
+margin_top = 54.0
 margin_right = 757.0
-margin_bottom = 57.0
+margin_bottom = 79.0
 rect_min_size = Vector2( 517, 25 )
 
 [node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer"]
-margin_top = 61.0
+margin_top = 83.0
 margin_right = 757.0
-margin_bottom = 216.0
+margin_bottom = 238.0
 
 [node name="GridContainer" type="GridContainer" parent="level_select/VBoxContainer/CenterContainer3"]
-margin_left = 38.0
-margin_right = 719.0
+margin_left = 58.0
+margin_right = 699.0
 margin_bottom = 155.0
-rect_min_size = Vector2( 641, 0.165 )
+rect_min_size = Vector2( 641, -0.6 )
 custom_constants/vseparation = 9
 custom_constants/hseparation = 14
 columns = 5
@@ -208,35 +208,39 @@ editor_only = false
 [node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 26.0
+margin_bottom = 34.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
-margin_right = 125.0
+margin_right = 151.0
 margin_bottom = 5.0
 rect_min_size = Vector2( 100, 5 )
 mouse_filter = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
 margin_top = 9.0
-margin_right = 125.0
-margin_bottom = 23.0
+margin_right = 151.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 125, 0 )
 mouse_filter = 1
 
 [node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer"]
-margin_left = 39.0
-margin_right = 85.0
-margin_bottom = 14.0
+margin_left = 38.0
+margin_right = 112.0
+margin_bottom = 36.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Level 1"
 
 [node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
-margin_top = 27.0
-margin_right = 125.0
-margin_bottom = 127.0
+margin_top = 49.0
+margin_right = 151.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 125, 0 )
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer3"]
-margin_left = 12.0
-margin_right = 112.0
+margin_left = 25.0
+margin_right = 125.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 12 )
@@ -251,26 +255,18 @@ border_width = 3.1
 editor_only = false
 
 [node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer"]
-margin_top = 131.0
-margin_right = 125.0
-margin_bottom = 151.0
+margin_top = 153.0
+margin_right = 151.0
+margin_bottom = 173.0
 mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4"]
-margin_left = 13.0
-margin_right = 111.0
+margin_left = 65.0
+margin_right = 85.0
 margin_bottom = 20.0
 
-[node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_top = 3.0
-margin_right = 74.0
-margin_bottom = 17.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Completed:"
-
 [node name="ColorRect" type="ColorRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_one/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_left = 78.0
-margin_right = 98.0
+margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
 color = Color( 0.803922, 0.803922, 0.803922, 1 )
@@ -323,33 +319,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
-margin_right = 125.0
+margin_right = 151.0
 margin_bottom = 5.0
 rect_min_size = Vector2( 100, 5 )
 mouse_filter = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
 margin_top = 9.0
-margin_right = 125.0
-margin_bottom = 23.0
+margin_right = 151.0
+margin_bottom = 45.0
 mouse_filter = 1
 
 [node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer"]
-margin_left = 39.0
-margin_right = 85.0
-margin_bottom = 14.0
+margin_left = 35.0
+margin_right = 115.0
+margin_bottom = 36.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Level 2"
 
 [node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
-margin_top = 27.0
-margin_right = 125.0
-margin_bottom = 127.0
+margin_top = 49.0
+margin_right = 151.0
+margin_bottom = 149.0
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer3"]
-margin_left = 12.0
-margin_right = 112.0
+margin_left = 25.0
+margin_right = 125.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 12 )
@@ -364,27 +360,25 @@ border_width = 3.1
 editor_only = false
 
 [node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer"]
-margin_top = 131.0
-margin_right = 125.0
-margin_bottom = 151.0
+margin_top = 153.0
+margin_right = 151.0
+margin_bottom = 189.0
 mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4"]
-margin_left = 13.0
-margin_right = 111.0
-margin_bottom = 20.0
+margin_right = 151.0
+margin_bottom = 36.0
 
 [node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_top = 3.0
-margin_right = 74.0
-margin_bottom = 17.0
+margin_right = 127.0
+margin_bottom = 36.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Completed:"
 
 [node name="ColorRect" type="ColorRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_left = 78.0
-margin_right = 98.0
-margin_bottom = 20.0
+margin_left = 131.0
+margin_right = 151.0
+margin_bottom = 36.0
 rect_min_size = Vector2( 20, 20 )
 color = Color( 0.803922, 0.803922, 0.803922, 1 )
 
@@ -410,345 +404,6 @@ texture = ExtResource( 11 )
 expand = true
 
 [node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_two"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 7 )
-
-[node name="level_three" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
-margin_left = 278.0
-margin_right = 403.0
-margin_bottom = 155.0
-rect_min_size = Vector2( 125, 155 )
-texture_normal = ExtResource( 7 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.5
-editor_only = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
-margin_right = 125.0
-margin_bottom = 5.0
-rect_min_size = Vector2( 100, 5 )
-mouse_filter = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
-margin_top = 9.0
-margin_right = 125.0
-margin_bottom = 23.0
-mouse_filter = 1
-
-[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer"]
-margin_left = 39.0
-margin_right = 85.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 3"
-
-[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
-margin_top = 27.0
-margin_right = 125.0
-margin_bottom = 127.0
-mouse_filter = 1
-
-[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer3"]
-margin_left = 12.0
-margin_right = 112.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 12 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer3/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.1
-editor_only = false
-
-[node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer"]
-margin_top = 131.0
-margin_right = 125.0
-margin_bottom = 151.0
-mouse_filter = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer4"]
-margin_left = 13.0
-margin_right = 111.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_top = 3.0
-margin_right = 74.0
-margin_bottom = 17.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Completed:"
-
-[node name="ColorRect" type="ColorRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_left = 78.0
-margin_right = 98.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-color = Color( 0.803922, 0.803922, 0.803922, 1 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-border_color = Color( 0.407843, 0.407843, 0.407843, 1 )
-border_width = 2.4
-editor_only = false
-
-[node name="cross_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 10 )
-expand = true
-
-[node name="tick_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 11 )
-expand = true
-
-[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_three"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 7 )
-
-[node name="level_four" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
-margin_left = 417.0
-margin_right = 542.0
-margin_bottom = 155.0
-rect_min_size = Vector2( 125, 155 )
-texture_normal = ExtResource( 7 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.5
-editor_only = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
-margin_right = 125.0
-margin_bottom = 5.0
-rect_min_size = Vector2( 100, 5 )
-mouse_filter = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
-margin_top = 9.0
-margin_right = 125.0
-margin_bottom = 23.0
-mouse_filter = 1
-
-[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer"]
-margin_left = 39.0
-margin_right = 85.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 4"
-
-[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
-margin_top = 27.0
-margin_right = 125.0
-margin_bottom = 127.0
-mouse_filter = 1
-
-[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer3"]
-margin_left = 12.0
-margin_right = 112.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 12 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer3/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.1
-editor_only = false
-
-[node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer"]
-margin_top = 131.0
-margin_right = 125.0
-margin_bottom = 151.0
-mouse_filter = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer4"]
-margin_left = 13.0
-margin_right = 111.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_top = 3.0
-margin_right = 74.0
-margin_bottom = 17.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Completed:"
-
-[node name="ColorRect" type="ColorRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_left = 78.0
-margin_right = 98.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-color = Color( 0.803922, 0.803922, 0.803922, 1 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-border_color = Color( 0.407843, 0.407843, 0.407843, 1 )
-border_width = 2.4
-editor_only = false
-
-[node name="cross_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 10 )
-expand = true
-
-[node name="tick_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 11 )
-expand = true
-
-[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_four"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 7 )
-
-[node name="level_five" type="TextureButton" parent="level_select/VBoxContainer/CenterContainer3/GridContainer" groups=["level_buttons"]]
-margin_left = 556.0
-margin_right = 681.0
-margin_bottom = 155.0
-rect_min_size = Vector2( 125, 155 )
-texture_normal = ExtResource( 7 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.5
-editor_only = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
-margin_right = 125.0
-margin_bottom = 5.0
-rect_min_size = Vector2( 100, 5 )
-mouse_filter = 1
-
-[node name="CenterContainer" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
-margin_top = 9.0
-margin_right = 125.0
-margin_bottom = 23.0
-mouse_filter = 1
-
-[node name="level_name" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer"]
-margin_left = 39.0
-margin_right = 85.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Level 5"
-
-[node name="CenterContainer3" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
-margin_top = 27.0
-margin_right = 125.0
-margin_bottom = 127.0
-mouse_filter = 1
-
-[node name="TextureRect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer3"]
-margin_left = 12.0
-margin_right = 112.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 12 )
-expand = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer3/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-border_color = Color( 0, 0, 0, 1 )
-border_width = 3.1
-editor_only = false
-
-[node name="CenterContainer4" type="CenterContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer"]
-margin_top = 131.0
-margin_right = 125.0
-margin_bottom = 151.0
-mouse_filter = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer4"]
-margin_left = 13.0
-margin_right = 111.0
-margin_bottom = 20.0
-
-[node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_top = 3.0
-margin_right = 74.0
-margin_bottom = 17.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Completed:"
-
-[node name="ColorRect" type="ColorRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer4/HBoxContainer"]
-margin_left = 78.0
-margin_right = 98.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-color = Color( 0.803922, 0.803922, 0.803922, 1 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-border_color = Color( 0.407843, 0.407843, 0.407843, 1 )
-border_width = 2.4
-editor_only = false
-
-[node name="cross_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 10 )
-expand = true
-
-[node name="tick_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five/VBoxContainer/CenterContainer4/HBoxContainer/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 20, 20 )
-texture = ExtResource( 11 )
-expand = true
-
-[node name="cover_rect" type="TextureRect" parent="level_select/VBoxContainer/CenterContainer3/GridContainer/level_five"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

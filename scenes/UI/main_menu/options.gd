@@ -2,6 +2,7 @@ extends ColorRect
 
 onready var true_parent = get_tree().get_nodes_in_group("true_parent")[0]
 
+var dyna_font = load("res://assets/UI_assets/fonts/button_font.tres")
 var settings = "res://settings.save"
 
 func _on_TextureButton_pressed():
@@ -12,6 +13,10 @@ func _on_TextureButton_pressed():
 	# video
 	true_parent.saved_fps = $"%force_fps_box".value
 	true_parent.saved_fullscreen = $"%fullscreen_button".pressed
+	
+	# font
+	true_parent.font_type = $"%font_type_options".selected
+	true_parent.font_size = $"%font_size_box".value
 	
 	# audio
 	true_parent.saved_master_volume = $"%master_volume_slider".value
@@ -41,6 +46,8 @@ func _ready():
 	$"%invert_mouse_y".pressed = true_parent.invert_mouse_y
 	$"%player_fov".value = true_parent.player_fov
 	$"%sens_slider".value = true_parent.mouse_sens
+	$"%font_type_options".selected = true_parent.font_type
+	$"%font_size_box".value = true_parent.font_size
 
 func _on_fullscreen_button_toggled(button_pressed):
 	# toggle the fullscreen properties
@@ -74,6 +81,11 @@ func _on_clear_save_pressed():
 func _on_dont_delete_my_save_pressed():
 	$"are_you_sure".visible = false
 
+func _on_font_type_options_item_selected(index):
+	dyna_font.font_data = load("res://assets/UI_assets/fonts/" + true_parent.font_array[index])
+
+func _on_font_size_box_value_changed(value):
+	dyna_font.size = value
 
 func save_settings(settings_file):
 	var f = File.new()
@@ -86,6 +98,8 @@ func save_settings(settings_file):
 	f.store_var(true_parent.invert_mouse_x)
 	f.store_var(true_parent.invert_mouse_y)
 	f.store_var(true_parent.mouse_sens)
+	f.store_var(true_parent.font_type)
+	f.store_var(true_parent.font_size)
 	
 	# save all settings stored on true_parent here
 	f.close()

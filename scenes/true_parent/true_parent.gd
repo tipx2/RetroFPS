@@ -19,6 +19,10 @@ var invert_mouse_y;
 var invert_mouse_x;
 var mouse_sens;
 
+var font_type = 0
+var font_size = 30
+var font_array = ["AlumniSansPinstripe-Regular.ttf", "Lexend-Regular.ttf"]
+
 var progression = [false,false, false, false, false] # etc 
 # one bool for each level
 
@@ -36,6 +40,11 @@ func _ready():
 	OS.window_borderless = saved_fullscreen
 	OS.window_maximized = !saved_fullscreen
 	OS.window_resizable = !saved_fullscreen
+	
+	# font
+	var dyna_font = load("res://assets/UI_assets/fonts/button_font.tres")
+	dyna_font.size = font_size
+	dyna_font.font_data = load("res://assets/UI_assets/fonts/" + font_array[font_type])
 	
 	# audio
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(saved_master_volume/100 * 2))
@@ -75,5 +84,7 @@ func load_settings(settings_file):
 	invert_mouse_x = f.get_var()
 	invert_mouse_y = f.get_var()
 	mouse_sens = f.get_var()
+	font_type = f.get_var()
+	font_size = f.get_var()
 	# put all saved settings here
 	f.close()

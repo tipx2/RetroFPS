@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/tutorial_images/wasd_to_move.png" type="Texture" id=1]
+[ext_resource path="res://assets/temp_assets/purple_sparse_grid.tres" type="Material" id=2]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 10, 2, 80 )
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( 5, 1, 40, 5, -1, 40, 5, 1, -40, -5, 1, 40, -5, -1, 40, 5, -1, -40, -5, 1, -40, -5, -1, -40 )
+
+[node name="tutorial" type="Spatial"]
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41946, 36.9771 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.77999, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.77999, 0 )
+shape = SubResource( 2 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18957, 30.6003 )
+billboard = 1
+texture = ExtResource( 1 )

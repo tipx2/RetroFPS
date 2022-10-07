@@ -1018,6 +1018,11 @@ transform = Transform( 1, 0, 0, 0, 2.819, 0, 0, 0, 4.372, 66.7237, 3.62341, 3.36
 soundtrack_off = NodePath("../../soundtrack_ambient")
 soundtrack_on = NodePath("../../soundtrack_combat")
 
+[node name="music_toggle2" parent="area_toggles" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 2.819, 0, 0, 0, 4.372, -37.1317, 3.62341, 3.36513 )
+soundtrack_off = NodePath("../../soundtrack_ambient")
+soundtrack_on = NodePath("../../soundtrack_combat")
+
 [node name="light_trigger2" parent="area_toggles" instance=ExtResource( 17 )]
 transform = Transform( 1.934, 0, 0, 0, 1, 0, 0, 0, 1, -90.9454, 4.78523, 19.3668 )
 light = NodePath("../../light/toggle_light2")

@@ -52,8 +52,8 @@ var max_ammo_array = [0, 50, 400, 200, 15]
 # UI updating
 onready var health_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer/health_amount")
 onready var health_bar = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer/health_bar")
-onready var ammo_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_amount")
-onready var ammo_type_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxContainer2/ammo_type")
+onready var ammo_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/ammo_label_container/ammo_amount")
+onready var ammo_type_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/ammo_label_container/ammo_type")
 
 onready var gameplay_UI = get_node("GUI/gameplay_UI")
 onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")

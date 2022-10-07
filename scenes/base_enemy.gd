@@ -63,7 +63,7 @@ func _process(_delta):
 			attacking(collision_object)
 		DYING:
 			dying()
-	looking_cast.set_cast_to(global_transform.origin.direction_to(player.global_transform.origin) * 1000)
+	looking_cast.set_cast_to(global_transform.origin.direction_to(player.global_transform.origin) * 100)
 
 func _physics_process(delta):
 	direction = Vector3.ZERO

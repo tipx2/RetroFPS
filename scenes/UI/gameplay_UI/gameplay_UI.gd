@@ -29,3 +29,4 @@ func stop_run_anim():
 	if popup_anim.is_playing():
 		popup_anim.stop()
 	popup_anim.play("pickup_popup_fade")
+

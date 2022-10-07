@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://assets/temp_assets/Aa4diZG.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/UI_assets/themes/buttons_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/temp_assets/temp_icons/pistol_icon.png" type="Texture" id=2]
 [ext_resource path="res://assets/temp_assets/temp_icons/shotgun_icon.png" type="Texture" id=3]
 [ext_resource path="res://assets/temp_assets/temp_icons/machine_gun_icon.png" type="Texture" id=4]
@@ -163,6 +163,7 @@ frame_1/delay_sec = 0.0
 [node name="gameplay_UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
 script = ExtResource( 12 )
 
 [node name="pickup_popup" type="Label" parent="."]
@@ -200,85 +201,74 @@ anchor_bottom = 1.0
 anchor_top = 0.897
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 0.0799866
-margin_right = 6.10352e-05
+margin_top = -11.38
 margin_bottom = 1.0
 rect_min_size = Vector2( 720, 37.5 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 5.99994
-margin_bottom = 9.45999
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
-margin_right = 100.0
-margin_bottom = 66.0
+margin_right = 200.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 70, 0 )
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/VBoxContainer"]
-margin_right = 100.0
-margin_bottom = 13.0
-custom_constants/margin_top = 13
+custom_constants/separation = -4
 
 [node name="health_amount" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
-visible = false
-margin_top = 4.0
-margin_right = 100.0
-margin_bottom = 18.0
+margin_right = 200.0
+margin_bottom = 32.0
 text = "100"
 
 [node name="health_bar" type="TextureProgress" parent="Panel/HBoxContainer/VBoxContainer"]
-margin_top = 17.0
-margin_right = 100.0
-margin_bottom = 27.0
-rect_min_size = Vector2( 100, 10 )
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 200, 10 )
 value = 100.0
 texture_under = ExtResource( 14 )
 texture_progress = ExtResource( 13 )
 nine_patch_stretch = true
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
-margin_top = 31.0
-margin_right = 100.0
-margin_bottom = 45.0
-text = "Health"
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
+margin_left = 204.0
+margin_right = 215.126
+margin_bottom = 68.0
+rect_min_size = Vector2( 11.126, 0 )
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer"]
-margin_left = 104.0
-margin_right = 209.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 70, 0 )
+[node name="ammo_label_container" type="VBoxContainer" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 219.0
+margin_right = 519.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 300, 53 )
+custom_constants/separation = -9
 
-[node name="ammo_amount" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
-margin_right = 105.0
-margin_bottom = 14.0
+[node name="ammo_amount" type="Label" parent="Panel/HBoxContainer/ammo_label_container"]
+margin_right = 300.0
+margin_bottom = 32.0
 text = "Infinite"
 
-[node name="ammo_type" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
-margin_top = 18.0
-margin_right = 105.0
-margin_bottom = 32.0
+[node name="ammo_type" type="Label" parent="Panel/HBoxContainer/ammo_label_container"]
+margin_top = 23.0
+margin_right = 300.0
+margin_bottom = 55.0
 rect_min_size = Vector2( 105, 14 )
 text = "Fists"
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
-margin_left = 213.0
-margin_right = 313.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 100, 0 )
-
 [node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer"]
-margin_left = 317.0
-margin_right = 617.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 300, 56 )
+margin_left = 523.0
+margin_right = 739.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 216, 56 )
 
 [node name="weapon_logos" type="HBoxContainer" parent="Panel/HBoxContainer/CenterContainer"]
-margin_left = 42.0
-margin_top = 13.0
-margin_right = 258.0
-margin_bottom = 53.0
+margin_top = 14.0
+margin_right = 216.0
+margin_bottom = 54.0
 rect_min_size = Vector2( 210, 40 )
 
 [node name="Icon_background" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer/weapon_logos" groups=["icon_background"]]
@@ -386,41 +376,32 @@ anchor_bottom = 1.0
 texture = ExtResource( 6 )
 expand = true
 
-[node name="CenterContainer2" type="CenterContainer" parent="Panel/HBoxContainer"]
-margin_left = 621.0
-margin_right = 719.0
-margin_bottom = 66.0
+[node name="CenterContainer3" type="CenterContainer" parent="Panel/HBoxContainer"]
+margin_left = 743.0
+margin_right = 336.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 216, 56 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/CenterContainer2"]
-margin_top = 9.0
-margin_right = 98.0
-margin_bottom = 57.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/CenterContainer3"]
+margin_left = 59.0
+margin_top = 19.0
+margin_right = 157.0
+margin_bottom = 49.0
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 98.0
-margin_bottom = 14.0
-text = "Keys"
-align = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer"]
-margin_top = 18.0
-margin_right = 98.0
-margin_bottom = 48.0
-
-[node name="red_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer" groups=["key_icon"]]
+[node name="red_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer3/HBoxContainer" groups=["key_icon"]]
 margin_right = 30.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
 color = Color( 0.145098, 0.145098, 0.164706, 1 )
 
-[node name="blue_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer" groups=["key_icon"]]
+[node name="blue_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer3/HBoxContainer" groups=["key_icon"]]
 margin_left = 34.0
 margin_right = 64.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
 color = Color( 0.145098, 0.145098, 0.164706, 1 )
 
-[node name="yellow_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer2/VBoxContainer/HBoxContainer" groups=["key_icon"]]
+[node name="yellow_key" type="ColorRect" parent="Panel/HBoxContainer/CenterContainer3/HBoxContainer" groups=["key_icon"]]
 margin_left = 68.0
 margin_right = 98.0
 margin_bottom = 30.0
@@ -428,25 +409,10 @@ rect_min_size = Vector2( 30, 30 )
 color = Color( 0.145098, 0.145098, 0.164706, 1 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
-margin_left = 723.0
-margin_right = 798.0
-margin_bottom = 66.0
+margin_left = 963.0
+margin_right = 1038.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 75, 0 )
-
-[node name="large_weapon_picture" type="ColorRect" parent="Panel/HBoxContainer"]
-margin_left = 802.0
-margin_right = 902.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 100, 0 )
-color = Color( 0.968627, 0.0823529, 0.0823529, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer"]
-margin_left = 906.0
-margin_right = 966.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 60, 56 )
-texture = ExtResource( 1 )
-expand = true
 
 [node name="UI_animation" type="AnimationPlayer" parent="."]
 anims/machine_gun_ammo_get = SubResource( 10 )
@@ -493,25 +459,25 @@ rect_min_size = Vector2( 500, 10 )
 [node name="CenterContainer" type="CenterContainer" parent="pause_menu/VBoxContainer"]
 margin_top = 14.0
 margin_right = 500.0
-margin_bottom = 28.0
+margin_bottom = 46.0
 rect_min_size = Vector2( 500, 0 )
 
 [node name="Label" type="Label" parent="pause_menu/VBoxContainer/CenterContainer"]
-margin_left = 208.0
-margin_right = 292.0
-margin_bottom = 14.0
+margin_left = 153.0
+margin_right = 347.0
+margin_bottom = 32.0
 text = "PAUSE MENU"
 
 [node name="spacer2" type="CenterContainer" parent="pause_menu/VBoxContainer"]
-margin_top = 32.0
+margin_top = 50.0
 margin_right = 500.0
-margin_bottom = 57.0
+margin_bottom = 75.0
 rect_min_size = Vector2( 500, 25 )
 
 [node name="CenterContainer3" type="CenterContainer" parent="pause_menu/VBoxContainer"]
-margin_top = 61.0
+margin_top = 79.0
 margin_right = 500.0
-margin_bottom = 232.0
+margin_bottom = 250.0
 rect_min_size = Vector2( 500, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/VBoxContainer/CenterContainer3"]
@@ -554,9 +520,9 @@ rect_min_size = Vector2( 200, 50 )
 text = "MAIN MENU"
 
 [node name="spacer3" type="CenterContainer" parent="pause_menu/VBoxContainer"]
-margin_top = 236.0
+margin_top = 254.0
 margin_right = 500.0
-margin_bottom = 336.0
+margin_bottom = 354.0
 rect_min_size = Vector2( 500, 100 )
 
 [node name="TextureRect" type="TextureRect" parent="pause_menu"]
@@ -579,9 +545,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
+margin_left = -149.0
 margin_top = -85.0
-margin_right = 127.0
+margin_right = 149.0
 margin_bottom = 85.0
 rect_min_size = Vector2( 190, 127 )
 rect_pivot_offset = Vector2( 250, 250 )
@@ -613,38 +579,38 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 190, 0 )
 
 [node name="spacer" type="CenterContainer" parent="win_screen/VBoxContainer"]
-margin_right = 255.0
+margin_right = 298.0
 margin_bottom = 10.0
 rect_min_size = Vector2( 190, 10 )
 
 [node name="CenterContainer" type="CenterContainer" parent="win_screen/VBoxContainer"]
 margin_top = 14.0
-margin_right = 255.0
-margin_bottom = 28.0
+margin_right = 298.0
+margin_bottom = 46.0
 rect_min_size = Vector2( 190, 0 )
 
 [node name="Label" type="Label" parent="win_screen/VBoxContainer/CenterContainer"]
-margin_left = 69.0
-margin_right = 186.0
-margin_bottom = 14.0
+margin_left = 9.0
+margin_right = 289.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LEVEL COMPLETED"
 
 [node name="spacer2" type="CenterContainer" parent="win_screen/VBoxContainer"]
-margin_top = 32.0
-margin_right = 255.0
-margin_bottom = 57.0
+margin_top = 50.0
+margin_right = 298.0
+margin_bottom = 75.0
 rect_min_size = Vector2( 190, 25 )
 
 [node name="CenterContainer3" type="CenterContainer" parent="win_screen/VBoxContainer"]
-margin_top = 61.0
-margin_right = 255.0
-margin_bottom = 111.0
+margin_top = 79.0
+margin_right = 298.0
+margin_bottom = 129.0
 rect_min_size = Vector2( 190, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="win_screen/VBoxContainer/CenterContainer3"]
-margin_left = 27.0
-margin_right = 227.0
+margin_left = 49.0
+margin_right = 249.0
 margin_bottom = 50.0
 custom_constants/separation = 13
 
@@ -659,9 +625,9 @@ rect_min_size = Vector2( 200, 50 )
 text = "MAIN MENU"
 
 [node name="spacer3" type="CenterContainer" parent="win_screen/VBoxContainer"]
-margin_top = 115.0
-margin_right = 255.0
-margin_bottom = 215.0
+margin_top = 133.0
+margin_right = 298.0
+margin_bottom = 233.0
 rect_min_size = Vector2( 190, 100 )
 
 [node name="death_screen" type="ColorRect" parent="." groups=["death_screen"]]
@@ -711,26 +677,26 @@ rect_min_size = Vector2( 190, 10 )
 [node name="CenterContainer" type="CenterContainer" parent="death_screen/VBoxContainer"]
 margin_top = 14.0
 margin_right = 255.0
-margin_bottom = 28.0
+margin_bottom = 46.0
 rect_min_size = Vector2( 190, 0 )
 
 [node name="Label" type="Label" parent="death_screen/VBoxContainer/CenterContainer"]
-margin_left = 95.0
-margin_right = 159.0
-margin_bottom = 14.0
+margin_left = 53.0
+margin_right = 202.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "YOU DIED"
 
 [node name="spacer2" type="CenterContainer" parent="death_screen/VBoxContainer"]
-margin_top = 32.0
+margin_top = 50.0
 margin_right = 255.0
-margin_bottom = 57.0
+margin_bottom = 75.0
 rect_min_size = Vector2( 190, 25 )
 
 [node name="CenterContainer3" type="CenterContainer" parent="death_screen/VBoxContainer"]
-margin_top = 61.0
+margin_top = 79.0
 margin_right = 255.0
-margin_bottom = 111.0
+margin_bottom = 129.0
 rect_min_size = Vector2( 190, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="death_screen/VBoxContainer/CenterContainer3"]
@@ -750,9 +716,9 @@ rect_min_size = Vector2( 200, 50 )
 text = "MAIN MENU"
 
 [node name="spacer3" type="CenterContainer" parent="death_screen/VBoxContainer"]
-margin_top = 115.0
+margin_top = 133.0
 margin_right = 255.0
-margin_bottom = 215.0
+margin_bottom = 233.0
 rect_min_size = Vector2( 190, 100 )
 
 [node name="options" parent="." instance=ExtResource( 10 )]

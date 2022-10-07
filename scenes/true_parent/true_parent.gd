@@ -23,7 +23,7 @@ var font_type = 0
 var font_size = 30
 var font_array = ["AlumniSansPinstripe-Regular.ttf", "Lexend-Regular.ttf"]
 
-var progression = [false,false, false, false, false] # etc 
+var progression;
 # one bool for each level
 
 var main_menu = load("res://scenes/UI/main_menu/main_menu.tscn")

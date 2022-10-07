@@ -127,6 +127,7 @@ visible = false
 
 [node name="level_select" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 101.0
@@ -161,9 +162,10 @@ margin_right = 757.0
 margin_bottom = 50.0
 
 [node name="Label" type="Label" parent="level_select/VBoxContainer/CenterContainer"]
-margin_left = 306.0
-margin_right = 450.0
-margin_bottom = 36.0
+margin_left = 314.0
+margin_top = 2.0
+margin_right = 442.0
+margin_bottom = 33.0
 text = "LEVEL SELECT"
 
 [node name="CenterContainer2" type="CenterContainer" parent="level_select/VBoxContainer"]

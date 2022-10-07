@@ -27,6 +27,7 @@ script = ExtResource( 4 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 19.0
 
 [node name="spacer" type="CenterContainer" parent="VBoxContainer"]
 margin_right = 757.0
@@ -36,20 +37,20 @@ rect_min_size = Vector2( 0, 10 )
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 margin_top = 14.0
 margin_right = 757.0
-margin_bottom = 50.0
+margin_bottom = 45.0
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
-margin_left = 297.0
-margin_right = 459.0
-margin_bottom = 36.0
+margin_left = 307.0
+margin_right = 449.0
+margin_bottom = 31.0
 theme = ExtResource( 6 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "OPTIONS MENU"
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
-margin_top = 54.0
+margin_top = 49.0
 margin_right = 757.0
-margin_bottom = 514.0
+margin_bottom = 509.0
 rect_min_size = Vector2( 0, 460 )
 theme = ExtResource( 6 )
 tab_align = 0
@@ -58,30 +59,31 @@ use_hidden_tabs_for_min_size = true
 [node name="Video" type="Tabs" parent="VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 46.0
+margin_top = 41.0
+rect_min_size = Vector2( 757, 419 )
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/TabContainer/Video"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Video/CenterContainer"]
-margin_left = 214.0
-margin_top = 125.0
-margin_right = 543.0
-margin_bottom = 289.0
+margin_left = 221.0
+margin_top = 135.0
+margin_right = 535.0
+margin_bottom = 284.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_top = 2.0
+margin_top = 4.0
 margin_right = 135.0
-margin_bottom = 38.0
+margin_bottom = 35.0
 theme = ExtResource( 6 )
 text = "Fullscreen"
 
 [node name="fullscreen_button" type="CheckButton" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
 unique_name_in_owner = true
 margin_left = 139.0
-margin_right = 329.0
+margin_right = 314.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 theme = ExtResource( 6 )
@@ -92,7 +94,7 @@ icon_align = 1
 [node name="Label4" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
 margin_top = 44.0
 margin_right = 135.0
-margin_bottom = 80.0
+margin_bottom = 75.0
 rect_min_size = Vector2( 135, 0 )
 theme = ExtResource( 6 )
 text = "Target FPS"
@@ -101,42 +103,42 @@ text = "Target FPS"
 unique_name_in_owner = true
 margin_left = 139.0
 margin_top = 44.0
-margin_right = 329.0
-margin_bottom = 80.0
+margin_right = 314.0
+margin_bottom = 75.0
 min_value = -1.0
 max_value = 240.0
 value = 60.0
 
 [node name="Label3" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_top = 86.0
+margin_top = 81.0
 margin_right = 135.0
-margin_bottom = 122.0
+margin_bottom = 112.0
 text = "Font Type"
 
 [node name="font_type_options" type="OptionButton" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
 unique_name_in_owner = true
 margin_left = 139.0
-margin_top = 84.0
-margin_right = 329.0
-margin_bottom = 124.0
+margin_top = 79.0
+margin_right = 314.0
+margin_bottom = 114.0
 text = "Regular"
 items = [ "Regular", null, false, 0, null, "Dyslexia Friendly", null, false, 1, null ]
 selected = 0
 
 [node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
-margin_top = 128.0
+margin_top = 118.0
 margin_right = 135.0
-margin_bottom = 164.0
+margin_bottom = 149.0
 text = "Font Size"
 
 [node name="font_size_box" type="SpinBox" parent="VBoxContainer/TabContainer/Video/CenterContainer/GridContainer"]
 unique_name_in_owner = true
 margin_left = 139.0
-margin_top = 128.0
-margin_right = 329.0
-margin_bottom = 164.0
-min_value = 30.0
-max_value = 60.0
+margin_top = 118.0
+margin_right = 314.0
+margin_bottom = 149.0
+min_value = 10.0
+max_value = 30.0
 value = 30.0
 
 [node name="Audio" type="Tabs" parent="VBoxContainer/TabContainer"]
@@ -150,10 +152,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Audio/CenterContainer"]
-margin_left = 193.0
-margin_top = 169.0
-margin_right = 564.0
-margin_bottom = 245.0
+margin_left = 204.0
+margin_top = 174.0
+margin_right = 553.0
+margin_bottom = 240.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer"]
@@ -228,10 +230,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="vbox" type="VBoxContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer"]
-margin_left = 176.0
-margin_top = 81.0
-margin_right = 581.0
-margin_bottom = 333.0
+margin_left = 187.0
+margin_top = 95.0
+margin_right = 570.0
+margin_bottom = 319.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
 margin_right = 405.0
@@ -250,7 +252,8 @@ unique_name_in_owner = true
 margin_left = 205.0
 margin_right = 405.0
 margin_bottom = 36.0
-min_value = 1.0
+min_value = 20.0
+max_value = 400.0
 value = 70.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
@@ -321,6 +324,7 @@ theme = ExtResource( 6 )
 text = "Completely Wipe Save"
 
 [node name="full_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
+visible = false
 margin_top = 212.0
 margin_right = 405.0
 margin_bottom = 252.0
@@ -378,9 +382,10 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 190, 0 )
 
 [node name="Label" type="Label" parent="are_you_sure/VBoxContainer/CenterContainer"]
-margin_left = 65.0
-margin_right = 221.0
-margin_bottom = 36.0
+margin_left = 75.0
+margin_top = 2.0
+margin_right = 211.0
+margin_bottom = 33.0
 theme = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Are you sure?"
@@ -425,17 +430,6 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 200, 50 )
 theme = ExtResource( 6 )
 text = "Actually, don't"
-
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -1.0
-margin_bottom = -1.0
-rect_min_size = Vector2( 516, 489 )
-mouse_filter = 2
-border_color = Color( 0.223529, 0.223529, 0.223529, 1 )
-border_width = 4.8
-editor_only = false
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchor_left = 1.0

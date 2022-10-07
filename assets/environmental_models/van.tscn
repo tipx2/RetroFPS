@@ -46,7 +46,7 @@ tracks/0/keys = {
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 2.79827, 2.26653, 0.123641 )
 
-[node name="van" type="Spatial"]
+[node name="van" type="Spatial" groups=["nav_mesh"]]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )

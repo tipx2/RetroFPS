@@ -15,4 +15,4 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func _on_tutorial_button_pressed():
-	true_parent.switch_to_scene(load("res://scenes/levels/tutorial.tscn"))
+	true_parent.switch_to_scene("main_menu", load("res://scenes/levels/tutorial.tscn"))

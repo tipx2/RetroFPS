@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/environmental_models/lampost.tscn" type="PackedScene" id=32]
 
 [sub_resource type="PanoramaSky" id=75]
+radiance_size = 4
 panorama = ExtResource( 1 )
 
 [sub_resource type="Environment" id=76]

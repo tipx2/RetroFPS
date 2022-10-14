@@ -8,16 +8,16 @@ var settings = "res://settings.save"
 var progression_file = "res://progression.save"
 
 # saved settings
-var saved_fps;
-var saved_fullscreen;
+var saved_fps = 240;
+var saved_fullscreen = true;
 
-var saved_master_volume;
-var saved_music_volume;
+var saved_master_volume = 50;
+var saved_music_volume = 25;
 
-var player_fov;
-var invert_mouse_y;
-var invert_mouse_x;
-var mouse_sens;
+var player_fov = 100;
+var invert_mouse_y = false;
+var invert_mouse_x = false;
+var mouse_sens = 0.2;
 
 var font_type = 0
 var font_size = 30

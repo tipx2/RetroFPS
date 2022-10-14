@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/sound_effects/level/gate/gate_end.mp3" type="AudioStream" id=4]
 [ext_resource path="res://scenes/level_parts/gates/gate.gd" type="Script" id=5]
 
-
 [sub_resource type="CubeMesh" id=4]
 size = Vector3( 10, 10, 0.1 )
 
@@ -98,6 +97,7 @@ script = ExtResource( 5 )
 gate_material = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27552, 0 )
 mesh = SubResource( 4 )
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance"]

@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/temp_assets/enemy_projectile.png" type="Texture" id=1]
 [ext_resource path="res://scenes/enemy_projectiles/phelobotomite_projectile/phelobotomite_projectile.gd" type="Script" id=2]
+[ext_resource path="res://assets/temp_assets/purple_sparse_grid.tres" type="Material" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.636649
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.63
+height = 1.26
+radial_segments = 16
 
 [node name="phelobotomite_projectile" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -14,6 +20,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+visible = false
 modulate = Color( 0.207843, 0.129412, 0.909804, 1 )
 pixel_size = 0.02
 billboard = 1
@@ -26,5 +33,9 @@ autostart = true
 [node name="hitcast" type="RayCast" parent="."]
 enabled = true
 cast_to = Vector3( 0.637, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 3 )
 
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

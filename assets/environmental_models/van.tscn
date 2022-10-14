@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/blend_files/level_geom/van/van_tex.png" type="Texture" id=1]
 [ext_resource path="res://assets/blend_files/level_geom/van/van.obj" type="ArrayMesh" id=2]
@@ -46,6 +46,12 @@ tracks/0/keys = {
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 2.79827, 2.26653, 0.123641 )
 
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 2.14792, 3.79399, 0.123641 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 5.27869, 2.26653, 0.123641 )
+
 [node name="van" type="Spatial" groups=["nav_mesh"]]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -83,6 +89,18 @@ anims/portal_spin = SubResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.22886, -4.00106 )
 shape = SubResource( 7 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7664, 5.64026 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.69632, 6.11903, 0.697207 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.13635, 6.11903, 0.697207 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.351466, 0, 0.936201, 0, 1, 0, -0.936201, 0, 0.351466, 2.47302, 6.22886, -4.78954 )

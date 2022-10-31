@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/temp_assets/red_bar.png" type="Texture" id=1]
+[ext_resource path="res://assets/temp_assets/green_bar.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemies/base_enemy/healthbar_sprite.gd" type="Script" id=3]
+
+[node name="healthbar_sprite" type="Sprite3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00201, 0 )
+pixel_size = 0.034
+billboard = 1
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 100, 10 )
+hdr = false
+usage = 0
+render_target_v_flip = true
+
+[node name="healthbar" type="TextureProgress" parent="Viewport"]
+unique_name_in_owner = true
+margin_right = 100.0
+margin_bottom = 10.0
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )

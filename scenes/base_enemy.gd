@@ -1,5 +1,7 @@
 extends KinematicBody
 
+# this one is fake (use the one in the enemies folder)
+
 # overriding variables
 var speed = 20
 var update_time = 0.2

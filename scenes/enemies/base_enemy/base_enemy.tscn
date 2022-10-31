@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/enemies/base_enemy/base_enemy_extender.gd" type="Script" id=1]
+[ext_resource path="res://scenes/UI/healthbar_3D.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleMesh" id=2]
 
@@ -83,6 +84,8 @@ material/0 = SubResource( 6 )
 [node name="muzzle" type="Position3D" parent="mesh/hand"]
 unique_name_in_owner = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91015, 0.424278, 0.796814 )
+
+[node name="healthbar_sprite" parent="." instance=ExtResource( 2 )]
 
 [node name="health_amount" type="Label3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95457, 0 )

@@ -131,6 +131,12 @@ transform = Transform( 0, 0, 1, -0.568992, 0.822343, 0, -0.822343, -0.568992, 0,
 [node name="bush_back9" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
 transform = Transform( -0.71217, -0.492762, 0.5, -0.568992, 0.822343, 0, -0.411171, -0.284496, -0.866025, 6.36125, -0.721846, 5.69069 )
 
+[node name="bush_back11" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( -0.478133, -0.330828, 0.392968, -0.568992, 0.822343, -4.99786e-08, -0.669056, -0.462931, -0.28083, 8.71187, -0.843383, -58.5846 )
+
+[node name="bush_back12" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
+transform = Transform( 0.581656, 0.402457, 0.341431, -0.568992, 0.822343, -4.99786e-08, -0.581312, -0.402219, 0.341634, -10.4872, -0.332487, -58.7902 )
+
 [node name="bush_back10" parent="level_geom/bush_back_start" instance=ExtResource( 6 )]
 transform = Transform( -0.822343, -0.568992, -5.96046e-08, -0.568992, 0.822343, 0, 5.96046e-08, 2.98023e-08, -1, 7.00863, -0.645584, -3.00985 )
 

@@ -86,6 +86,7 @@ func damage(amount, collision_point):
 	if health <= 0:
 		state = DYING
 	health_label.text = str(health)
+	$"%healthbar".value = health
 	var blood_instance = blood_particles.instance()
 	blood_instance.set_emitting(true)
 	add_child(blood_instance)

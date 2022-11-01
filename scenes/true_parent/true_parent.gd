@@ -19,9 +19,8 @@ var invert_mouse_y = false;
 var invert_mouse_x = false;
 var mouse_sens = 0.2;
 
-var crosshair_colour = 0
-var crosshair_colour_array = ["red", "white", "black"]
-var crosshair_size = 1
+var crosshair_colour;
+var crosshair_size;
 
 var font_type = 0
 var font_size = 30

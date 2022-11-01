@@ -339,7 +339,7 @@ margin_right = 200.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 200, 0 )
 min_value = 1.0
-max_value = 5.0
+max_value = 10.0
 value = 1.0
 tick_count = 11
 ticks_on_borders = true
@@ -371,7 +371,7 @@ margin_top = 188.0
 margin_right = 479.0
 margin_bottom = 224.0
 text = "Red"
-items = [ "Red", null, false, 0, null, "White", null, false, 1, null, "Black", null, false, 2, null ]
+items = [ "Red", null, false, 0, null, "White", null, false, 1, null, "Black", null, false, 2, null, "Goldenrod", null, false, 3, null, "Dark Goldenrod", null, false, 4, null ]
 selected = 0
 
 [node name="clear_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
@@ -496,6 +496,7 @@ anchor_right = 1.0
 margin_left = -32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+shortcut_in_tooltip = false
 shortcut = SubResource( 5 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )

@@ -59,6 +59,8 @@ onready var health_bar = get_node("GUI/gameplay_UI/Panel/HBoxContainer/VBoxConta
 onready var ammo_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/ammo_label_container/ammo_amount")
 onready var ammo_type_label = get_node("GUI/gameplay_UI/Panel/HBoxContainer/ammo_label_container/ammo_type")
 
+onready var crosshair = get_node("GUI/gameplay_UI/crosshair")
+
 onready var gameplay_UI = get_node("GUI/gameplay_UI")
 onready var UI_animation = get_node("GUI/gameplay_UI/UI_animation")
 
@@ -78,6 +80,8 @@ func _ready():
 	camera.set_frustum_offset(Vector2(0,0))
 	update_mouse_flippers(true_parent.invert_mouse_x, true_parent.invert_mouse_y)
 	update_camera_fov(true_parent.player_fov)
+	update_crosshair_colour(true_parent.crosshair_colour)
+	update_crosshair_size(true_parent.crosshair_size)
 	cheat_code_detector.connect("cheat_detected", self, "_on_cheat_detected")
 	for w in weapons:
 		weapon_arr.append(w.name)
@@ -165,6 +169,25 @@ func update_camera_fov(fov):
 
 func update_mouse_sens(sens):
 	mouse_sens = sens/100.0
+
+func update_crosshair_colour(colour):
+	var selected_hex : String
+	match colour:
+		0:
+			selected_hex = "#ba0f0f"
+		1:
+			selected_hex = "#ffffff"
+		2:
+			selected_hex = "#000000"
+		3:
+			selected_hex = "#DAA520"
+		4:
+			selected_hex = "#b8860b"
+	crosshair.self_modulate = Color(selected_hex)
+
+func update_crosshair_size(size):
+	size = int(size)
+	crosshair.rect_scale = Vector2(size, size)
 
 func update_hud_health():
 	health_label.text = str(player_health)

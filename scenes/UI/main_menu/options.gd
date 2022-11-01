@@ -36,6 +36,8 @@ func _on_TextureButton_pressed():
 		player_arr[0].update_mouse_flippers(true_parent.invert_mouse_x, true_parent.invert_mouse_y)
 		player_arr[0].update_camera_fov(true_parent.player_fov)
 		player_arr[0].update_mouse_sens(true_parent.mouse_sens)
+		player_arr[0].update_crosshair_size(true_parent.crosshair_size)
+		player_arr[0].update_crosshair_colour(true_parent.crosshair_colour)
 	# save the true_parent settings values to a file
 	save_settings(settings)
 

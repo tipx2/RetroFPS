@@ -57,6 +57,7 @@ tab_align = 0
 use_hidden_tabs_for_min_size = true
 
 [node name="Video" type="Tabs" parent="VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 42.0
@@ -145,7 +146,7 @@ value = 30.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 46.0
+margin_top = 42.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/TabContainer/Audio"]
 anchor_right = 1.0
@@ -153,21 +154,21 @@ anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Audio/CenterContainer"]
 margin_left = 166.0
-margin_top = 173.0
+margin_top = 175.0
 margin_right = 590.0
-margin_bottom = 241.0
+margin_bottom = 243.0
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer"]
-margin_right = 167.0
-margin_bottom = 36.0
+margin_right = 220.0
+margin_bottom = 32.0
 theme = ExtResource( 6 )
 text = "Master Volume"
 
 [node name="master_volume_slider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer"]
 unique_name_in_owner = true
-margin_left = 171.0
-margin_right = 371.0
+margin_left = 224.0
+margin_right = 424.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 200, 0 )
 value = 1.0
@@ -189,19 +190,19 @@ visibility_rule = 0
 custom_format = "%d%%"
 
 [node name="Label4" type="Label" parent="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer"]
-margin_top = 40.0
-margin_right = 167.0
-margin_bottom = 76.0
+margin_top = 36.0
+margin_right = 220.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 135, 0 )
 theme = ExtResource( 6 )
 text = "Music Volume"
 
 [node name="music_volume_slider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/CenterContainer/GridContainer"]
 unique_name_in_owner = true
-margin_left = 171.0
-margin_top = 40.0
-margin_right = 371.0
-margin_bottom = 56.0
+margin_left = 224.0
+margin_top = 36.0
+margin_right = 424.0
+margin_bottom = 52.0
 rect_min_size = Vector2( 200, 0 )
 tick_count = 11
 ticks_on_borders = true
@@ -220,88 +221,92 @@ __meta__ = {
 visibility_rule = 0
 
 [node name="Gameplay" type="Tabs" parent="VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 46.0
+margin_top = 42.0
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/TabContainer/Gameplay"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="vbox" type="VBoxContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer"]
-margin_left = 146.0
-margin_top = 113.0
-margin_right = 610.0
-margin_bottom = 301.0
+margin_left = 139.0
+margin_top = 77.0
+margin_right = 618.0
+margin_bottom = 341.0
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
-margin_right = 405.0
-margin_bottom = 164.0
+margin_right = 479.0
+margin_bottom = 224.0
 custom_constants/hseparation = 39
 columns = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
-margin_right = 166.0
-margin_bottom = 36.0
+margin_right = 240.0
+margin_bottom = 32.0
 theme = ExtResource( 6 )
 text = "Player FOV"
 
 [node name="player_fov" type="SpinBox" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
 unique_name_in_owner = true
-margin_left = 205.0
-margin_right = 405.0
-margin_bottom = 36.0
+margin_left = 279.0
+margin_right = 479.0
+margin_bottom = 32.0
 min_value = 20.0
 max_value = 400.0
 value = 70.0
 
 [node name="Label2" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
-margin_top = 42.0
-margin_right = 166.0
-margin_bottom = 78.0
+margin_top = 38.0
+margin_right = 240.0
+margin_bottom = 70.0
 theme = ExtResource( 6 )
 text = "Invert Mouse Y"
 
 [node name="invert_mouse_y" type="CheckButton" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
 unique_name_in_owner = true
-margin_left = 205.0
-margin_top = 40.0
-margin_right = 405.0
-margin_bottom = 80.0
+margin_left = 279.0
+margin_top = 36.0
+margin_right = 479.0
+margin_bottom = 72.0
 
 [node name="Label3" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
-margin_top = 86.0
-margin_right = 166.0
-margin_bottom = 122.0
+margin_top = 78.0
+margin_right = 240.0
+margin_bottom = 110.0
 theme = ExtResource( 6 )
 text = "Invert Mouse X"
 
 [node name="invert_mouse_x" type="CheckButton" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
 unique_name_in_owner = true
-margin_left = 205.0
-margin_top = 84.0
-margin_right = 405.0
-margin_bottom = 124.0
+margin_left = 279.0
+margin_top = 76.0
+margin_right = 479.0
+margin_bottom = 112.0
 
 [node name="Label4" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
-margin_top = 128.0
-margin_right = 166.0
-margin_bottom = 164.0
+margin_top = 116.0
+margin_right = 240.0
+margin_bottom = 148.0
 text = "Mouse Sens"
 
-[node name="sens_slider" type="HSlider" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
+margin_left = 279.0
+margin_top = 116.0
+margin_right = 479.0
+margin_bottom = 148.0
+
+[node name="sens_slider" type="HSlider" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer/CenterContainer"]
 unique_name_in_owner = true
-margin_left = 205.0
-margin_top = 128.0
-margin_right = 405.0
-margin_bottom = 144.0
+margin_top = 8.0
+margin_right = 200.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 200, 0 )
 value = 1.0
 tick_count = 11
 ticks_on_borders = true
 
-[node name="SliderLabel" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer/sens_slider"]
+[node name="SliderLabel" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer/CenterContainer/sens_slider"]
 margin_right = 24.0
 margin_bottom = 14.0
 size_flags_horizontal = 4
@@ -315,19 +320,73 @@ __meta__ = {
 visibility_rule = 0
 custom_format = "%d%%"
 
+[node name="cross_size" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
+margin_top = 152.0
+margin_right = 240.0
+margin_bottom = 184.0
+text = "Crosshair size"
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
+margin_left = 279.0
+margin_top = 152.0
+margin_right = 479.0
+margin_bottom = 184.0
+
+[node name="cross_size_slider" type="HSlider" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer/CenterContainer2"]
+unique_name_in_owner = true
+margin_top = 8.0
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="SliderLabel" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer/CenterContainer2/cross_size_slider"]
+margin_right = 24.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+text = "100"
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_initialized_": true
+}
+visibility_rule = 0
+custom_format = "%d"
+
+[node name="cross_colour_label" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
+margin_top = 190.0
+margin_right = 240.0
+margin_bottom = 222.0
+text = "Crosshair colour"
+
+[node name="cross_colour" type="OptionButton" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer"]
+unique_name_in_owner = true
+margin_left = 279.0
+margin_top = 188.0
+margin_right = 479.0
+margin_bottom = 224.0
+text = "Red"
+items = [ "Red", null, false, 0, null, "White", null, false, 1, null, "Black", null, false, 2, null ]
+selected = 0
+
 [node name="clear_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
-margin_top = 168.0
-margin_right = 405.0
-margin_bottom = 208.0
+margin_top = 228.0
+margin_right = 479.0
+margin_bottom = 264.0
 rect_min_size = Vector2( 150, 0 )
 theme = ExtResource( 6 )
 text = "Completely Wipe Save"
 
 [node name="full_save" type="Button" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox"]
 visible = false
-margin_top = 212.0
-margin_right = 405.0
-margin_bottom = 252.0
+margin_top = 192.0
+margin_right = 469.0
+margin_bottom = 228.0
 theme = ExtResource( 6 )
 text = "Completely Fill Save (dev only)"
 

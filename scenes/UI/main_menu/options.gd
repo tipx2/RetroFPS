@@ -28,6 +28,9 @@ func _on_TextureButton_pressed():
 	true_parent.player_fov = $"%player_fov".value
 	true_parent.mouse_sens = $"%sens_slider".value
 	
+	true_parent.crosshair_size = $"%cross_size_slider".value
+	true_parent.crosshair_colour = $"%cross_colour".selected
+	
 	var player_arr = get_tree().get_nodes_in_group("player")
 	if player_arr.size() == 1:
 		player_arr[0].update_mouse_flippers(true_parent.invert_mouse_x, true_parent.invert_mouse_y)
@@ -48,6 +51,8 @@ func _ready():
 	$"%sens_slider".value = true_parent.mouse_sens
 	$"%font_type_options".selected = true_parent.font_type
 	$"%font_size_box".value = true_parent.font_size
+	$"%cross_size_slider".value = true_parent.crosshair_size
+	$"%cross_colour".selected = true_parent.crosshair_colour
 
 func _on_fullscreen_button_toggled(button_pressed):
 	# toggle the fullscreen properties
@@ -100,6 +105,8 @@ func save_settings(settings_file):
 	f.store_var(true_parent.mouse_sens)
 	f.store_var(true_parent.font_type)
 	f.store_var(true_parent.font_size)
+	f.store_var(true_parent.crosshair_size)
+	f.store_var(true_parent.crosshair_colour)
 	
 	# save all settings stored on true_parent here
 	f.close()

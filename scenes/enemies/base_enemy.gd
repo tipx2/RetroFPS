@@ -50,6 +50,8 @@ onready var update_timer = get_node("Timer")
 onready var player = get_tree().get_nodes_in_group("player")[0]
 
 func _ready():
+	$"healthbar_sprite".get_node("Viewport/healthbar").max_value = health
+	$"healthbar_sprite".get_node("Viewport/healthbar").value = health
 	update_timer.set_wait_time(update_time)
 	update_timer.start()
 
@@ -86,7 +88,7 @@ func damage(amount, collision_point):
 	if health <= 0:
 		state = DYING
 	health_label.text = str(health)
-	$"%healthbar".value = health
+	$"healthbar_sprite".get_node("Viewport/healthbar").value = health
 	var blood_instance = blood_particles.instance()
 	blood_instance.set_emitting(true)
 	add_child(blood_instance)

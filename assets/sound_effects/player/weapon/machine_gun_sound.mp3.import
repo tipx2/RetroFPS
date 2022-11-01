@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/machine_gun_sound.mp3-7bcb271180e78667d40f537472d0ee10.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/player/weapon/machine_gun_sound.mp3"
+dest_files=[ "res://.import/machine_gun_sound.mp3-7bcb271180e78667d40f537472d0ee10.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

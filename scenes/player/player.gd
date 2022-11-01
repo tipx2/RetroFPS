@@ -28,6 +28,10 @@ onready var head = $head
 var x_flipper = 1
 var y_flipper = 1
 
+# crosshair customisation
+var cross_colour = 0
+var cross_size = 1
+
 # movement
 var direction = Vector3()
 var speed = 20

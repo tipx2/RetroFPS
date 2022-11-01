@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/weapons/machine_gun/machine_gun.gd" type="Script" id=1]
+[ext_resource path="res://assets/sound_effects/player/weapon/machine_gun_sound.mp3" type="AudioStream" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 2, 0.26, 0.213 )
@@ -24,6 +25,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( -1.31, 0, 0 ), Vector3( -0.973, 0, 0 ), Vector3( -1.31, 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "switch_in"
@@ -37,9 +50,13 @@ script = ExtResource( 1 )
 mesh = SubResource( 1 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19767, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31, 0, 0 )
 mesh = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/shoot = SubResource( 3 )
 anims/switch_in = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Sound Effects"

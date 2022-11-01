@@ -19,6 +19,10 @@ var invert_mouse_y = false;
 var invert_mouse_x = false;
 var mouse_sens = 0.2;
 
+var crosshair_colour = 0
+var crosshair_colour_array = ["red", "white", "black"]
+var crosshair_size = 1
+
 var font_type = 0
 var font_size = 30
 var font_array = ["AlumniSansPinstripe-Regular.ttf", "Lexend-Regular.ttf"]
@@ -86,5 +90,7 @@ func load_settings(settings_file):
 	mouse_sens = f.get_var()
 	font_type = f.get_var()
 	font_size = f.get_var()
+	crosshair_colour = f.get_var()
+	crosshair_size = f.get_var()
 	# put all saved settings here
 	f.close()

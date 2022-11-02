@@ -89,7 +89,7 @@ func load_settings(settings_file):
 	mouse_sens = f.get_var()
 	font_type = f.get_var()
 	font_size = f.get_var()
-	crosshair_colour = f.get_var()
 	crosshair_size = f.get_var()
+	crosshair_colour = f.get_var()
 	# put all saved settings here
 	f.close()

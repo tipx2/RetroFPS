@@ -48,8 +48,10 @@ onready var update_timer = get_node("Timer")
 
 # reference to player
 onready var player = get_tree().get_nodes_in_group("player")[0]
+var weak_ref_player;
 
 func _ready():
+	weak_ref_player = weakref(player)
 	$"healthbar_sprite".get_node("Viewport/healthbar").max_value = health
 	$"healthbar_sprite".get_node("Viewport/healthbar").value = health
 	update_timer.set_wait_time(update_time)
@@ -129,20 +131,22 @@ func spawn_projectile():
 	projectile_instance.global_transform.origin = muzzle.global_transform.origin
 
 func look_at_player():
-	var player_pos = player.global_transform.origin
-	player_pos.y = global_transform.origin.y
-	mesh.look_at(player_pos, Vector3.UP)
-	if look_on_update:
-		$CollisionShape.look_at(player_pos, Vector3.UP)
+	if weak_ref_player.get_ref():
+		var player_pos = player.global_transform.origin
+		player_pos.y = global_transform.origin.y
+		mesh.look_at(player_pos, Vector3.UP)
+		if look_on_update:
+			$CollisionShape.look_at(player_pos, Vector3.UP)
 
 func _on_Timer_timeout():
-	var player_pos = player.global_transform.origin
-	path = NavigationServer.map_get_path(RID(navigation), global_transform.origin,
-		player_pos, optimise_pathfinding, 1)
-	path_index = 1
-	if look_on_update and state != ATTACKING:
-		look_at_player()
-	draw_path(path)
+	if weak_ref_player.get_ref():
+		var player_pos = player.global_transform.origin
+		path = NavigationServer.map_get_path(RID(navigation), global_transform.origin,
+			player_pos, optimise_pathfinding, 1)
+		path_index = 1
+		if look_on_update and state != ATTACKING:
+			look_at_player()
+		draw_path(path)
 
 #debug
 func draw_path(path_array):

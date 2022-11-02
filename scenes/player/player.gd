@@ -186,7 +186,6 @@ func update_crosshair_colour(colour):
 	crosshair.self_modulate = Color(selected_hex)
 
 func update_crosshair_size(size):
-	size = int(size)
 	crosshair.rect_scale = Vector2(size, size)
 
 func update_hud_health():

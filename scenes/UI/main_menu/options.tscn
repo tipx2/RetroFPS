@@ -57,7 +57,6 @@ tab_align = 0
 use_hidden_tabs_for_min_size = true
 
 [node name="Video" type="Tabs" parent="VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 42.0
@@ -221,6 +220,7 @@ __meta__ = {
 visibility_rule = 0
 
 [node name="Gameplay" type="Tabs" parent="VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 42.0
@@ -341,7 +341,7 @@ rect_min_size = Vector2( 200, 0 )
 min_value = 1.0
 max_value = 10.0
 value = 1.0
-tick_count = 11
+tick_count = 10
 ticks_on_borders = true
 
 [node name="SliderLabel" type="Label" parent="VBoxContainer/TabContainer/Gameplay/CenterContainer/vbox/GridContainer/CenterContainer2/cross_size_slider"]

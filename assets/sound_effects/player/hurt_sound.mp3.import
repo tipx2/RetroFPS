@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hurt_sound.mp3-e92e2be2428d3955b22b481a5a57a705.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/player/hurt_sound.mp3"
+dest_files=[ "res://.import/hurt_sound.mp3-e92e2be2428d3955b22b481a5a57a705.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -33,13 +33,13 @@
 [ext_resource path="res://assets/materials/gates/yellow_gate.material" type="Material" id=31]
 [ext_resource path="res://assets/environmental_models/lampost.tscn" type="PackedScene" id=32]
 
-[sub_resource type="PanoramaSky" id=75]
+[sub_resource type="PanoramaSky" id=79]
 radiance_size = 4
 panorama = ExtResource( 1 )
 
 [sub_resource type="Environment" id=76]
 background_mode = 2
-background_sky = SubResource( 75 )
+background_sky = SubResource( 79 )
 background_sky_orientation = Basis( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08 )
 background_energy = 0.17
 glow_intensity = 5.14

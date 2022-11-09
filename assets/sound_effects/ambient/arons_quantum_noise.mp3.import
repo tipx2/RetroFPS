@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/arons_quantum_noise.mp3-8bae3aad553b3c7a3bbb0b83b126c8c4.mp3str"
+
+[deps]
+
+source_file="res://assets/sound_effects/ambient/arons_quantum_noise.mp3"
+dest_files=[ "res://.import/arons_quantum_noise.mp3-8bae3aad553b3c7a3bbb0b83b126c8c4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

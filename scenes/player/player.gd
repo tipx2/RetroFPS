@@ -202,7 +202,7 @@ func update_hud_ammo():
 func damage(amount):
 	if amount < 0: # runs if player heals
 		gameplay_UI.get_health(amount)
-	else: # runs if player takes damage
+	else: # runs if player takes damage 
 		$"%hurt_noise".play()
 		$"%gameplay_UI".splatter_blood(amount * 2)
 	player_health -= amount

@@ -1,5 +1,7 @@
 extends KinematicBody
 
+var translator_twist = 20
+
 var playing_funny_noise = true
 var translator_up = false
 
@@ -24,8 +26,14 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x) * mouse_sens)
 		head.rotate_x(deg2rad(-event.relative.y) * mouse_sens)
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-80), deg2rad(89))
+		
+		# rotate translator
+		$head/translator.rotate_y(deg2rad(-event.relative.x) * 0.1)
+		$head/translator.rotate_x(deg2rad(-event.relative.y) * 0.1)
 
 func _process(delta):
+	$head/translator.rotation.y = lerp_angle($head/translator.rotation.y, 0, 0.5)
+	$head/translator.rotation.x = lerp_angle($head/translator.rotation.x, 0, 0.5)
 	gun_cam.global_transform = $head/Camera.global_transform
 	var coll = $head/script_reader.get_collider()
 	if coll and coll.is_in_group("nomai_writings") and !translator_up:

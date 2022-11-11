@@ -2,5 +2,5 @@ extends StaticBody
 
 export(String, MULTILINE) var text
 
-func _on_VisibilityNotifier_camera_exited(camera):
+func _on_VisibilityNotifier_camera_exited(_camera):
 	rotation_degrees = Vector3(0,rand_range(0, 360), 0)

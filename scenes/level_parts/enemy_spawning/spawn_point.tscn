@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/particle_images/light_02.png" type="Texture" id=2]
 [ext_resource path="res://assets/sound_effects/enemy/enemy_spawn.mp3" type="AudioStream" id=3]
 
-
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
 params_billboard_mode = 3

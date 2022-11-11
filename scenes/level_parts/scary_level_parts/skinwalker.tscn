@@ -1,14 +1,21 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/level_parts/scary_level_parts/skinwalker.gd" type="Script" id=1]
 [ext_resource path="res://assets/temp_assets/Creepster-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/sound_effects/ambient/arons_quantum_noise.mp3" type="AudioStream" id=3]
 [ext_resource path="res://assets/temp_assets/SpaceMono-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/temp_assets/magic_05.png" type="Texture" id=5]
+[ext_resource path="res://assets/temp_assets/translator.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 
 [sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_unshaded = true
+albedo_texture = ExtResource( 6 )
+uv1_scale = Vector3( -3, 2, 1 )
+uv1_offset = Vector3( 1, 0, 0 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 25
@@ -114,10 +121,11 @@ enabled = true
 cast_to = Vector3( 0, 0, -5 )
 
 [node name="translator" type="MeshInstance" parent="head"]
-transform = Transform( 2.39308, 0.0819619, 0, -0.421965, 0.464829, 0, 0, 0, 0.088, 0, -2.3, -2.982 )
+transform = Transform( 2.39308, 0.081962, 0, -0.421965, 0.464829, 0, 0, 0, 0.088, 0, -2.3, -2.982 )
 layers = 2
 mesh = SubResource( 4 )
 skeleton = NodePath("../..")
+material/0 = SubResource( 12 )
 
 [node name="Label3D" type="Label3D" parent="head/translator"]
 transform = Transform( 0.216, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.138335, 2.15417 )
@@ -258,6 +266,12 @@ margin_bottom = 78.0
 rect_min_size = Vector2( 200, 50 )
 custom_fonts/font = SubResource( 2 )
 text = "Menu"
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 0.168627, 0.615686, 0.941176, 1 )
+light_energy = 10.0
+omni_range = 50000.0
+omni_attenuation = 5.46416
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/pause/Panel/VBoxContainer/VBoxContainer/CenterContainer/Resume" to="." method="_on_Resume_pressed"]

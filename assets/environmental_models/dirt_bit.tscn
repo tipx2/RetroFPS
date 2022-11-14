@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/temp_assets/ground_dirt_1226_1511_Small.jpg" type="Texture" id=1]
-
-[sub_resource type="ConcavePolygonShape" id=3]
-data = PoolVector3Array( -10, 0.12, 5, 10, 0.12, 5, -10, -0.12, 5, 10, 0.12, 5, 10, -0.12, 5, -10, -0.12, 5, 10, 0.12, -5, -10, 0.12, -5, 10, -0.12, -5, -10, 0.12, -5, -10, -0.12, -5, 10, -0.12, -5, 10, 0.12, 5, 10, 0.12, -5, 10, -0.12, 5, 10, 0.12, -5, 10, -0.12, -5, 10, -0.12, 5, -10, 0.12, -5, -10, 0.12, 5, -10, -0.12, -5, -10, 0.12, 5, -10, -0.12, 5, -10, -0.12, -5, 10, 0.12, 5, -10, 0.12, 5, 10, 0.12, -5, -10, 0.12, 5, -10, 0.12, -5, 10, 0.12, -5, -10, -0.12, 5, 10, -0.12, 5, -10, -0.12, -5, 10, -0.12, 5, 10, -0.12, -5, -10, -0.12, -5 )
+[ext_resource path="res://assets/environmental_models/dirt_bit.gd" type="Script" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 0.24, 10 )
@@ -12,15 +10,90 @@ size = Vector3( 20, 0.24, 10 )
 albedo_texture = ExtResource( 1 )
 uv1_scale = Vector3( 1.161, 0.937, 1 )
 
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -10, 0.12, 5, 10, 0.12, 5, -10, -0.12, 5, 10, 0.12, 5, 10, -0.12, 5, -10, -0.12, 5, 10, 0.12, -5, -10, 0.12, -5, 10, -0.12, -5, -10, 0.12, -5, -10, -0.12, -5, 10, -0.12, -5, 10, 0.12, 5, 10, 0.12, -5, 10, -0.12, 5, 10, 0.12, -5, 10, -0.12, -5, 10, -0.12, 5, -10, 0.12, -5, -10, 0.12, 5, -10, -0.12, -5, -10, 0.12, 5, -10, -0.12, 5, -10, -0.12, -5, 10, 0.12, 5, -10, 0.12, 5, 10, 0.12, -5, -10, 0.12, 5, -10, 0.12, -5, 10, 0.12, -5, -10, -0.12, 5, 10, -0.12, 5, -10, -0.12, -5, 10, -0.12, 5, 10, -0.12, -5, -10, -0.12, -5 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "drop_backward"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("StaticBody:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -20, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "drop_forward"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("StaticBody:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 20, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "drop_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("StaticBody:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -10 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "drop_right"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("StaticBody:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 10 ) ]
+}
+
 [node name="dirt_bit" type="Spatial" groups=["nav_mesh"]]
+script = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 3
 collision_mask = 3
 
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 2 )
+
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/drop_backward = SubResource( 5 )
+anims/drop_forward = SubResource( 4 )
+anims/drop_left = SubResource( 6 )
+anims/drop_right = SubResource( 7 )

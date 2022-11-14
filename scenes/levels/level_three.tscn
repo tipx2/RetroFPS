@@ -20,7 +20,7 @@
 [ext_resource path="res://scenes/level_parts/enemy_spawning/enemy_spawner.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/level_parts/enemy_spawning/spawn_point.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/environmental_models/dirt_bit.tscn" type="PackedScene" id=20]
-[ext_resource path="res://assets/environmental_models/blood_room.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/level_parts/drop_trigger/drop_trigger.tscn" type="PackedScene" id=21]
 
 [sub_resource type="PanoramaSky" id=3]
 panorama = ExtResource( 3 )
@@ -258,6 +258,10 @@ transform = Transform( -1, 0, -1.89707e-07, 0, 2.093, 0, 8.74228e-08, 0, -2.17, 
 opener = true
 gate = NodePath("../../gates/gate3")
 open_colour = "red"
+
+[node name="drop_trigger" parent="triggers" instance=ExtResource( 21 )]
+transform = Transform( 4.939, 0, 0, 0, 4.231, 0, 0, 0, 4.656, -34.8033, -5.37966, -151.541 )
+dropped_platform = NodePath("../../dirt_bit/dirt_bit5")
 
 [node name="trees" type="Spatial" parent="."]
 
@@ -690,20 +694,26 @@ spawn_path = "res://scenes/enemies/exsanguinist/exsanguinist.tscn"
 
 [node name="dirt_bit" type="Spatial" parent="."]
 
-[node name="blood_room" parent="dirt_bit" instance=ExtResource( 21 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -34.3258, -2.44083, -155.996 )
-
 [node name="dirt_bit" parent="dirt_bit" instance=ExtResource( 20 )]
 transform = Transform( -4.37114e-08, 0, -1, 1, 2.98023e-08, -4.37114e-08, 2.98023e-08, -1, -8.88178e-16, -34.8217, -10.1591, -118.41 )
 
 [node name="dirt_bit2" parent="dirt_bit" instance=ExtResource( 20 )]
 transform = Transform( -4.37114e-08, 0, -1, 0.258819, 0.965926, -1.13133e-08, 0.965926, -0.258819, -4.2222e-08, -34.8217, -5.84088, -127.515 )
 
+[node name="dirt_bit11" parent="dirt_bit" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, -1, -5.96046e-08, 1, 4.88498e-14, 1, 5.96046e-08, -4.37114e-08, -34.8217, -14.562, -147.06 )
+
 [node name="dirt_bit5" parent="dirt_bit" instance=ExtResource( 20 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.111087, 0.993811, -4.85578e-09, 0.993811, -0.111087, -4.34408e-08, -34.8217, -9.17012, -146.191 )
+transform = Transform( -4.37114e-08, 0, -1, 0.111087, 0.993811, -4.85578e-09, 0.993811, -0.111087, -4.34408e-08, -34.8217, -9.31984, -146.191 )
 
 [node name="dirt_bit8" parent="dirt_bit" instance=ExtResource( 20 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34.8217, -0.220707, -140.648 )
+
+[node name="dirt_bit9" parent="dirt_bit" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34.8217, -0.220707, -160.184 )
+
+[node name="dirt_bit10" parent="dirt_bit" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, -34.8217, -4.75876, -155.746 )
 
 [node name="dirt_bit3" parent="dirt_bit" instance=ExtResource( 20 )]
 transform = Transform( 0, -1, 4.2222e-08, -5.50247e-08, -4.2222e-08, -1, 1, 0, -5.50247e-08, -29.9143, -5.1921, -127.515 )

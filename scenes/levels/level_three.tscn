@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/environmental_models/bush_back.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/environmental_models/blood_room.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/temp_assets/like_no_other.png" type="Texture" id=23]
 [ext_resource path="res://scenes/level_parts/level_ender/level_ender.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/blend_files/level_geom/van/portialism.png" type="Texture" id=25]
 
 [sub_resource type="PanoramaSky" id=3]
 panorama = ExtResource( 3 )
@@ -38,6 +39,55 @@ polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 
 geometry_parsed_geometry_type = 1
 geometry_source_geometry_mode = 1
 geometry_source_group_name = "nav_mesh"
+
+[sub_resource type="Animation" id=9]
+resource_name = "bob"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -46.934, -114.71, -153.691 ), Vector3( -46.934, -114.146, -153.691 ), Vector3( -46.934, -114.71, -153.691 ) ]
+}
+
+[sub_resource type="CubeMesh" id=10]
+size = Vector3( 2, 50, 2 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_texture = ExtResource( 25 )
+emission_enabled = true
+emission = Color( 1, 0.380392, 0.92549, 1 )
+emission_energy = 0.02
+emission_operator = 0
+emission_on_uv2 = false
+uv1_scale = Vector3( 2.238, 2.074, 1 )
+uv1_offset = Vector3( -1.3, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape" id=12]
+points = PoolVector3Array( -1, -25, -1, -1, -25, 1, -1, 25, -1, 1, -25, -1, 1, -25, 1, -1, 25, 1, 1, 25, -1, 1, 25, 1 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "portal_spin"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.3, 0, 0 ), Vector3( 2.7, 0, 0 ) ]
+}
 
 [node name="level_three" type="Spatial" groups=["level_parent"]]
 
@@ -278,7 +328,7 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -38.5482, 25.7687, -62.6
 transform = Transform( 0.335576, 0, -0.37066, 0, 0.5, 0, 0.37066, 0, 0.335576, 23.734, 25.7687, -9.67645 )
 
 [node name="tree7" parent="trees" instance=ExtResource( 8 )]
-transform = Transform( 0.167788, 0, -0.18533, 0, 0.25, 0, 0.18533, 0, 0.167788, -59.2745, 12.9225, -2.95206 )
+transform = Transform( 0.167788, 0, -0.18533, 0, 0.25, 0, 0.18533, 0, 0.167788, -54.7552, 12.9225, 19.1241 )
 
 [node name="tree8" parent="trees" instance=ExtResource( 8 )]
 transform = Transform( 0.167788, 0, -0.18533, 0, 0.25, 0, 0.18533, 0, 0.167788, -73.6993, 12.9225, -42.0171 )
@@ -329,7 +379,7 @@ transform = Transform( 0.494886, 0, -0.0713317, 0, 0.5, 0, 0.0713317, 0, 0.49488
 transform = Transform( 0.248147, 0, -0.0303807, 0, 0.25, 0, 0.0303807, 0, 0.248147, 11.7398, 12.9225, 33.1906 )
 
 [node name="tree22" parent="trees" instance=ExtResource( 8 )]
-transform = Transform( -0.310779, 0, -0.391684, 0, 0.5, 0, 0.391684, 0, -0.310779, -58.5604, 25.7687, -2.16417 )
+transform = Transform( -0.310779, 0, -0.391684, 0, 0.5, 0, 0.391684, 0, -0.310779, -58.5604, 25.7687, 0.275629 )
 
 [node name="tree23" parent="trees" instance=ExtResource( 8 )]
 transform = Transform( 0.457487, 0, -0.201757, 0, 0.5, 0, 0.201757, 0, 0.457487, 7.37789, 25.7687, 9.34144 )
@@ -695,6 +745,28 @@ spawn_path = "res://scenes/enemies/exsanguinist/exsanguinist.tscn"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.4432, 4.08544, 8.0131 )
 spawn_path = "res://scenes/enemies/exsanguinist/exsanguinist.tscn"
 
+[node name="spawn_3" type="Spatial" parent="spawn_points"]
+
+[node name="spawn_point" parent="spawn_points/spawn_3" groups=["spawn_3"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100.647, 4.08544, -35.2857 )
+spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
+[node name="spawn_point2" parent="spawn_points/spawn_3" groups=["spawn_3"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100.363, 4.08544, -121.158 )
+spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
+[node name="spawn_point3" parent="spawn_points/spawn_3" groups=["spawn_3"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4885, 4.08544, -60.6284 )
+spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
+[node name="spawn_point4" parent="spawn_points/spawn_3" groups=["spawn_3"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34057, 4.08544, -101.146 )
+spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
+[node name="spawn_point5" parent="spawn_points/spawn_3" groups=["spawn_3"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1365, 4.08544, 30.7049 )
+spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
 [node name="dirt_bit" type="Spatial" parent="."]
 
 [node name="level_ender" parent="dirt_bit" instance=ExtResource( 24 )]
@@ -803,6 +875,27 @@ transform = Transform( 0, -1, 4.2222e-08, -5.50247e-08, -4.2222e-08, -1, 1, 0, -
 transform = Transform( 0, -1, 4.2222e-08, -5.50247e-08, -4.2222e-08, -1, 1, 0, -5.50247e-08, -39.3531, -5.1921, -127.515 )
 
 [node name="like_no_other" type="Sprite3D" parent="dirt_bit"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.432, -114.71, -153.691 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.934, -114.71, -153.691 )
 pixel_size = 0.1054
 texture = ExtResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dirt_bit/like_no_other"]
+autoplay = "bob"
+anims/bob = SubResource( 9 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="dirt_bit"]
+transform = Transform( 0.0729483, 0, -0.999994, 0, 0.873232, 0, 20.2896, 0, 0.00359533, -19.4858, -116.312, -153.746 )
+mesh = SubResource( 10 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 11 )
+
+[node name="StaticBody" type="StaticBody" parent="dirt_bit/MeshInstance2"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="dirt_bit/MeshInstance2/StaticBody"]
+shape = SubResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dirt_bit/MeshInstance2"]
+autoplay = "portal_spin"
+anims/portal_spin = SubResource( 13 )

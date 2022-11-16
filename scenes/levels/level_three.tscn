@@ -767,6 +767,10 @@ spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1365, 4.08544, 30.7049 )
 spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
 
+[node name="spawn_point6" parent="spawn_points/spawn_3" groups=["spawn_3"] instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1984, 4.08545, -17.438 )
+spawn_path = "res://scenes/enemies/phelobotomite/phelobotomite.tscn"
+
 [node name="dirt_bit" type="Spatial" parent="."]
 
 [node name="level_ender" parent="dirt_bit" instance=ExtResource( 24 )]

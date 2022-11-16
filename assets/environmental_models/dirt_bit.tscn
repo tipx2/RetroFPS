@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( -20, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( -10, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 20, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 10, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=6]

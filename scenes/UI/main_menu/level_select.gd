@@ -9,7 +9,7 @@ var level_buttons;
 var proto_world = load("res://scenes/proto_world/proto_world.tscn")
 
 # IMPORTANT: this must be in the order that the buttons are
-var levels = [load("res://scenes/levels/level_one.tscn"), load("res://scenes/levels/level_two.tscn"), load("res://scenes/levels/level_three.tscn"), load("res://scenes/levels/secret_level_one.tscn")]
+var levels = [load("res://scenes/levels/level_one.tscn"), load("res://scenes/levels/level_two.tscn"), load("res://scenes/levels/level_three.tscn"), load("res://scenes/levels/level_four.tscn")]
 
 func _ready():
 	var level_button = load("res://scenes/UI/main_menu/level_button.tscn")

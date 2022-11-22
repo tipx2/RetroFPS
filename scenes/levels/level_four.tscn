@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/enemies/big_boss/big_boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/level_parts/drop_trigger/drop_trigger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/fall_tower.gd" type="Script" id=5]
 [ext_resource path="res://assets/blend_files/level_geom/creepy_room/bloodroom.png" type="Texture" id=6]
+[ext_resource path="res://scenes/levels/boss_holder.gd" type="Script" id=7]
 
 [sub_resource type="ProceduralSky" id=14]
 sky_top_color = Color( 0.615686, 0.168627, 0.121569, 1 )
@@ -226,7 +227,15 @@ drop_direction = "left"
 
 [node name="arena" type="Spatial" parent="."]
 
-[node name="big_boss" parent="arena" instance=ExtResource( 1 )]
+[node name="shoot_points" type="Spatial" parent="arena"]
+
+[node name="Position3D" type="Position3D" parent="arena/shoot_points"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0832, -49.2791, 0 )
+
+[node name="boss_holder" type="Spatial" parent="arena"]
+script = ExtResource( 7 )
+
+[node name="big_boss" parent="arena/boss_holder" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15018, -55.9471, -54.7475 )
 
 [node name="floor" type="MeshInstance" parent="arena"]

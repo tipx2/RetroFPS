@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/blend_files/big_boss/glob.material" type="Material" id=1]
 [ext_resource path="res://assets/blend_files/big_boss/eye.material" type="Material" id=2]
+[ext_resource path="res://scenes/enemies/big_boss/big_boss.gd" type="Script" id=3]
+[ext_resource path="res://assets/temp_assets/green_bar.png" type="Texture" id=4]
+[ext_resource path="res://assets/temp_assets/red_bar.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI_assets/fonts/button_font.tres" type="DynamicFont" id=6]
 
 [sub_resource type="SphereShape" id=6]
 radius = 30.3119
@@ -98,7 +102,7 @@ tracks/2/enabled = true
 tracks/2/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1.11289, 1.11289, 1.11289, 0.266667, 1, 0, 0, 0, 0, 0, 0, 1, 1.11289, 1.11289, 1.11289, 0.333333, 1, 0, 0, 0, 0, 0, 0, 1, 1.11226, 1.11226, 1.11226, 0.4, 1, 0, 0, 0, 0, 0, 0, 1, 1.10874, 1.10874, 1.10874, 0.466667, 1, 0, 0, 0, 0, 0, 0, 1, 1.10285, 1.10285, 1.10285, 0.6, 1, 0, 0, 0, 0, 0, 0, 1, 1.08514, 1.08514, 1.08514, 1.13333, 1, 0, 0, 0, 0, 0, 0, 1, 1.00409, 1.00409, 1.00409, 1.2, 1, 0, 0, 0, 0, 0, 0, 1, 1.00036, 1.00036, 1.00036, 1.26667, 1, -4.81915e-09, 0, 0, 0, 0, 0, 1, 1.00065, 1.00065, 1.00065, 1.33333, 1, -4.81915e-09, 0, 0, 0, 0, 0, 1, 1.01118, 1.01118, 1.01118, 1.6, 1, -4.81915e-09, 0, 0, 0, 0, 0, 1, 1.10453, 1.10453, 1.10453, 1.66667, 1, -4.81915e-09, 0, 0, 0, 0, 0, 1, 1.11289, 1.11289, 1.11289 )
 tracks/3/type = "value"
 tracks/3/path = NodePath("Armature:rotation_degrees")
-tracks/3/interp = 2
+tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -106,10 +110,29 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 357, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "bar_reveal"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureProgress:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="big_boss" type="KinematicBody" groups=["enemies"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.0495, 0 )
@@ -140,5 +163,35 @@ mesh = SubResource( 2 )
 skin = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "glufph"
 anims/die = SubResource( 4 )
 anims/glufph = SubResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 0.139
+margin_left = 34.0
+margin_top = 12.0
+margin_right = -34.0
+margin_bottom = -12.06
+value = 100.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureProgress"]
+anchor_right = 1.0
+anchor_bottom = 0.139
+margin_left = -34.0
+margin_top = 9.0
+margin_right = -34.0
+margin_bottom = 33.911
+custom_fonts/font = ExtResource( 6 )
+text = "Big Boss"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+anims/bar_reveal = SubResource( 7 )

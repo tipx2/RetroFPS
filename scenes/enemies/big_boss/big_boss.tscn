@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/blend_files/big_boss/glob.material" type="Material" id=1]
 [ext_resource path="res://assets/blend_files/big_boss/eye.material" type="Material" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/temp_assets/green_bar.png" type="Texture" id=4]
 [ext_resource path="res://assets/temp_assets/red_bar.png" type="Texture" id=5]
 [ext_resource path="res://assets/UI_assets/fonts/button_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/sound_effects/enemy/485802__grez1__scream14.mp3" type="AudioStream" id=7]
 
 [sub_resource type="SphereShape" id=6]
 radius = 30.3119
@@ -107,10 +108,10 @@ tracks/3/loop_wrap = false
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 5, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -177,7 +178,8 @@ margin_left = 34.0
 margin_top = 12.0
 margin_right = -34.0
 margin_bottom = -12.06
-value = 100.0
+max_value = 5000.0
+value = 5000.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 4 )
 nine_patch_stretch = true
@@ -195,3 +197,8 @@ align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 anims/bar_reveal = SubResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -14.798
+pitch_scale = 0.63

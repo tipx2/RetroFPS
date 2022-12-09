@@ -202,3 +202,9 @@ anims/bar_reveal = SubResource( 7 )
 stream = ExtResource( 7 )
 volume_db = -14.798
 pitch_scale = 0.63
+
+[node name="shot_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="shot_timer" to="." method="_on_shot_timer_timeout"]

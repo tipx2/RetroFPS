@@ -1,5 +1,6 @@
 extends KinematicBody
 
+onready var shotpoints = get_tree().get_nodes_in_group("shoot_point")
 var MAX_HEALTH = 5000
 var health = 5000
 var bonus_direction = Vector3() # for ignoring rocket launcher vel boost
@@ -29,6 +30,10 @@ func _process(delta):
 func damage(amount, second_thing):
 	health -= amount
 	$CanvasLayer/TextureProgress.value = health
+	if health <= 0:
+		state = DEATH
+		$AnimationPlayer.play("die")
+		$CollisionShape.disabled = true
 	
 
 func spin(boo):
@@ -39,5 +44,10 @@ func reveal_bar():
 
 func go_to_stage_two():
 	get_parent().spin_multiplier = 2
+	$shot_timer.wait_time = 2
 	$AudioStreamPlayer.play()
 	state = STAGE_TWO
+
+
+func _on_shot_timer_timeout():
+	shotpoints[randi() % shotpoints.size()].fire()

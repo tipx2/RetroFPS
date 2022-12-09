@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/enemies/big_boss/big_boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/blend_files/level_geom/creepy_room/bloodroom.png" type="Texture" id=6]
 [ext_resource path="res://scenes/levels/boss_holder.gd" type="Script" id=7]
 [ext_resource path="res://scenes/level_parts/killzone/killzone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/level_parts/shot_point.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ProceduralSky" id=14]
 sky_top_color = Color( 0.615686, 0.168627, 0.121569, 1 )
@@ -227,8 +228,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -123.957, 0 )
 
 [node name="shoot_points" type="Spatial" parent="arena"]
 
-[node name="Position3D" type="Position3D" parent="arena/shoot_points" groups=["shoot_point"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0832, -49.2791, 0 )
+[node name="shot_point" parent="arena/shoot_points" instance=ExtResource( 9 )]
 
 [node name="boss_holder" type="Spatial" parent="arena"]
 script = ExtResource( 7 )

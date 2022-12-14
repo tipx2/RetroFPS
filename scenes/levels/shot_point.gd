@@ -1,7 +1,7 @@
 extends Position3D
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
-var projectile = load("res://scenes/enemy_projectiles/bleeder_projectile/bleeder_projectile.tscn")
+var projectile = load("res://scenes/enemy_projectiles/boss_projectile/boss_projectile.tscn")
 
 func fire():
 	spawn_projectile()

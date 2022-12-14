@@ -38,13 +38,14 @@ func damage(amount, second_thing):
 
 func spin(boo):
 	get_parent().rotating = boo
+	$shot_timer.start()
 
 func reveal_bar():
 	get_node("CanvasLayer/AnimationPlayer").play("bar_reveal")
 
 func go_to_stage_two():
 	get_parent().spin_multiplier = 2
-	$shot_timer.wait_time = 2
+	$shot_timer.wait_time = 1
 	$AudioStreamPlayer.play()
 	state = STAGE_TWO
 

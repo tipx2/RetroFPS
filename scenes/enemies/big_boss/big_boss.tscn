@@ -204,7 +204,6 @@ volume_db = -14.798
 pitch_scale = 0.63
 
 [node name="shot_timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+wait_time = 2.0
 
 [connection signal="timeout" from="shot_timer" to="." method="_on_shot_timer_timeout"]

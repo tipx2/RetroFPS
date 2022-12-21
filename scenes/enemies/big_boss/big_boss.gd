@@ -1,5 +1,6 @@
 extends KinematicBody
 
+onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var shotpoints = get_tree().get_nodes_in_group("shoot_point")
 var MAX_HEALTH = 5000
 var health = 5000
@@ -19,8 +20,7 @@ func _ready():
 func _process(delta):
 	match state:
 		STAGE_ONE:
-			if health <= (MAX_HEALTH/2):
-				go_to_stage_two()
+			pass
 		STAGE_TWO:
 			pass
 		DEATH:
@@ -32,9 +32,14 @@ func damage(amount, second_thing):
 	$CanvasLayer/TextureProgress.value = health
 	if health <= 0:
 		state = DEATH
+		spin(false)
+		$shot_timer.paused = true
 		$AnimationPlayer.play("die")
 		$CollisionShape.disabled = true
-	
+		
+		$die_timer.start()
+	elif state == STAGE_ONE and health <= (MAX_HEALTH/2):
+		go_to_stage_two()
 
 func spin(boo):
 	get_parent().rotating = boo
@@ -52,3 +57,7 @@ func go_to_stage_two():
 
 func _on_shot_timer_timeout():
 	shotpoints[randi() % shotpoints.size()].fire()
+
+
+func _on_die_timer_timeout():
+	player.win()

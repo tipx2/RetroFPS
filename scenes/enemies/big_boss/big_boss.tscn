@@ -206,4 +206,8 @@ pitch_scale = 0.63
 [node name="shot_timer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="die_timer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="timeout" from="shot_timer" to="." method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="die_timer" to="." method="_on_die_timer_timeout"]

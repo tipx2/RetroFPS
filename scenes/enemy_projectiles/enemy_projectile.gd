@@ -20,8 +20,9 @@ func _physics_process(_delta):
 		hitcast.set_cast_to(global_transform.origin.direction_to(player.global_transform.origin) * hitbox_radius)
 		var collision_object = hitcast.get_collider()
 		
-		if collision_object and collision_object.is_in_group("player"):
-			collision_object.damage(damage)
+		if collision_object:
+			if collision_object.is_in_group("player"):
+				collision_object.damage(damage)
 			queue_free()
 		
 		var _move = move_and_slide(direction.normalized() * speed)

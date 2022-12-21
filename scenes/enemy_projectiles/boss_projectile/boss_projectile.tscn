@@ -16,6 +16,8 @@ flags_unshaded = true
 albedo_color = Color( 0.878431, 0.0156863, 0.219608, 1 )
 
 [node name="boss-projectile" type="KinematicBody"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/enemies/big_boss/big_boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://scenes/levels/boss_holder.gd" type="Script" id=7]
 [ext_resource path="res://scenes/level_parts/killzone/killzone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/level_parts/shot_point.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sound_effects/ambient/322549__vacuumfan7072__mcdonaldsbathroom.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/soundtrack/01 XTaKeRuX - Self-Decieved.mp3" type="AudioStream" id=11]
+[ext_resource path="res://scenes/level_parts/music_toggle/music_toggle.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ProceduralSky" id=14]
 sky_top_color = Color( 0.615686, 0.168627, 0.121569, 1 )
@@ -212,6 +215,11 @@ anims/drop_forward = SubResource( 6 )
 
 [node name="triggers" type="Spatial" parent="."]
 
+[node name="music_toggle" parent="triggers" instance=ExtResource( 12 )]
+transform = Transform( 3.334, 0, 0, 0, 1, 0, 0, 0, 4.368, 0, -61.8499, -1.2567 )
+soundtrack_off = NodePath("../../soundtrack_ambient")
+soundtrack_on = NodePath("../../soundtrack_combat")
+
 [node name="drop_trigger" parent="triggers" instance=ExtResource( 4 )]
 transform = Transform( 3.247, 0, 0, 0, 3.092, 0, 0, 0, 1.569, 0.572248, 54.1317, -3.79298 )
 dropped_platform = NodePath("../../fall_tower/dirt_bit5")
@@ -225,11 +233,15 @@ boss_revealer = true
 
 [node name="arena" type="Spatial" parent="."]
 
+[node name="spawn_points" type="Spatial" parent="arena"]
+
 [node name="columns" type="Spatial" parent="arena"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -85.4418, 0 )
 
 [node name="column" type="StaticBody" parent="arena/columns"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97671, 7.81029, 19.3645 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="arena/columns/column"]
 mesh = SubResource( 16 )
@@ -238,7 +250,9 @@ mesh = SubResource( 16 )
 shape = SubResource( 17 )
 
 [node name="column2" type="StaticBody" parent="arena/columns"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01178, 7.81029, 18.4601 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.52, 7.81029, 9.06382 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="arena/columns/column2"]
 mesh = SubResource( 16 )
@@ -247,7 +261,9 @@ mesh = SubResource( 16 )
 shape = SubResource( 17 )
 
 [node name="column3" type="StaticBody" parent="arena/columns"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9305, 7.81029, 9.32936 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0952, 7.81029, -5.02388 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="arena/columns/column3"]
 mesh = SubResource( 16 )
@@ -256,7 +272,9 @@ mesh = SubResource( 16 )
 shape = SubResource( 17 )
 
 [node name="column4" type="StaticBody" parent="arena/columns"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8371, 7.81029, -13.3075 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0952, 7.81029, -11.0239 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="arena/columns/column4"]
 mesh = SubResource( 16 )
@@ -265,7 +283,9 @@ mesh = SubResource( 16 )
 shape = SubResource( 17 )
 
 [node name="column5" type="StaticBody" parent="arena/columns"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281826, 7.81029, -21.7188 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49265, 7.81029, -15.1139 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="arena/columns/column5"]
 mesh = SubResource( 16 )
@@ -274,7 +294,9 @@ mesh = SubResource( 16 )
 shape = SubResource( 17 )
 
 [node name="column6" type="StaticBody" parent="arena/columns"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3242, 7.81029, -8.69982 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3513, 7.81029, -11.6298 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="arena/columns/column6"]
 mesh = SubResource( 16 )
@@ -283,12 +305,69 @@ mesh = SubResource( 16 )
 shape = SubResource( 17 )
 
 [node name="column7" type="StaticBody" parent="arena/columns"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2168, 7.81029, 9.00399 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9549, 7.81029, 0.640121 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="arena/columns/column7"]
 mesh = SubResource( 16 )
 
 [node name="CollisionShape" type="CollisionShape" parent="arena/columns/column7"]
+shape = SubResource( 17 )
+
+[node name="column8" type="StaticBody" parent="arena/columns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4413, 7.81029, 18.3634 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="arena/columns/column8"]
+mesh = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="arena/columns/column8"]
+shape = SubResource( 17 )
+
+[node name="column9" type="StaticBody" parent="arena/columns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.44127, 7.81029, 8.36335 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="arena/columns/column9"]
+mesh = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="arena/columns/column9"]
+shape = SubResource( 17 )
+
+[node name="column10" type="StaticBody" parent="arena/columns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.55873, 7.81029, 6.36335 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="arena/columns/column10"]
+mesh = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="arena/columns/column10"]
+shape = SubResource( 17 )
+
+[node name="column11" type="StaticBody" parent="arena/columns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44127, 7.81029, -20.6366 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="arena/columns/column11"]
+mesh = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="arena/columns/column11"]
+shape = SubResource( 17 )
+
+[node name="column12" type="StaticBody" parent="arena/columns"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3467, 7.81029, -14.4259 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="arena/columns/column12"]
+mesh = SubResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="arena/columns/column12"]
 shape = SubResource( 17 )
 
 [node name="StaticBody" type="StaticBody" parent="arena"]
@@ -332,3 +411,16 @@ shape = SubResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71.1925, 0 )
 mesh = SubResource( 10 )
 material/0 = SubResource( 12 )
+
+[node name="soundtrack_ambient" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 10 )
+volume_db = -30.0
+autoplay = true
+bus = "Soundtrack"
+
+[node name="soundtrack_combat" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 11 )
+volume_db = -10.0
+bus = "Soundtrack"

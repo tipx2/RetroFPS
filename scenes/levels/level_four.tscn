@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scenes/enemies/big_boss/big_boss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,10 @@
 [ext_resource path="res://assets/sound_effects/ambient/322549__vacuumfan7072__mcdonaldsbathroom.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/soundtrack/01 XTaKeRuX - Self-Decieved.mp3" type="AudioStream" id=11]
 [ext_resource path="res://scenes/level_parts/music_toggle/music_toggle.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/pickups/ammo_pickups/rocket_launcher_ammo/rocket_launcher_ammo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/pickups/ammo_pickups/machine_gun_ammo/machine_gun_ammo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/pickups/ammo_pickups/pistol_ammo/pistol_ammo.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ProceduralSky" id=14]
 sky_top_color = Color( 0.615686, 0.168627, 0.121569, 1 )
@@ -424,3 +428,222 @@ pause_mode = 2
 stream = ExtResource( 11 )
 volume_db = -10.0
 bus = "Soundtrack"
+
+[node name="ammo" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -83.3252, 0 )
+
+[node name="ammo" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2328, -1.41322, -12.4066 )
+
+[node name="ammo22" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.613, -1.41322, -9.82591 )
+
+[node name="ammo23" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.613, -1.41322, -6.82591 )
+
+[node name="ammo24" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.509, -1.41322, -4.33444 )
+
+[node name="ammo25" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.509, -1.41322, -5.33444 )
+
+[node name="ammo26" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.078, -1.41322, -7.42206 )
+
+[node name="ammo27" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2266, -1.41322, -8.0873 )
+
+[node name="ammo28" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2266, -1.41322, -10.0873 )
+
+[node name="ammo29" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.03, -1.41322, -10.4777 )
+
+[node name="ammo30" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4615, -1.41322, -15.6108 )
+
+[node name="ammo31" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4615, -1.41322, -16.6108 )
+
+[node name="ammo32" parent="ammo" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3164, -1.41322, -12.7949 )
+
+[node name="ammo2" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0247, -1.35444, -8.57505 )
+
+[node name="ammo5" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0247, -1.35444, -10.575 )
+
+[node name="ammo6" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7518, -1.35444, -4.38873 )
+
+[node name="ammo7" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89454, -1.35444, -5.40697 )
+
+[node name="ammo8" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03322, -1.35444, -10.1269 )
+
+[node name="ammo9" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0332, -1.35444, -17.1269 )
+
+[node name="ammo10" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0332193, -1.35444, -20.1269 )
+
+[node name="ammo11" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0332193, -1.35444, -15.1269 )
+
+[node name="ammo12" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03322, -1.35444, -14.1269 )
+
+[node name="ammo13" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8284, -1.35444, -0.442255 )
+
+[node name="ammo14" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9139, -1.35444, -1.04791 )
+
+[node name="ammo15" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8859, -1.35444, -3.90371 )
+
+[node name="ammo16" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5012, -1.35444, -7.80306 )
+
+[node name="ammo17" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7144, -1.35444, -16.0047 )
+
+[node name="ammo18" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7144, -1.35444, -19.0047 )
+
+[node name="ammo19" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2994, -1.35444, -23.2201 )
+
+[node name="ammo20" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24573, -1.35444, -25.4285 )
+
+[node name="ammo21" parent="ammo" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754269, -1.35444, -26.4285 )
+
+[node name="ammo3" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5122, 0, 20.4724 )
+
+[node name="ammo53" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5122, 0, 18.4724 )
+
+[node name="ammo54" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.368, 0, 17.0041 )
+
+[node name="ammo55" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9992, 0, 15.7932 )
+
+[node name="ammo56" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9992, 0, 12.7932 )
+
+[node name="ammo57" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5701, 0, 11.1225 )
+
+[node name="ammo58" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8617, 0, 12.2743 )
+
+[node name="ammo59" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8617, 0, 14.2743 )
+
+[node name="ammo60" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8568, 0, 14.5122 )
+
+[node name="ammo61" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4933, 0, 15.7348 )
+
+[node name="ammo62" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4933, 0, 17.7348 )
+
+[node name="ammo63" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4933, 0, 18.7348 )
+
+[node name="ammo64" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4933, 0, 21.7348 )
+
+[node name="ammo65" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2115, 0, 23.7987 )
+
+[node name="ammo66" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2115, 0, 23.7987 )
+
+[node name="ammo67" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2115, 0, 21.7987 )
+
+[node name="ammo68" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3961, -0.0126495, 19.4941 )
+
+[node name="ammo69" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4073, -0.0126495, 12.9805 )
+
+[node name="ammo70" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5285, -0.0126495, 9.44403 )
+
+[node name="ammo71" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5285, -0.0126495, 6.44403 )
+
+[node name="ammo72" parent="ammo" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7243, -0.0126495, 7.15324 )
+
+[node name="ammo4" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.16166, 0, 23.9175 )
+
+[node name="ammo33" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.16166, 0, 21.9175 )
+
+[node name="ammo34" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09496, 0, 21.8593 )
+
+[node name="ammo35" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09496, 0, 24.8593 )
+
+[node name="ammo36" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89919, 0, 26.8675 )
+
+[node name="ammo37" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89919, 0, 23.8675 )
+
+[node name="ammo38" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89919, 0, 27.8675 )
+
+[node name="ammo39" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76481, 0, 29.2216 )
+
+[node name="ammo40" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.764808, 0, 27.2216 )
+
+[node name="ammo41" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32022, 0, 24.6323 )
+
+[node name="ammo42" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32022, 0, 20.6323 )
+
+[node name="ammo43" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82541, 0, 16.9357 )
+
+[node name="ammo44" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40967, 0, 17.7725 )
+
+[node name="ammo45" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98712, 0, 19.6945 )
+
+[node name="ammo46" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7153, 0, 23.9976 )
+
+[node name="ammo47" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2767, 0, 27.4489 )
+
+[node name="ammo48" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.62043, 0, 30.7402 )
+
+[node name="ammo49" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62043, 0, 31.7402 )
+
+[node name="ammo50" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01915, 0, 31.9479 )
+
+[node name="ammo51" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30625, 0, 31.0121 )
+
+[node name="ammo52" parent="ammo" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30625, 0, 31.0121 )

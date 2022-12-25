@@ -11,5 +11,5 @@ dest_files=[ "res://.import/485802__grez1__scream14.mp3-7855aff6d79a0ea92269f37f
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

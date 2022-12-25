@@ -1,5 +1,6 @@
 extends KinematicBody
 
+onready var true_parent = get_tree().get_nodes_in_group("true_parent")[0]
 onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var shotpoints = get_tree().get_nodes_in_group("shoot_point")
 var MAX_HEALTH = 5000
@@ -60,4 +61,6 @@ func _on_shot_timer_timeout():
 
 
 func _on_die_timer_timeout():
+	true_parent.progression[3] = true
+	true_parent.save_progression()
 	player.win()

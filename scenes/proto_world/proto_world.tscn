@@ -1,19 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/temp_assets/dark_grid.tres" type="Material" id=1]
 [ext_resource path="res://assets/temp_assets/orange_grid.tres" type="Material" id=2]
 [ext_resource path="res://assets/temp_assets/purple_sparse_grid.tres" type="Material" id=3]
 [ext_resource path="res://scenes/level_parts/killzone/killzone.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/enemies/test_enemies/test_plate/test_plate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/pickups/ammo_pickups/pistol_ammo/pistol_ammo.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/pickups/ammo_pickups/machine_gun_ammo/machine_gun_ammo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/pickups/ammo_pickups/shotgun_ammo/shotgun_ammo.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/pickups/health_pickup/small_health_pickup/small_health_pickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/pickups/ammo_pickups/rocket_launcher_ammo/rocket_launcher_ammo.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/enemies/phelobotomite/phelobotomite.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/enemies/bleeder/bleeder.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/enemies/exsanguinist/exsanguinist.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/enemies/leech/leech.tscn" type="PackedScene" id=15]
 
 [sub_resource type="NavigationMesh" id=1]
@@ -69,20 +65,8 @@ height = 31.1698
 depth = 15.5141
 material = ExtResource( 3 )
 
-[node name="test_plate" parent="." instance=ExtResource( 5 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 10.0255, -0.284251, 0 )
-
 [node name="player" parent="." instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.2247, 1.69575, 0 )
-
-[node name="bleeder" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8678, 1.19575, 0 )
-
-[node name="exsanguinist" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7614, 1.19575, 2.94842 )
-
-[node name="phelobotomite" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0542, 1.19575, -2.30676 )
 
 [node name="leech" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4967, 0.69575, 2.11532 )

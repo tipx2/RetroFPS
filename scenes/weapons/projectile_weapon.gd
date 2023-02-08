@@ -11,9 +11,11 @@ onready var animation_player = get_node("AnimationPlayer")
 onready var sound_effect = get_node_or_null("AudioStreamPlayer")
 
 func shoot():
+	# check if we aren't already shooting
 	if Input.is_action_pressed("shoot") and !animation_player.is_playing():
 		if player.ammo_array[player.weapon_arr.find(name)] > 0:
 			player.add_ammo(player.weapon_arr.find(name), -ammo_amount)
+			# play sound effect if the player exists
 			if sound_effect:
 				sound_effect.set_pitch_scale(rand_range(0.95, 1.3))
 			animation_player.play("shoot")
@@ -23,6 +25,7 @@ func shoot():
 			pass
 
 func fire_projectile():
+	# instantiate and set the direction of the projectile we're firing
 	projectile_instance = projectile.instance()
 	projectile_instance.global_transform = muzzle.global_transform
 	set_projectile_direction()

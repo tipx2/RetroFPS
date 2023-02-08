@@ -17,18 +17,25 @@ func hit_enemies():
 	direction = Vector3.ZERO
 	particles_emitted = true
 	explosive_mesh.set_visible(true)
+	# choose random rotation direction for particles/mesh
 	explosive_mesh.rotation_degrees = Vector3(rand_range(0,360), rand_range(0,360), rand_range(0,360))
 	rocket_mesh.set_visible(false)
 	explosion_player.play("explode")
+	# go through each body in the area
 	for body in explosion_area.get_overlapping_bodies():
+		# if it's player or enemy, act on it
 		if body.is_in_group("enemies") or body.is_in_group("player"):
+			# for both, find a direction vector from the centre of the explosion outwards towards the body
 			var direction = body.global_transform.origin - global_transform.origin
 			var distance = direction.length()
 			direction = direction.normalized()
 			var velocity = direction * 3
+			
 			if body.is_in_group("enemies"):
+				# for enemies, apply this damage scaling based on distance from the explosion
 				body.damage(round(10000 * (1/(distance + 50)) +3), body.global_transform.origin)
 			elif body.is_in_group("player"):
+				# the player gets a little boost to vertical velocity instead, and takes a flat 5 damage
 				velocity.y *= 0.25
 				body.damage(5)
 			body.bonus_direction += velocity

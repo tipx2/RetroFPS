@@ -29,7 +29,7 @@ const CODE_KEYS := {
 
 # List of cheat codes. Cheat codes should be lower-case, and should not be contained within one another or the shorter
 # cheat code will take precedence.
-export (Array, String) var codes := ["dpw","pfa", "pfk", "psh", "phm"]
+export (Array, String) var codes := ["dpw","pfa", "pfk", "psh", "phm", "ptd", "ptu", "pdc"]
 # debug proto world, power full ammo, power full keys, power super hot, power headache mode
 
 # Buffer of key strings which were previously pressed.

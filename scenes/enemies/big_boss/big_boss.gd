@@ -18,7 +18,7 @@ func _ready():
 	$CanvasLayer/TextureProgress.max_value = MAX_HEALTH
 	$CanvasLayer/TextureProgress.value = MAX_HEALTH
 	
-func _process(delta):
+func _process(_delta):
 	match state:
 		STAGE_ONE:
 			pass
@@ -28,7 +28,7 @@ func _process(delta):
 			pass
 
 
-func damage(amount, second_thing):
+func damage(amount, _second_thing):
 	health -= amount
 	$CanvasLayer/TextureProgress.value = health
 	if health <= 0:
@@ -50,7 +50,7 @@ func reveal_bar():
 	get_node("CanvasLayer/AnimationPlayer").play("bar_reveal")
 
 func go_to_stage_two():
-	get_parent().spin_multiplier = 2
+	get_parent().spin_multiplier = 200
 	$shot_timer.wait_time = 1
 	$AudioStreamPlayer.play()
 	state = STAGE_TWO

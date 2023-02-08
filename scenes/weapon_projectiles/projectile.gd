@@ -18,25 +18,31 @@ var particles_emitted = false
 var collision_info
 
 func _ready():
+	# begin countdown until despawn
 	rng.randomize()
 	death_timer.start(time)
 	set_as_toplevel(true)
 
 func _physics_process(_delta):
+	# continually move forward
 	collision_info = move_and_collide(direction.normalized() * proj_speed)
 	if collision_info:
+		# if we hit something, disable collision while we process
 		collision.set_disabled(true)
 		direction = Vector3.ZERO
 		check_for_hit()
 	stop_emitting()
 
 func _on_death_timer_timeout():
+	# despawn when timer has run out
 	queue_free()
 
 func check_for_hit():
 	if collision_info.collider.is_in_group("enemies"):
+		# damage the enemy
 		collision_info.collider.damage(damage, collision_info.get_position())
 	else:
+		# otherwise, emit sparks and dust particles
 		spark_particles.set_emitting(true)
 		spark_particles.get_node("dust_particles").set_emitting(true)
 	particles_emitted = true

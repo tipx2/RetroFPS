@@ -21,12 +21,14 @@ var current_weapon = 0
 # weapon switching
 onready var switch_timer = get_node("switch_timer")
 
-# aiming
+# aiming and camera
 var mouse_sens = 0.2
 onready var head = $head
 
 var x_flipper = 1
 var y_flipper = 1
+
+onready var debug_cam = get_node("head/debug_cam")
 
 # crosshair customisation
 var cross_colour = 0
@@ -77,6 +79,13 @@ var yellow_key = false
 onready var key_icons = get_tree().get_nodes_in_group("key_icon")
 
 func _ready():
+	# testing zone
+	damage(50)
+	print(player_health) # 50
+	damage(-100)
+	print(player_health) # 100
+	
+	
 	camera.set_frustum_offset(Vector2(0,0))
 	update_mouse_flippers(true_parent.invert_mouse_x, true_parent.invert_mouse_y)
 	update_camera_fov(true_parent.player_fov)
@@ -92,8 +101,11 @@ func _input(event):
 	if not dying:
 		# aiming
 		if event is InputEventMouseMotion:
+			# rotate entire body on x axis
 			rotate_y(deg2rad(-event.relative.x * x_flipper * mouse_sens))
+			# rotate just head on y axis
 			head.rotate_x(deg2rad(-event.relative.y * y_flipper * mouse_sens))
+			# clamp the head's rotation between -80 and 89 degrees
 			head.rotation.x = clamp(head.rotation.x, deg2rad(-80), deg2rad(89))
 		# weapon scrolling
 		elif event is InputEventMouseButton:
@@ -108,13 +120,16 @@ func _physics_process(delta):
 	grounded = is_on_floor()
 	# gravity and jumping
 	if grounded:
+		# set gravity vector to 0 if on ground
 		gravity_vec = Vector3.ZERO
 		snap = -get_floor_normal() * 0.2
 	else:
+		# if in the air, apply increasing force downwards
 		gravity_vec += Vector3.DOWN * gravity_force * delta
 		snap = Vector3.ZERO
 	
 	if Input.is_action_just_pressed("jump") and grounded:
+		# apply quick force upwards when jump is pressed
 		gravity_vec = Vector3.UP * jump_force
 	
 	# movement
@@ -189,6 +204,7 @@ func update_crosshair_size(size):
 	crosshair.rect_scale = Vector2(size, size)
 
 func update_hud_health():
+	# set the text on the UI to the value of the health
 	health_label.text = str(player_health)
 	health_bar.value = player_health
 
@@ -196,6 +212,7 @@ func update_hud_ammo():
 	if weapon_arr[current_weapon] == "fists":
 		ammo_label.text = "Infinite"
 	else:
+		# if it's not fists, set the UI to show the stored value of ammo
 		ammo_label.text = str(ammo_array[current_weapon])
 	ammo_type_label.text = weapon_arr[current_weapon].capitalize()
 
@@ -214,6 +231,7 @@ func damage(amount):
 
 func add_ammo(weapon_num, amount):
 	if amount > 0:
+		# make pickup_popup
 		gameplay_UI.get_ammo(weapon_arr[weapon_num])
 	ammo_array[weapon_num] += amount
 	if ammo_array[weapon_num] > max_ammo_array[weapon_num]:
@@ -226,15 +244,17 @@ func switch_to_weapon(weapon):
 		
 		# account for scrolling wraparound
 		if weapon > len(weapon_arr)-1:
+			# scrolled over the list
 			weapon = 0
 		elif weapon < 0:
+			# scrolled under the list
 			weapon = len(weapon_arr)-1
 		current_weapon = weapon
 		
 		# set all weapons invisible
 		for w in weapons:
 			w.visible = false
-		
+			
 		# make only the current weapon visible
 		var get_current_weapon = get_node("head/" + weapon_arr[current_weapon])
 		get_current_weapon .visible = true
@@ -277,6 +297,14 @@ func display_death_screen():
 	death_screen.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+func switch_to_debug_cam():
+	if camera.current:
+		camera.current = false
+		debug_cam.current = true
+	else:
+		camera.current = true
+		debug_cam.current = false
+
 func _on_cheat_detected(cheat):
 	if cheat == "pfa": # power full ammo
 		for x in range(len(max_ammo_array)):
@@ -295,3 +323,9 @@ func _on_cheat_detected(cheat):
 		give_key("red")
 		give_key("yellow")
 		give_key("blue")
+	elif cheat == "ptd":
+		Engine.time_scale -= 0.1
+	elif cheat == "ptu":
+		Engine.time_scale += 0.1
+	elif cheat == "pdc":
+		switch_to_debug_cam()

@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="RetroFPS_Coursework"
 run/main_scene="res://scenes/true_parent/true_parent.tscn"
+config/use_custom_user_dir=true
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://assets/project_images/Screenshot 2022-07-31 164626.png"
 

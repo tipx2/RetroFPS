@@ -14,4 +14,5 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="pathfinding debug" type="ImmediateGeometry" parent="." groups=["draw"]]
+visible = false
 material_override = SubResource( 1 )

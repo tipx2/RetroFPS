@@ -3,7 +3,7 @@ extends ColorRect
 onready var true_parent = get_tree().get_nodes_in_group("true_parent")[0]
 
 var dyna_font = load("res://assets/UI_assets/fonts/button_font.tres")
-var settings = "res://settings.save"
+var settings = "user://settings.save"
 
 func _on_TextureButton_pressed():
 	# close the options

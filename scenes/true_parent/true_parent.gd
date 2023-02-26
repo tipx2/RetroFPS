@@ -4,8 +4,8 @@ extends Node
 # https://freesound.org/people/SmartWentCody/sounds/179005/
 # https://freesound.org/people/juskiddink/sounds/108617/
 
-var settings = "res://settings.save"
-var progression_file = "res://progression.save"
+var settings = "user://settings.save"
+var progression_file = "user://progression.save"
 
 # saved settings
 var saved_fps = 240;
